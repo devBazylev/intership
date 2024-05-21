@@ -1,0 +1,65 @@
+@import "../global/variables";
+
+@mixin font($font_name, $file_name, $weight: 400, $style: normal) {
+  @font-face {
+    font-family: #{$font_name};
+    font-style: #{$style};
+    font-weight: #{$weight};
+    src: url("../fonts/#{to-lower-case($file_name)}.woff2") format("woff2");
+    font-display: swap;
+  }
+}
+
+@mixin reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin pseudo($content: "", $display: block) {
+  content: $content;
+  display: $display;
+}
+
+@mixin flex($wrap: wrap, $justify: space-between) {
+  display: flex;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+}
+
+@mixin grid($first-column: 1fr, $second-column: null, $third-column: null, $fourth-column: null, $fifth-column: null, $sixth-column: null, $seventh-column: null, $eighth-column: null, $nineth-column: null, $tenth-column: null) {
+  display: grid;
+  grid-template-columns: $first-column, $second-column, $third-column, $fourth-column, $fifth-column, $sixth-column, $seventh-column, $eighth-column, $nineth-column, $tenth-column;
+}
+
+@mixin btn($color: $light, $bg-color: $bright, $hover-color: $dark-bright, $hover-bg-color: $light, $focus-color: $dark-bright, $focus-bg-color: $light, $active-color: $light, $active-bg-color: $dark-bright, $disabled-color: $light, $disabled-bg-color: $stormy) {
+  border: 1px solid transparent;
+  color: $color;
+  background-color: $bg-color;
+  word-break: break-all;
+  cursor: pointer;
+
+  &:hover {
+    color: $hover-color;
+    background-color: $hover-bg-color;
+    border: 1px solid $dark-bright;
+  }
+
+  &:focus {
+    color: $focus-color;
+    background-color: $focus-bg-color;
+  }
+
+  &:active {
+    color: $active-color;
+    background-color: $active-bg-color;
+  }
+
+  &:disabled,
+  &--disabled {
+    color: $disabled-color;
+    background-color: $disabled-bg-color;
+    border: 1px solid $stormy;
+    cursor: default;
+  }
+}

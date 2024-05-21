@@ -1,0 +1,18 @@
+@import "../global/mixins";
+@import "../global/variables";
+
+.hero {
+  @include grid;
+
+  width: 320px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  @media (min-width: $tab) {
+    width: 768px;
+  }
+
+  @media (min-width: $desk) {
+    width: 1440px;
+  }
+}

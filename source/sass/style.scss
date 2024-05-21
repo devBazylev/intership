@@ -1,4 +1,12 @@
-// Vendor
-// ---------------------------------
+/* VENDOR */
+@import "./vendor/normalize";
+@import "./vendor/swiper";
 
-@import "vendor/normalize";
+/* GLOBAL */
+@import "./global/variables";
+@import "./global/global";
+@import "./global/fonts";
+
+/* BLOCKS */
+@import "./blocks/page";
+// @import "./blocks/hero";

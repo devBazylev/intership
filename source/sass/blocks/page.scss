@@ -1,0 +1,51 @@
+@import "../global/fonts";
+@import "../global/variables";
+
+.page {
+  height: 100%;
+}
+
+.page__body {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  font-family: "Manrope", "Arial", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+  font-style: normal;
+  color: $main;
+  background-color: $light;
+  min-width: $mob;
+  max-width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+
+  @media (min-width: $tab) {
+    min-width: $tab;
+  }
+
+  @media (min-width: $desk) {
+    min-width: $desk;
+  }
+}
+
+.page__main {
+  width: 100%;
+}
+
+// .page__title {
+//   font-size: 22px;
+//   font-weight: 800;
+//   line-height: 22px;
+
+//   @media (min-width: $tab) {
+//     font-size: 25px;
+//     line-height: 25px;
+//   }
+
+//   @media (min-width: $desk) {
+//     font-size: 35px;
+//     line-height: 100%;
+//   }
+// }

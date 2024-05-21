@@ -16,31 +16,47 @@
     <link rel="stylesheet" href="sass/style.scss">
   </head>
 
-
-  <!-- <img src="/__spritemap#sprite-logo-view" alt="Это спрайт">
-    <svg>
-      <use href="/__spritemap#sprite-user"></use>
-    </svg> -->
-
-  <body class="page-body">
-
-    <!-- примеры требуемых атрибутов data-test="*" -->
+  <body class="page__body page-body">
 
     <main>
-      <div data-test="hero">hero</div>
-      <div data-test="about">about</div>
-      <div data-test="programs">programs</div>
-      <div data-test="grant">grant</div>
-      <div data-test="news">news</div>
-      <div data-test="FAQ">FAQ</div>
-      <div data-test="reviews">reviews</div>
-      <div data-test="contacts">contacts</div>
-      <div data-test="form">form</div>
+      <section class="hero" data-test="hero">
+        <h1>hero</h1>
+      </section>
+
+      <section class="about" data-test="about">
+        <h2>about</h2>
+      </section>
+
+      <section class="programs" data-test="programs">
+        <h2>programs</h2>
+      </section>
+
+      <section class="grant" data-test="grant">
+        <h2>grant</h2>
+      </section>
+
+      <section class="news" data-test="news">
+        <h2>news</h2>
+      </section>
+
+      <section class="faq" data-test="FAQ">
+        <h2>faq</h2>
+      </section>
+
+      <section class="reviews" data-test="reviews">
+        <h2>reviews</h2>
+      </section>
+
+      <section class="contacts" data-test="contacts">
+        <h2>contacts</h2>
+      </section>
+
+      <section class="form" data-test="form">
+        <h2>form</h2>
+      </section>
     </main>
 
-    <footer>
-      <div data-test="footer">footer</div>
-    </footer>
+    <footer class="footer" data-test="footer"><h2>footer</h2></footer>
 
     <script type="module" src="js/main.js"></script>
   </body>
