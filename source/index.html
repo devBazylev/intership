@@ -19,8 +19,61 @@
   <body class="page__body page-body">
 
     <main>
-      <section class="hero" data-test="hero">
-        <h1>hero</h1>
+      <section class="hero swiper" data-test="hero">
+        <h1 class="visually-hidden">Расскажем о наших стажировках</h1>
+        <header class="hero__header">
+          <img class="hero__logo" src="img/logo.svg" alt="логотип." width="52px" height="52px">
+          <button class="hero__toggler page__button">Меню</button>
+          <!-- <nav class="hero__nav"></nav> -->
+        </header>
+        <div class="hero__wrapper swiper-wrapper">
+          <div class="hero__slide hero__slide--experience swiper-slide">
+            <div class="hero__content">
+              <div class="hero__pagination">
+                <!-- <div class="hero__bullet" tabindex="0"></div>
+                <div class="hero__bullet" tabindex="0"></div>
+                <div class="hero__bullet" tabindex="0"></div> -->
+              </div>
+              <h2 class="hero__title">Глобальный профессиональный опыт обучения за рубежом</h2>
+              <div class="hero__container">
+                <div class="hero__cms">
+                  <p>Погрузитесь в академическую программу, проходя практику <span>в разных городах,</span> ощущая настоящий студенческий стиль жизни!</p>
+                </div>
+                <div class="hero__subwrapper">
+                  <button class="hero__button page__button">Подробнее</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero__slide hero__slide--volunteer swiper-slide">
+            <div class="hero__content">
+              <div class="hero__pagination">pagination</div>
+              <h2 class="hero__title">Волонтёрские программы – внесите свой вклад в общество</h2>
+              <div class="hero__container">
+                <div class="hero__cms">
+                  <p>Возможности для преподавания, органического сельского хозяйства, устойчивого образа жизни и другое.</p>
+                </div>
+                <div class="hero__subwrapper">
+                  <button class="hero__button page__button">Подробнее</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero__slide hero__slide--intership swiper-slide">
+            <div class="hero__content">
+              <div class="hero__pagination">pagination</div>
+              <h2 class="hero__title">Программы стажировок в крупнейших компаниях мира</h2>
+              <div class="hero__container">
+                <div class="hero__cms">
+                  <p>Получите незаменимый опыт работы в ведущих мировых компаниях и государственных организациях.</p>
+                </div>
+                <div class="hero__subwrapper">
+                  <button class="hero__button page__button">Подробнее</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="about" data-test="about">
