@@ -8,12 +8,11 @@ new Swiper('.hero', {
   slideActiveClass: 'hero__slide--active',
   autoHeight: true,
   pagination: {
-    // el: '.swiper-pagination',
-    el: '.hero__pagination',
+    el: '.hero__slide--active .hero__pagination',
     bulletActiveClass: 'hero__bullet--active',
     bulletClass: 'hero__bullet',
     type: 'bullets',
-    bulletElement: 'button',
+    bulletElement: 'div',
     clickable: true,
   },
   breakpoints: {
@@ -32,4 +31,5 @@ new Swiper('.hero', {
 const bullets = document.querySelectorAll('.hero__bullet');
 bullets.forEach((bullet) => {
   bullet.setAttribute('aria-label', 'Переключите слайд');
+  bullet.setAttribute('tabindex', '0');
 });

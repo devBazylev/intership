@@ -9,13 +9,13 @@
   margin: 0 auto;
   overflow: hidden;
 
-  // @media (min-width: $tab) {
+  @media (min-width: $tab) {
+    min-height: 1024px;
+  }
 
-  // }
-
-  // @media (min-width: $desk) {
-
-  // }
+  @media (min-width: $desk) {
+    min-height: 800px;
+  }
 }
 
 .hero__header {
@@ -31,6 +31,14 @@
   grid-area: 1/1/2/2;
   display: block;
   margin: 21px 15px 0;
+
+  @media (min-width: $tab) {
+    margin: 32px 45px 0;
+  }
+
+  @media (min-width: $desk) {
+    margin: 32px 100px 0;
+  }
 }
 
 .hero__toggler {
@@ -43,12 +51,26 @@
   font-size: 14px;
   line-height: 14px;
   letter-spacing: 0.28px;
+
+  @media (min-width: $tab) {
+    min-height: 56px;
+    margin: 30px 45px 0 auto;
+    gap: 20px;
+  }
+
+  @media (min-width: $desk) {
+    margin: 30px 100px 0 auto;
+  }
 }
 
 .hero__toggler::before {
   top: 0;
   width: 46px;
   height: 46px;
+
+  @media (min-width: $tab) {
+    left: 0;
+  }
 }
 
 .hero__toggler::after {
@@ -80,13 +102,145 @@
   min-height: 568px;
   padding: 100px 15px 20px;
   align-items: end;
+  visibility: hidden;
+  transition: 0.3s;
+
+  @media (min-width: $tab) {
+    min-height: 1024px;
+    padding: 120px 45px 60px;
+  }
+
+  @media (min-width: $desk) {
+    min-height: 800px;
+    padding: 120px 100px 60px 100px;
+  }
+}
+
+.hero__slide--experience {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $bright-trans-20;
+  background-blend-mode: overlay;
+  background-image:
+    image-set(
+      url("../img/hero-1-mob@2x.webp") type("image/webp") 2x,
+      url("../img/hero-1-mob@1x.webp") type("image/webp") 1x,
+      url("../img/hero-1-mob@2x.jpg") type("image/jpg") 2x,
+      url("../img/hero-1-mob@1x.jpg") type("image/jpg") 1x
+    );
+
+  @media (min-width: $tab) {
+    background-image:
+      image-set(
+        url("../img/hero-1-tab@2x.webp") type("image/webp") 2x,
+        url("../img/hero-1-tab@1x.webp") type("image/webp") 1x,
+        url("../img/hero-1-tab@2x.jpg") type("image/jpg") 2x,
+        url("../img/hero-1-tab@1x.jpg") type("image/jpg") 1x
+      )
+  }
+
+  @media (min-width: $desk) {
+    background-image:
+      image-set(
+        url("../img/hero-1-desk@2x.webp") type("image/webp") 2x,
+        url("../img/hero-1-desk@1x.webp") type("image/webp") 1x,
+        url("../img/hero-1-desk@2x.jpg") type("image/jpg") 2x,
+        url("../img/hero-1-desk@1x.jpg") type("image/jpg") 1x
+      )
+  }
+}
+
+.hero__slide--volunteer {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $bright-trans-20;
+  background-blend-mode: overlay;
+  background-image:
+    image-set(
+      url("../img/hero-2-mob@2x.webp") type("image/webp") 2x,
+      url("../img/hero-2-mob@1x.webp") type("image/webp") 1x,
+      url("../img/hero-2-mob@2x.jpg") type("image/jpg") 2x,
+      url("../img/hero-2-mob@1x.jpg") type("image/jpg") 1x
+    );
+
+  @media (min-width: $tab) {
+    background-image:
+      image-set(
+        url("../img/hero-2-tab@2x.webp") type("image/webp") 2x,
+        url("../img/hero-2-tab@1x.webp") type("image/webp") 1x,
+        url("../img/hero-2-tab@2x.jpg") type("image/jpg") 2x,
+        url("../img/hero-2-tab@1x.jpg") type("image/jpg") 1x
+      )
+  }
+
+  @media (min-width: $desk) {
+    background-image:
+      image-set(
+        url("../img/hero-2-desk@2x.webp") type("image/webp") 2x,
+        url("../img/hero-2-desk@1x.webp") type("image/webp") 1x,
+        url("../img/hero-2-desk@2x.jpg") type("image/jpg") 2x,
+        url("../img/hero-2-desk@1x.jpg") type("image/jpg") 1x
+      )
+  }
+}
+
+.hero__slide--intership {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $bright-trans-20;
+  background-blend-mode: overlay;
+  background-image:
+    image-set(
+      url("../img/hero-3-mob@2x.webp") type("image/webp") 2x,
+      url("../img/hero-3-mob@1x.webp") type("image/webp") 1x,
+      url("../img/hero-3-mob@2x.jpg") type("image/jpg") 2x,
+      url("../img/hero-3-mob@1x.jpg") type("image/jpg") 1x
+    );
+
+  @media (min-width: $tab) {
+    background-image:
+      image-set(
+        url("../img/hero-3-tab@2x.webp") type("image/webp") 2x,
+        url("../img/hero-3-tab@1x.webp") type("image/webp") 1x,
+        url("../img/hero-3-tab@2x.jpg") type("image/jpg") 2x,
+        url("../img/hero-3-tab@1x.jpg") type("image/jpg") 1x
+      )
+  }
+
+  @media (min-width: $desk) {
+    background-image:
+      image-set(
+        url("../img/hero-3-desk@2x.webp") type("image/webp") 2x,
+        url("../img/hero-3-desk@1x.webp") type("image/webp") 1x,
+        url("../img/hero-3-desk@2x.jpg") type("image/jpg") 2x,
+        url("../img/hero-3-desk@1x.jpg") type("image/jpg") 1x
+      )
+  }
+}
+
+.hero__slide--active {
+  visibility: visible;
 }
 
 .hero__pagination {
   @include flex;
 
+  position: relative;
   gap: 12px;
   width: fit-content;
+  background-color: $light;
+  min-height: 28px;
+  padding: 10px 16px;
+  border-radius: 12px 12px 0px 0px;
+
+  @media (min-width: $tab) {
+    min-height: 40px;
+    padding: 14px 20px;
+    border-radius: 20px 20px 0px 0px;
+  }
 }
 
 .hero__bullet {
@@ -96,68 +250,156 @@
   background-color: transparent;
   border-radius: 16px;
   border: 2px solid $bright;
+
+  @media (min-width: $tab) {
+    width: 12px;
+    height: 12px;
+    border: 2px solid $bright;
+  }
 }
 
 .hero__bullet--active {
   background-color: $bright;
 }
 
-.hero__slide--experience {
-  background-color: rgb(233, 196, 227);
-}
-
-.hero__slide--volunteer {
-  background-color: rgb(199, 245, 172);
-}
-
-.hero__slide--intership {
-  background-color: rgb(165, 140, 223);
-}
-
 .hero__title {
   margin: 0;
-  padding: 20px 14px 16px 14px;
+  padding: 20px 20px 16px 14px;
   font-size: 22px;
   line-height: 26px;
+  font-weight: 400;
   color: $bright;
   background-color: $light;
   border-radius: 0px 16px 16px 0px;
-  letter-spacing: -0.2px;
+
+  @media (min-width: $tab) {
+    width: 85.8vw;
+    padding: 31px 40px 23px 40px;
+    font-size: 36px;
+    line-height: 44px;
+    border-radius: 0px 30px 30px 0px;
+  }
+
+  @media (min-width: $desk) {
+    width: 968px;
+    padding: 40px 50px 30px 50px;
+    font-size: 54px;
+    line-height: 62px;
+  }
+}
+
+.hero__container {
+  @media (min-width: $tab) {
+    @include grid(1fr 200px);
+
+    position: relative;
+    width: 77.2vw;
+    gap: 30px;
+    padding: 0px 38px 35px 40px;
+    background-color: $light;
+    border-radius: 0px 0px 30px 30px;
+  }
+
+  @media (min-width: $desk) {
+    grid-template-columns: 1fr 201px;
+    width: 775px;
+    padding: 0px 48px 35px 50px;
+  }
 }
 
 .hero__cms {
+  position: relative;
   width: 83.4vw;
   padding: 0 14px 15px;
   background-color: $light;
   border-radius: 0px 0px 14px 0px;
+
+  @media (min-width: $tab) {
+    width: auto;
+    padding: 0;
+  }
 }
 
 .hero__cms * {
   margin: 0;
   padding: 0;
   font-size: 14px;
-  line-height: 20px
+  line-height: 20px;
+
+  @media (min-width: $tab) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  @media (min-width: $desk) {
+    font-size: 16px;
+    line-height: 26px;
+  }
 }
 
-.hero__cms::after {
-  @include pseudo;
+.hero__slide--experience p {
+  @media (min-width: $tab) {
+    width: 35vw;
+  }
 
-  position: relative;
-  top: -100px;
-  right: -253px;
-  width: 10px;
-  height: 10px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  background-image: url("/__spritemap#sprite-angle-view");
-  transform: rotate(90deg);
+  @media (min-width: $desk) {
+    width: unset;
+  }
+}
+
+.hero__slide--experience span {
+  white-space: normal;
+
+  @media (min-width: $tab) {
+    white-space: nowrap;
+  }
 }
 
 .hero__subwrapper {
+  position: relative;
   width: fit-content;
   max-width: 70vw;
   padding: 10px 15px;
   background-color: $light;
   border-radius: 0px 0px 14px 14px;
+
+  @media (min-width: $tab) {
+    width: auto;
+    max-width: unset;
+    padding: 0;
+  }
+}
+
+.hero__button {
+  @media (min-width: $desk) {
+    margin: 10px 0 0;
+  }
+}
+
+.hero__cms::after,
+.hero__subwrapper::after {
+  @include pseudo;
+  @include angle(10, 90);
+
+  @media (min-width: $tab) {
+    display: none;
+  }
+}
+
+.hero__pagination::after {
+  @include pseudo;
+  @include angle(10, 0);
+
+  @media (min-width: $tab) {
+    right: -20px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.hero__container::after {
+  @media (min-width: $tab) {
+    @include pseudo;
+    @include angle(26, 90);
+  }
 }

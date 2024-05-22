@@ -75,6 +75,20 @@
   text-transform: uppercase;
   word-break: break-all;
   cursor: pointer;
+
+  @media (min-width: $tab) {
+    min-height: 56px;
+    gap: 31px;
+    padding: 4px 3px 4px 30px;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: 0.28px;
+  }
+
+  @media (min-width: $desk) {
+    min-height: 58px;
+    gap: 32px;
+  }
 }
 
 .page__button:hover {
@@ -110,6 +124,17 @@
   height: 34px;
   background-color: $bright;
   border-radius: 50%;
+
+  @media (min-width: $tab) {
+    top: 0;
+    left: -1px;
+    width: 46px;
+    height: 46px;
+  }
+
+  @media (min-width: $desk) {
+    left: -2px;
+  }
 }
 
 .page__button::after {
@@ -126,4 +151,9 @@
   mask-position: center;
   mask-size: 18px 8px;
   mask-image: url("/__spritemap#sprite-arrow-view");
+
+  @media (min-width: $tab) {
+    top: 0px;
+    left: 18px;
+  }
 }
