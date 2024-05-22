@@ -34,18 +34,96 @@
   width: 100%;
 }
 
-// .page__title {
-//   font-size: 22px;
-//   font-weight: 800;
-//   line-height: 22px;
+.page__title {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  color: $bright;
 
-//   @media (min-width: $tab) {
-//     font-size: 25px;
-//     line-height: 25px;
-//   }
+  @media (min-width: $tab) {
+    font-size: 34px;
+    line-height: 50px;
+  }
 
-//   @media (min-width: $desk) {
-//     font-size: 35px;
-//     line-height: 100%;
-//   }
-// }
+  @media (min-width: $desk) {
+    font-size: 50px;
+  }
+}
+
+.page__title--alter {
+  color: $light;
+}
+
+.page__button {
+  @include grid(1fr auto);
+
+  align-items: center;
+  position: relative;
+  gap: 20px;
+  width: fit-content;
+  min-height: 44px;
+  padding: 4px 4px 3px 20px;
+  color: $bright;
+  background-color: $light;
+  border: 1px solid $bright;
+  border-radius: 30px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 12px;
+  letter-spacing: 0.24px;
+  text-transform: uppercase;
+  word-break: break-all;
+  cursor: pointer;
+}
+
+.page__button:hover {
+  color: $light;
+  background-color: $bright;
+}
+
+.page__button:active {
+  color: $light-trans-70;
+  background-color: $bright;
+}
+
+.page__button:disabled,
+.page__button--disabled {
+  color: $stormy;
+  background-color: $light-trans-60;
+  border: 1px solid $stormy;
+  cursor: default;
+}
+
+.page__button:focus {
+  color: $bright;
+  background-color: $light;
+}
+
+.page__button::before {
+  @include pseudo;
+
+  position: relative;
+  top: -1px;
+  grid-area: 1/2/2/3;
+  width: 34px;
+  height: 34px;
+  background-color: $bright;
+  border-radius: 50%;
+}
+
+.page__button::after {
+  @include pseudo;
+
+  position: relative;
+  top: -1px;
+  left: 13px;
+  grid-area: 1/2/2/3;
+  width: 8px;
+  height: 8px;
+  background-color: $light;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 18px 8px;
+  mask-image: url("/__spritemap#sprite-arrow-view");
+}
