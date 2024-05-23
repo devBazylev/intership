@@ -12,21 +12,46 @@
     <link rel="preload" href="img/hero-1-desk@1x.webp" as="image" media="(min-width: 1440px)" imagesrcset="img/hero-1-desk@2x.webp 2x">
     <link rel="preload" href="img/hero-1-tab@1x.webp" as="image" media="(min-width: 768px) and (max-width: 1365px)" imagesrcset="img/hero-1-tab@2x.webp 2x">
     <link rel="preload" href="img/hero-1-mob@1x.webp" as="image" media="(max-width: 767px)" imagesrcset="img/hero-1-mob@2x.webp 2x">
-    <link rel="preload" href="fonts/Manrope-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <!-- <link rel="preload" href="fonts/Manrope-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="fonts/Manrope-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="fonts/Manrope-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="fonts/Manrope-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="sass/style.scss">
   </head>
 
   <body class="page__body page-body">
 
-    <main>
+    <main class="page__main">
       <section class="hero swiper" data-test="hero">
         <h1 class="visually-hidden">Расскажем о наших стажировках</h1>
-        <header class="hero__header">
-          <img class="hero__logo" src="img/logo.svg" alt="логотип." width="52px" height="52px">
-          <button class="hero__toggler page__button">Меню</button>
-          <!-- <nav class="hero__nav"></nav> -->
+        <div class="page__overlay"></div>
+        <header class="hero__header header">
+          <img class="header__logo" src="img/logo.svg" alt="логотип." width="52px" height="52px">
+          <button class="header__toggler page__button">Меню</button>
+          <nav class="header__nav">
+            <ul class="header__list">
+              <li><a class="header__link" href="#">О проекте</a></li>
+              <li class="header__item">
+                <button class="header__button">Программы</button>
+                <ul class="header__sublist">
+                  <li><a class="header__sublink" href="#">Стажировки</a></li>
+                  <li><a class="header__sublink" href="#">Волонтёрство</a></li>
+                  <li><a class="header__sublink" href="#">Учёба</a></li>
+                  <li><a class="header__sublink" href="#">Религия</a></li>
+                </ul>
+              </li>
+              <li><a class="header__link" href="#">Как поехать</a></li>
+              <li><a class="header__link" href="#">Отзывы</a></li>
+              <li class="header__item">
+                <button class="header__button">Новости</button>
+                <ul class="header__sublist">
+                  <li><a class="header__sublink" href="#">Африка бьет рекорды</a></li>
+                  <li><a class="header__sublink" href="#">В Китае творится всякое</a></li>
+                  <li><a class="header__sublink" href="#">Бурый медведь альбинос</a></li>
+                </ul>
+              </li>
+              <li><a class="header__link" href="#">Контакты</a></li>
+            </ul>
+          </nav>
         </header>
         <div class="hero__wrapper swiper-wrapper">
           <div class="hero__slide hero__slide--experience swiper-slide">
@@ -111,7 +136,7 @@
       </section>
     </main>
 
-    <footer class="footer" data-test="footer"><h2>footer</h2></footer>
+    <footer class="page__footer footer" data-test="footer"><h2>footer</h2></footer>
 
     <script type="module" src="js/main.js"></script>
   </body>
