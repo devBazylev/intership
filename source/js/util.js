@@ -41,7 +41,7 @@ const changeText = (array, text) => {
   });
 };
 
-const setListener = (elem, action, callback) => {
+const addListener = (elem, action, callback) => {
   elem.addEventListener(action, callback);
 };
 
@@ -49,7 +49,7 @@ const removeListener = (elem, action, callback) => {
   elem.removeEventListener(action, callback);
 };
 
-const setListenerArray = (array, action, callback) => {
+const addListenerArray = (array, action, callback) => {
   array.forEach((elem) => {
     elem.addEventListener(action, callback);
   });
@@ -70,4 +70,24 @@ const cloneSlides = (parent, elems, array) => {
   });
 };
 
-export { setDataId, addClass, removeClass, toggleClass, addClassArray, resetClassArray, setClassArray, changeText, setListener, removeListener, setListenerArray, removeListenerArray, cloneSlides };
+const isKeydown = (evt, keydown) => evt.key === keydown;
+
+const isTargetClick = (evt, selector) => evt.target.closest(selector);
+
+export {
+  setDataId,
+  addClass,
+  removeClass,
+  toggleClass,
+  addClassArray,
+  resetClassArray,
+  setClassArray,
+  changeText,
+  addListener,
+  removeListener,
+  addListenerArray,
+  removeListenerArray,
+  cloneSlides,
+  isTargetClick,
+  isKeydown,
+};

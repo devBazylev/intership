@@ -21,15 +21,21 @@
   display: $display;
 }
 
+@mixin svg($name, $type: 'background', $color: null) {
+  #{$type}-repeat: no-repeat;
+  #{$type}-position: center;
+  #{$type}-size: contain;
+  #{$type}-image: url("/__spritemap#sprite-#{$name}-view");
+  @if $color {
+    background-color: $color;
+  }
+}
+
 @mixin angle($size: 10, $deg: 0) {
   position: absolute;
   right: -#{$size}px;
   width: #{$size}px;
   height: #{$size}px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  background-image: url("/__spritemap#sprite-angle-view");
   transform: rotate(#{$deg}deg);
 
   @if $deg == 0 {

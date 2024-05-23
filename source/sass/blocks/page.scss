@@ -14,7 +14,7 @@
   font-weight: 400;
   font-style: normal;
   color: $main;
-  background-color: $light;
+  background-color: $common;
   min-width: $mob;
   max-width: 100%;
   min-height: 100%;
@@ -31,7 +31,25 @@
 }
 
 .page__main {
+  grid-area: 1/1/2/2;
   width: 100%;
+}
+
+.page__footer {
+  grid-area: 2/1/3/2;
+}
+
+.page__overlay {
+  position: fixed;
+  width: 100vw;
+  height: 0;
+  z-index: 1;
+  background-color: $cloudy-trans-40;
+  // transition: all 0.3s;
+}
+
+.page__overlay--active {
+  height: 100vh;
 }
 
 .page__title {
@@ -91,29 +109,6 @@
   }
 }
 
-.page__button:hover {
-  color: $light;
-  background-color: $bright;
-}
-
-.page__button:active {
-  color: $light-trans-70;
-  background-color: $bright;
-}
-
-.page__button:disabled,
-.page__button--disabled {
-  color: $stormy;
-  background-color: $light-trans-60;
-  border: 1px solid $stormy;
-  cursor: default;
-}
-
-.page__button:focus {
-  color: $bright;
-  background-color: $light;
-}
-
 .page__button::before {
   @include pseudo;
 
@@ -139,6 +134,7 @@
 
 .page__button::after {
   @include pseudo;
+  @include svg('arrow', mask);
 
   position: relative;
   top: -1px;
@@ -147,13 +143,71 @@
   width: 8px;
   height: 8px;
   background-color: $light;
-  mask-repeat: no-repeat;
-  mask-position: center;
   mask-size: 18px 8px;
-  mask-image: url("/__spritemap#sprite-arrow-view");
 
   @media (min-width: $tab) {
     top: 0px;
     left: 18px;
   }
+
+  @media (min-width: $desk) {
+    left: 17px;
+  }
+}
+
+.page__button:hover {
+  color: $light;
+  background-color: $bright;
+}
+
+.page__button:focus {
+  color: $bright;
+  background-color: $light;
+}
+
+.page__button:active {
+  color: $light-trans-70;
+  background-color: $bright;
+}
+
+.page__button:disabled,
+.page__button--disabled {
+  color: $stormy;
+  background-color: $light-trans-60;
+  border: 1px solid $stormy;
+  cursor: default;
+}
+
+.page__button:hover::before {
+  background-color: $light;
+}
+
+.page__button:hover::after {
+  background-color: $bright;
+}
+
+.page__button:focus::before {
+  background-color: $bright;
+}
+
+.page__button:focus::after {
+  background-color: $light;
+}
+
+.page__button:active::before {
+  background-color: $light;
+}
+
+.page__button:active::after {
+  background-color: $bright-trans-70;
+}
+
+.page__button:disabled::before,
+.page__button--disabled::before {
+  background-color: $stormy;
+}
+
+.page__button:disabled::after,
+.page__button--disabled::after {
+  background-color: $light-trans-60;
 }
