@@ -21,7 +21,7 @@ const onMissNav = (evt) => {
 
 const onDocumentEscNav = (evt) => {
   if (toggler.classList.contains('header__toggler--opened') && isKeydown(evt, 'Escape')) {
-    evt.preventDefault();
+    // evt.preventDefault();
     toggleClass(toggler, 'header__toggler--opened');
     removeClass(overlay, 'page__overlay--active');
     removeListener(document, 'keydown', onDocumentEscNav);
@@ -50,11 +50,18 @@ const onBurger = () => {
 const closeModal = () => {
   removeClass(modal, 'hero__form--opened');
   removeClass(overlay, 'page__overlay--active');
+  removeListener(document, 'click', onMissForm);
 };
 
+function onMissForm (evt) {
+  if (!isTargetClick(evt, '.modal') && !isTargetClick(evt, '.hero__button')) {
+    closeModal();
+  }
+}
+
 const onSubmitButton = () => {
-  closeModal();
-  removeListener(submitButton, 'click', onSubmitButton);
+  // closeModal();
+  // removeListener(submitButton, 'click', onSubmitButton);
 };
 
 const onCancelButton = () => {
@@ -64,15 +71,8 @@ const onCancelButton = () => {
 
 const onDocumentEscForm = (evt) => {
   if (modal.classList.contains('hero__form--opened') && isKeydown(evt, 'Escape')) {
-    evt.preventDefault();
     closeModal();
     removeListener(document, 'keydown', onDocumentEscForm);
-  }
-};
-
-const onMissForm = (evt) => {
-  if (!isTargetClick(evt, '.modal') && !isTargetClick(evt, '.hero__button')) {
-    closeModal();
   }
 };
 

@@ -23,7 +23,6 @@
 }
 
 .header__toggler {
-  z-index: 1;
   grid-area: 1/1/2/3;
   align-self: center;
   min-width: 136px;
@@ -74,6 +73,7 @@
 }
 
 .header__toggler--opened {
+  z-index: 1;
   width: 291px;
   margin: 20px 15px 0 auto;
   padding: 3px 4px 3px 19px;
