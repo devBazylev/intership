@@ -59,9 +59,18 @@ function onMissForm (evt) {
   }
 }
 
-const onSubmitButton = () => {
-  // closeModal();
-  // removeListener(submitButton, 'click', onSubmitButton);
+const onClick = () => {
+  if (!modal.classList.contains('modal--validation')) {
+    modal.classList.add('modal--validation');
+  }
+  removeListener(submitButton, 'click', onClick);
+};
+
+const onSubmit = async (evt) => {
+  modal.submit();
+  evt.preventDefault();
+  modal.reset();
+  removeListener(modal, 'submit', onSubmit);
 };
 
 const onCancelButton = () => {
@@ -79,7 +88,8 @@ const onDocumentEscForm = (evt) => {
 const onHeroButton = () => {
   addClass(modal, 'hero__form--opened');
   addClass(overlay, 'page__overlay--active');
-  addListener(submitButton, 'click', onSubmitButton);
+  addListener(modal, 'submit', onSubmit);
+  addListener(submitButton, 'click', onClick);
   addListener(cancelButton, 'click', onCancelButton);
   addListener(document, 'keydown', onDocumentEscForm);
   addListener(document, 'click', onMissForm);
