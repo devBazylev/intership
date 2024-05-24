@@ -23,7 +23,6 @@
 }
 
 .header__toggler {
-  z-index: 1;
   grid-area: 1/1/2/3;
   align-self: center;
   min-width: 136px;
@@ -74,6 +73,7 @@
 }
 
 .header__toggler--opened {
+  z-index: 1;
   width: 291px;
   margin: 20px 15px 0 auto;
   padding: 3px 4px 3px 19px;
@@ -127,7 +127,7 @@
 
 .header__toggler--opened + .header__nav {
   height: auto;
-  padding: 33px 25px 33px;
+  padding: 33px 25px;
   visibility: visible;
 }
 
@@ -167,7 +167,7 @@
 
 .header__button::after {
   @include pseudo;
-  @include svg('half-arrow', mask, $light);
+  @include svg("half-arrow", mask, $light);
 
   position: relative;
   top: 4px;
@@ -220,10 +220,3 @@
 .header__sublink:active {
   color: $light;
 }
-
-
-
-
-
-
-

@@ -134,7 +134,7 @@
 
 .page__button::after {
   @include pseudo;
-  @include svg('arrow', mask);
+  @include svg("arrow", mask);
 
   position: relative;
   top: -1px;
@@ -146,7 +146,7 @@
   mask-size: 18px 8px;
 
   @media (min-width: $tab) {
-    top: 0px;
+    top: 0;
     left: 18px;
   }
 
