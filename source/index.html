@@ -105,12 +105,15 @@
           <h2 class="modal__title">Напишите нам</h2>
           <p class="modal__text">Оставьте ваши контакты, если у вас остались <span>вопросы</span> – <span>мы на них ответим!</span></p>
           <label class="modal__label" for="name">Имя</label>
-          <input class="modal__name" type="text" name="name" id="name" required>
+          <input class="modal__name" type="text" name="name" id="name" minlength="2" maxlength="40" title="От 2 символов. Разрешены буквы и пробелы." pattern="^[a-zA-Zа-яА-ЯёЁ\s]{2,}$" required>
           <label class="modal__label" for="phone">Телефон</label>
-          <input class="modal__phone" type="tel" name="phone" id="phone" required>
+          <input class="modal__phone" type="tel" name="phone" id="phone" minlength="5" maxlength="40" title="От 5 символов. Пример: +7ххххххххх." pattern="^[+][7][^a-zA-Zа-яА-ЯёЁ]{5,}$" required>
           <label class="modal__label" for="city">Выберите город</label>
           <select class="modal__city" name="city" id="city" required>
             <option value=""></option>
+            <option value="Paris">Париж</option>
+            <option value="London">Лондон</option>
+            <option value="Rome">Рим</option>
           </select>
           <label class="modal__agree" for="agreement">
             <input class="modal__checkbox visually-hidden" type="checkbox" name="agreement" id="agreement" required>
