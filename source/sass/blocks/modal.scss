@@ -1,0 +1,305 @@
+@import "../global/mixins";
+@import "../global/variables";
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  width: 290px;
+  min-height: 531px;
+  margin: 23px calc((100vw - 290px) / 2) 0;
+  padding: 37px 15px 40px;
+  background-color: $light;
+  border-radius: 16px;
+
+  @media (min-width: $tab) {
+    width: 510px;
+    min-height: 640px;
+    // margin: 0 calc((100vw - 510px) / 2) 0;
+    margin: 204px calc((100vw - 510px) / 2) 0;
+    padding: 55px 80px 60px;
+  }
+
+  @media (min-width: $desk) {
+    min-height: 649px;
+    margin: 90px calc((100vw - 510px) / 2) 0;
+    padding: 53px 80px 60px;
+  }
+}
+
+.modal__title {
+  margin: 0 auto 13px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  color: $bright;
+
+  @media (min-width: $tab) {
+    margin: 0 auto 17px;
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  @media (min-width: $desk) {
+    margin: 0 auto 14px;
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+
+.modal__text {
+  margin: 0 auto 25px;
+  padding: 0 23px 0 20px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+
+  @media (min-width: $tab) {
+    margin: 0 auto 30px;
+    padding: 0;
+    font-size: 16px;
+  }
+
+  @media (min-width: $desk) {
+    line-height: 26px;
+  }
+}
+
+.modal__text span:nth-of-type(1) {
+  @media (min-width: $tab) {
+    margin: 0 4px 0 0;
+  }
+}
+
+.modal__text span:nth-of-type(2) {
+  position: relative;
+  left: 2px;
+
+  @media (min-width: $tab) {
+    position: unset;
+  }
+}
+
+.modal__label {
+  display: block;
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+
+  @media (min-width: $tab) {
+    margin: 0 0 12px;
+    line-height: 20px;
+  }
+
+  @media (min-width: $desk) {
+    line-height: 18px;
+  }
+}
+
+.modal__name,
+.modal__phone,
+.modal__city {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin: 0 0 15px;
+  padding: 10px 25px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  color: $main;
+  border-radius: 8px;
+  border: 1px solid $main-trans-30;
+
+  @media (min-width: $tab) {
+    margin: 0 0 20px;
+    min-height: 50px;
+  }
+}
+
+.modal__city {
+  margin: 0 0 16px;
+  cursor: pointer;
+
+  @media (min-width: $tab) {
+    margin: 0 0 13px;
+  }
+}
+
+.modal__name:hover,
+.modal__phone:hover,
+.modal__name:active,
+.modal__phone:active,
+.modal__name:focus,
+.modal__phone:focus {
+  border: 1px solid $main;
+}
+
+.modal__name:disabled,
+.modal__phone:disabled {
+  background-color: $stormy-trans-20;
+  border: 1px solid $stormy-trans-50;
+}
+
+// .modal__name:invalid,
+// .modal__phone:invalid {
+//   border: 1px solid $alert;
+//   background-color: $alert-trans-20;
+// }
+
+.modal__submit {
+  width: 260px;
+  min-height: 42px;
+  padding: 4px 4px 2px 20px;
+  margin: 0 auto;
+
+  @media (min-width: $tab) {
+    width: fit-content;
+    padding: 3px 2px 3px 29px;
+  }
+}
+
+.modal__submit::before {
+  left: 1px;
+
+  @media (min-width: $tab) {
+    left: -1px;
+  }
+}
+
+.modal__submit::after {
+  left: 14px;
+
+  @media (min-width: $tab) {
+    left: 17px;
+    width: 10px;
+    height: 10px;
+    mask-size: 10px 10px;
+  }
+}
+
+.modal__cancel {
+  @include svg('cross');
+
+  position: absolute;
+  top: 21px;
+  right: 21px;
+  display: block;
+  width: 14px;
+  height: 14px;
+  border: none;
+  background-color: $light;
+  cursor: pointer;
+
+  @media (min-width: $tab) {
+    top: 30px;
+    right: 30px;
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.modal__agree {
+  display: block;
+  margin: 0 0 22px;
+  cursor: pointer;
+
+  @media (min-width: $tab) {
+    margin: 0 0 30px;
+  }
+}
+
+.modal__subtext {
+  display: inline-block;
+  width: 220px;
+  margin: 0 0 0 8px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  color: $main-trans-90;
+
+  @media (min-width: $tab) {
+    width: auto;
+    line-height: 12px;
+  }
+
+  @media (min-width: $desk) {
+    line-height: 12px;
+  }
+}
+
+.modal__check {
+  position: relative;
+  top: -2px;
+  left: 0;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: $bright;
+  border-radius: 2px;
+  border: 1px solid $light-trans-70;
+
+  @media (min-width: $tab) {
+    top: 6px;
+  }
+}
+
+.modal__check::before {
+  @include pseudo;
+  @include svg('tick', mask, transparent);
+
+  position: relative;
+  top: 4px;
+  left: 3px;
+  width: 12px;
+  height: 10px;
+  mask-size: 12px 10px;
+}
+
+.modal__agree:hover .modal__check {
+  border: 1px solid $light;
+}
+
+.modal__checkbox:disabled + .modal__check {
+  border: 1px solid $light;
+  background-color: $light-trans-60;
+}
+
+// .modal__checkbox:invalid + .modal__check {
+//   border: 1px solid $alert-trans-70;
+//   background-color: $alert-trans-20;
+// }
+
+.modal__checkbox:checked + .modal__check {
+  border: 1px solid transparent;
+  background-color: $light;
+}
+
+.modal__checkbox:checked + .modal__check::before {
+  background-color: $bright;
+}
+
+.modal__checkbox:checked:hover  + .modal__check {
+  background-color: $bright;
+  border: 1px solid $light;
+}
+
+.modal__checkbox:checked:hover  + .modal__check::before {
+  background-color: $light;
+}
+
+.modal__checkbox:checked:disabled + .modal__check {
+  background-color: $stormy;
+  border: 1px solid $stormy;
+}
+
+.modal__checkbox:checked:disabled + .modal__check::before {
+  background-color: $light-trans-70;
+}

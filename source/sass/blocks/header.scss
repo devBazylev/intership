@@ -67,6 +67,12 @@
   mask-image: url("/__spritemap#sprite-burger-view");
 }
 
+.header__toggler:hover::after,
+.header__toggler:active::after,
+.header__toggler:focus::after {
+  transform: unset;
+}
+
 .header__toggler--opened {
   width: 291px;
   margin: 20px 15px 0 auto;
@@ -99,7 +105,7 @@
 
 .header__nav {
   grid-area: 2/1/3/3;
-  z-index: 2;
+  z-index: 1;
   width: 290px;
   height: 0;
   background-color: $bright;

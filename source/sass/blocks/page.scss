@@ -45,7 +45,7 @@
   height: 0;
   z-index: 1;
   background-color: $cloudy-trans-40;
-  // transition: all 0.3s;
+  transition: all 0.1s;
 }
 
 .page__overlay--active {
@@ -184,6 +184,7 @@
 
 .page__button:hover::after {
   background-color: $bright;
+  transform: rotate(45deg);
 }
 
 .page__button:focus::before {
@@ -192,6 +193,7 @@
 
 .page__button:focus::after {
   background-color: $light;
+  transform: rotate(45deg);
 }
 
 .page__button:active::before {
@@ -200,6 +202,7 @@
 
 .page__button:active::after {
   background-color: $bright-trans-70;
+  transform: rotate(45deg);
 }
 
 .page__button:disabled::before,

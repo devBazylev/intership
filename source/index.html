@@ -26,12 +26,12 @@
         <div class="page__overlay"></div>
         <header class="hero__header header">
           <img class="header__logo" src="img/logo.svg" alt="логотип." width="52px" height="52px">
-          <button class="header__toggler page__button">Меню</button>
+          <button class="header__toggler page__button" type="button">Меню</button>
           <nav class="header__nav">
             <ul class="header__list">
               <li><a class="header__link" href="#">О проекте</a></li>
               <li class="header__item">
-                <button class="header__button">Программы</button>
+                <button class="header__button" type="button">Программы</button>
                 <ul class="header__sublist">
                   <li><a class="header__sublink" href="#">Стажировки</a></li>
                   <li><a class="header__sublink" href="#">Волонтёрство</a></li>
@@ -42,7 +42,7 @@
               <li><a class="header__link" href="#">Как поехать</a></li>
               <li><a class="header__link" href="#">Отзывы</a></li>
               <li class="header__item">
-                <button class="header__button">Новости</button>
+                <button class="header__button" type="button">Новости</button>
                 <ul class="header__sublist">
                   <li><a class="header__sublink" href="#">Африка бьет рекорды</a></li>
                   <li><a class="header__sublink" href="#">В Китае творится всякое</a></li>
@@ -67,7 +67,7 @@
                   <p>Погрузитесь в академическую программу, проходя практику <span>в разных городах,</span> ощущая настоящий студенческий стиль жизни!</p>
                 </div>
                 <div class="hero__subwrapper">
-                  <button class="hero__button page__button">Подробнее</button>
+                  <button class="hero__button page__button" type="button">Подробнее</button>
                 </div>
               </div>
             </div>
@@ -81,7 +81,7 @@
                   <p>Возможности для преподавания, органического сельского хозяйства, устойчивого образа жизни и другое.</p>
                 </div>
                 <div class="hero__subwrapper">
-                  <button class="hero__button page__button">Подробнее</button>
+                  <button class="hero__button page__button" type="button">Подробнее</button>
                 </div>
               </div>
             </div>
@@ -95,12 +95,33 @@
                   <p>Получите незаменимый опыт работы в ведущих мировых компаниях и государственных организациях.</p>
                 </div>
                 <div class="hero__subwrapper">
-                  <button class="hero__button page__button">Подробнее</button>
+                  <button class="hero__button page__button" type="button">Подробнее</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <form class="hero__form modal" action="https://echo.htmlacademy.ru" autocomplete="on" method="post">
+          <h2 class="modal__title">Напишите нам</h2>
+          <p class="modal__text">Оставьте ваши контакты, если у вас остались <span>вопросы</span> – <span>мы на них ответим!</span></p>
+          <label class="modal__label" for="name">Имя</label>
+          <input class="modal__name" type="text" name="name" id="name" required>
+          <label class="modal__label" for="phone">Телефон</label>
+          <input class="modal__phone" type="tel" name="phone" id="phone" required>
+          <label class="modal__label" for="city">Выберите город</label>
+          <select class="modal__city" name="city" id="city" required>
+            <option value=""></option>
+          </select>
+          <label class="modal__agree" for="agreement">
+            <input class="modal__checkbox visually-hidden" type="checkbox" name="agreement" id="agreement" required>
+            <div class="modal__check"></div>
+            <div class="modal__subtext">Я согласен на обработку моих персональных данных</div>
+          </label>
+          <button class="modal__submit page__button" type="submit">Отправить</button>
+          <button class="modal__cancel" type="button">
+            <span class="visually-hidden">Закрыть модальное окно</span>
+          </button>
+        </form>
       </section>
 
       <section class="about" data-test="about">

@@ -343,3 +343,13 @@
     @include angle(26, 90);
   }
 }
+
+.hero__form {
+  height: 0;
+  visibility: hidden;
+}
+
+.hero__form--opened {
+  height: fit-content;
+  visibility: visible;
+}
