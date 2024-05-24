@@ -25,7 +25,7 @@
         <h1 class="visually-hidden">Расскажем о наших стажировках</h1>
         <div class="page__overlay"></div>
         <header class="hero__header header">
-          <img class="header__logo" src="img/logo.svg" alt="логотип." width="52px" height="52px">
+          <img class="header__logo" src="img/logo.svg" alt="логотип." width="52" height="52">
           <button class="header__toggler page__button" type="button">Меню</button>
           <nav class="header__nav">
             <ul class="header__list">
@@ -101,7 +101,7 @@
             </div>
           </div>
         </div>
-        <form class="hero__form modal" action="https://echo.htmlacademy.ru" autocomplete="on" method="post">
+        <form class="hero__form modal modal--error" action="https://echo.htmlacademy.ru" autocomplete="on" method="post">
           <h2 class="modal__title">Напишите нам</h2>
           <p class="modal__text">Оставьте ваши контакты, если у вас остались <span>вопросы</span> – <span>мы на них ответим!</span></p>
           <label class="modal__label" for="name">Имя</label>
@@ -115,10 +115,10 @@
             <option value="London">Лондон</option>
             <option value="Rome">Рим</option>
           </select>
-          <label class="modal__agree" for="agreement">
+          <label class="modal__agree">
             <input class="modal__checkbox visually-hidden" type="checkbox" name="agreement" id="agreement" required>
-            <div class="modal__check"></div>
-            <div class="modal__subtext">Я согласен на обработку моих персональных данных</div>
+            <span class="modal__check"></span>
+            <span class="modal__subtext">Я согласен на обработку моих персональных данных</span>
           </label>
           <button class="modal__submit page__button" type="submit">Отправить</button>
           <button class="modal__cancel" type="button">

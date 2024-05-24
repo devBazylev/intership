@@ -21,11 +21,12 @@
   display: $display;
 }
 
-@mixin svg($name, $type: 'background', $color: null) {
+@mixin svg($name, $type: "background", $color: null) {
   #{$type}-repeat: no-repeat;
   #{$type}-position: center;
   #{$type}-size: contain;
   #{$type}-image: url("/__spritemap#sprite-#{$name}-view");
+
   @if $color {
     background-color: $color;
   }
@@ -40,7 +41,9 @@
 
   @if $deg == 0 {
     bottom: 0;
-  } @else {
+  }
+
+  @else {
     top: 0;
   }
 }
