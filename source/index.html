@@ -101,9 +101,10 @@
             </div>
           </div>
         </div>
-        <form class="modal" action="https://echo.htmlacademy.ru" autocomplete="on" method="post">
+        <form class="hero__form modal" action="https://echo.htmlacademy.ru" autocomplete="on" method="post">
+        <!-- <form class="hero__form hero__form--opened modal" action="https://echo.htmlacademy.ru" autocomplete="on" method="post"> -->
           <h2 class="modal__title">Напишите нам</h2>
-          <p class="modal__text">Оставьте ваши контакты, если у вас остались вопросы – мы на них ответим!</p>
+          <p class="modal__text">Оставьте ваши контакты, если у вас остались <span>вопросы</span> – <span>мы на них ответим!</span></p>
           <label class="modal__label" for="name">Имя</label>
           <input class="modal__name" type="text" name="name" id="name">
           <label class="modal__label" for="phone">Телефон</label>
@@ -112,10 +113,13 @@
           <select class="modal__city" name="city" id="city">
             <option value=""></option>
           </select>
-          <input class="modal__check" type="checkbox" name="agreement" id="agreement">
-          <label class="modal__agree" for="agreement">Я согласен на обработку моих персональных данных</label>
-          <button class="modal__button page__button" type="submit">Отправить</button>
-          <button class="modal__cross" type="button">
+          <label class="modal__agree" for="agreement">
+            <input class="modal__checkbox visually-hidden" type="checkbox" name="agreement" id="agreement">
+            <div class="modal__check"></div>
+            <div class="modal__subtext">Я согласен на обработку моих персональных данных</div>
+          </label>
+          <button class="modal__submit page__button" type="submit">Отправить</button>
+          <button class="modal__cancel" type="button">
             <span class="visually-hidden">Закрыть модальное окно</span>
           </button>
         </form>

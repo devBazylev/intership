@@ -6,20 +6,25 @@ const header = document.querySelector('.header');
 const toggler = header.querySelector('.header__toggler');
 const dropButtons = header.querySelectorAll('.header__button');
 const overlay = document.querySelector('.page__overlay');
+const hero = document.querySelector('.hero');
+const heroButton = hero.querySelector('.hero__button');
+const modal = hero.querySelector('.modal');
+const submitButton = modal.querySelector('.modal__submit');
+const cancelButton = modal.querySelector('.modal__cancel');
 
-const onMissclick = (evt) => {
+const onMissNav = (evt) => {
   if (!isTargetClick(evt, '.header__nav') && !isTargetClick(evt, '.header__toggler')) {
     removeClass(toggler, 'header__toggler--opened');
     removeClass(overlay, 'page__overlay--active');
   }
 };
 
-const onDocument = (evt) => {
+const onDocumentEscNav = (evt) => {
   if (toggler.classList.contains('header__toggler--opened') && isKeydown(evt, 'Escape')) {
     evt.preventDefault();
     toggleClass(toggler, 'header__toggler--opened');
     removeClass(overlay, 'page__overlay--active');
-    removeListener(document, 'keydown', onDocument);
+    removeListener(document, 'keydown', onDocumentEscNav);
   }
 };
 
@@ -31,15 +36,53 @@ const onBurger = () => {
   toggleClass(toggler, 'header__toggler--opened');
   if (toggler.classList.contains('header__toggler--opened')) {
     addClass(overlay, 'page__overlay--active');
-    addListener(document, 'keydown', onDocument);
+    addListener(document, 'keydown', onDocumentEscNav);
     addListenerArray(dropButtons, 'click', onDropButton);
-    addListener(document, 'click', onMissclick);
+    addListener(document, 'click', onMissNav);
   } else {
     removeClass(overlay, 'page__overlay--active');
-    removeListener(document, 'keydown', onDocument);
+    removeListener(document, 'keydown', onDocumentEscNav);
     removeListenerArray(dropButtons, 'click', onDropButton);
-    removeListener(document, 'click', onMissclick);
+    removeListener(document, 'click', onMissNav);
   }
+};
+
+const closeModal = () => {
+  removeClass(modal, 'hero__form--opened');
+  removeClass(overlay, 'page__overlay--active');
+};
+
+const onSubmitButton = () => {
+  closeModal();
+  removeListener(submitButton, 'click', onSubmitButton);
+};
+
+const onCancelButton = () => {
+  closeModal();
+  removeListener(cancelButton, 'click', onCancelButton);
+};
+
+const onDocumentEscForm = (evt) => {
+  if (modal.classList.contains('hero__form--opened') && isKeydown(evt, 'Escape')) {
+    evt.preventDefault();
+    closeModal();
+    removeListener(document, 'keydown', onDocumentEscForm);
+  }
+};
+
+const onMissForm = (evt) => {
+  if (!isTargetClick(evt, '.modal') && !isTargetClick(evt, '.hero__button')) {
+    closeModal();
+  }
+};
+
+const onHeroButton = () => {
+  addClass(modal, 'hero__form--opened');
+  addClass(overlay, 'page__overlay--active');
+  addListener(submitButton, 'click', onSubmitButton);
+  addListener(cancelButton, 'click', onCancelButton);
+  addListener(document, 'keydown', onDocumentEscForm);
+  addListener(document, 'click', onMissForm);
 };
 
 new Swiper('.hero', {
@@ -76,3 +119,4 @@ bullets.forEach((bullet) => {
 });
 
 addListener(toggler, 'click', onBurger);
+addListener(heroButton, 'click', onHeroButton);
