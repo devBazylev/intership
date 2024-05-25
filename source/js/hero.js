@@ -47,8 +47,12 @@ new Swiper('.hero', {
             this.slideTo(i);
           };
           const onBulletKey = (evt) => {
+            const refocus = () => {
+              paginationsAll[i].children[i].focus();
+            };
             if (isKeydown(evt, 'Enter')) {
               this.slideTo(i);
+              setTimeout(refocus, 200);
             }
           };
           addListener(bullets[i], 'click', onBulletClick);
