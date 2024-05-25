@@ -2,7 +2,8 @@ import Swiper from 'swiper';
 import { addClass, addClassArray, resetClassArray, addListener } from './util';
 
 const hero = document.querySelector('.hero');
-const paginations = Array.from(hero.querySelectorAll('.hero__pagination'));
+const paginationsAll = Array.from(hero.querySelectorAll('.hero__pagination'));
+const bulletsAll = hero.querySelectorAll('.hero__bullet');
 
 new Swiper('.hero', {
   loop: true,
@@ -22,26 +23,32 @@ new Swiper('.hero', {
   },
   on: {
     init: function () {
-      paginations.forEach((elem) => {
-        const bullets = elem.querySelectorAll('.hero__bullet');
-        addClass(bullets[0], 'hero__bullet--active');
-        bullets.forEach((bullet) => {
+      paginationsAll.forEach((paginationSingleCopy) => {
+        const bulletsSingleCopy = paginationSingleCopy.querySelectorAll('.hero__bullet');
+        addClass(bulletsSingleCopy[0], 'hero__bullet--active');
+        bulletsSingleCopy.forEach((bullet) => {
           bullet.setAttribute('aria-label', 'Переключите слайд');
           bullet.setAttribute('tabindex', '0');
         });
-        for (let i = 0; i < bullets.length; i++) {
-          bullets[i].dataset.id = i;
+        for (let i = 0; i < bulletsSingleCopy.length; i++) {
+          bulletsSingleCopy[i].dataset.id = i;
           const changeBullet = () => {
-            const bulletsAll = hero.querySelectorAll('.hero__bullet');
             const bulletsToActivate = hero.querySelectorAll(`[data-id="${i}"]`);
             resetClassArray(bulletsAll, 'hero__bullet--active');
             this.slideTo(i);
             addClassArray(bulletsToActivate, 'hero__bullet--active');
           };
-          addListener(bullets[i], 'click', changeBullet);
+          addListener(bulletsSingleCopy[i], 'click', changeBullet);
         }
       });
     },
+    transitionEnd: function () {
+      const slideIndex = document.querySelector('.hero__slide--active').getAttribute('data-swiper-slide-index');
+      const bulletsToActivate = hero.querySelectorAll(`[data-id="${slideIndex}"]`);
+      resetClassArray(bulletsAll, 'hero__bullet--active');
+      addClassArray(bulletsToActivate, 'hero__bullet--active');
+      // console.log('achtung');
+    },
   },
 });
-// accordId = +this.getAttribute('data-id');
+
