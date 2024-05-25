@@ -34,7 +34,7 @@
   font-weight: 500;
   text-align: left;
   letter-spacing: 0.28px;
-  transition: all 1s;
+  transition: all 0.3s;
 
   @media (min-width: $tab) {
     min-height: 56px;
@@ -74,11 +74,12 @@
 
 .header__toggler--opened {
   z-index: 1;
-  width: 291px;
+  min-width: 291px;
   margin: 20px 15px 0 auto;
   padding: 3px 4px 3px 19px;
   color: $light;
   background-color: $bright;
+  transition: all 0.3s;
 
   @media (min-width: $tab) {
     margin: 30px 45px 0 auto;
@@ -219,4 +220,10 @@
 .header__button:active,
 .header__sublink:active {
   color: $light;
+}
+
+.header__button:hover::after,
+.header__button:focus::after,
+.header__button:active::after {
+  background-color: $light;
 }
