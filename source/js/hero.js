@@ -1,26 +1,14 @@
 import Swiper from 'swiper';
-import { Pagination } from 'swiper/modules';
 import { addClass, addClassArray, resetClassArray, addListener } from './util';
-// import { addClass, removeClass, toggleClass, addListener, addListenerArray, removeListener, removeListenerArray, isTargetClick, isKeydown } from './util';
 
 const hero = document.querySelector('.hero');
 const paginations = Array.from(hero.querySelectorAll('.hero__pagination'));
 
 new Swiper('.hero', {
-// const swiper = new Swiper('.hero', {
-  modules: [Pagination],
   loop: true,
   watchSlidesProgress: true,
   slideActiveClass: 'hero__slide--active',
   autoHeight: true,
-  // pagination: {
-  //   el: paginationActive,
-  //   bulletActiveClass: 'hero__bullet--active',
-  //   bulletClass: 'hero__bullet',
-  //   type: 'bullets',
-  //   bulletElement: 'div',
-  //   clickable: true,
-  // },
   breakpoints: {
     320: {
       spaceBetween: 0,
@@ -45,11 +33,10 @@ new Swiper('.hero', {
           bullets[i].dataset.id = i;
           const changeBullet = () => {
             const bulletsAll = hero.querySelectorAll('.hero__bullet');
-            const xxx = hero.querySelectorAll('[data-id="' + i + '"]');
-            // console.log(xxx);
+            const bulletsToActivate = hero.querySelectorAll(`[data-id="${i}"]`);
             resetClassArray(bulletsAll, 'hero__bullet--active');
             this.slideTo(i);
-            addClassArray(xxx, 'hero__bullet--active');
+            addClassArray(bulletsToActivate, 'hero__bullet--active');
           };
           addListener(bullets[i], 'click', changeBullet);
         }
