@@ -15,9 +15,6 @@ new Swiper('.hero', {
     type: 'bullets',
     bulletElement: 'div',
     clickable: true,
-    // clickableClass: '.hero__pagination',
-    // dynamicBullets: true,
-    // dynamicMainBullets: 3,
   },
   breakpoints: {
     320: {

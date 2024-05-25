@@ -12,10 +12,10 @@ const closeModal = () => {
   removeClass(body, 'page__body--no-scroll');
   removeClass(modal, 'hero__form--opened');
   removeClass(overlay, 'page__overlay--active');
-  removeListener(document, 'click', onMissForm);
+  removeListener(document, 'click', onMissClick);
 };
 
-function onMissForm (evt) {
+function onMissClick (evt) {
   if (!isTargetClick(evt, '.modal') && !isTargetClick(evt, '.hero__button')) {
     closeModal();
   }
@@ -40,10 +40,10 @@ const onCancelButton = () => {
   removeListener(cancelButton, 'click', onCancelButton);
 };
 
-const onDocumentEscForm = (evt) => {
+const onDocument = (evt) => {
   if (modal.classList.contains('hero__form--opened') && isKeydown(evt, 'Escape')) {
     closeModal();
-    removeListener(document, 'keydown', onDocumentEscForm);
+    removeListener(document, 'keydown', onDocument);
   }
 };
 
@@ -54,8 +54,8 @@ const onHeroButton = () => {
   addListener(modal, 'submit', onSubmit);
   addListener(submitButton, 'click', onClick);
   addListener(cancelButton, 'click', onCancelButton);
-  addListener(document, 'keydown', onDocumentEscForm);
-  addListener(document, 'click', onMissForm);
+  addListener(document, 'keydown', onDocument);
+  addListener(document, 'click', onMissClick);
 };
 
 addListenerArray(heroButtons, 'click', onHeroButton);

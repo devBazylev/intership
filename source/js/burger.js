@@ -6,18 +6,18 @@ const header = body.querySelector('.header');
 const toggler = header.querySelector('.header__toggler');
 const dropButtons = header.querySelectorAll('.header__button');
 
-const onMissNav = (evt) => {
+const onMissClick = (evt) => {
   if (!isTargetClick(evt, '.header__nav') && !isTargetClick(evt, '.header__toggler')) {
     removeClass(toggler, 'header__toggler--opened');
     removeClass(overlay, 'page__overlay--active');
   }
 };
 
-const onDocumentEscNav = (evt) => {
+const onDocument = (evt) => {
   if (toggler.classList.contains('header__toggler--opened') && isKeydown(evt, 'Escape')) {
     toggleClass(toggler, 'header__toggler--opened');
     removeClass(overlay, 'page__overlay--active');
-    removeListener(document, 'keydown', onDocumentEscNav);
+    removeListener(document, 'keydown', onDocument);
   }
 };
 
@@ -30,15 +30,15 @@ const onBurger = () => {
   if (toggler.classList.contains('header__toggler--opened')) {
     addClass(body, 'page__body--no-scroll');
     addClass(overlay, 'page__overlay--active');
-    addListener(document, 'keydown', onDocumentEscNav);
+    addListener(document, 'keydown', onDocument);
     addListenerArray(dropButtons, 'click', onDropButton);
-    addListener(document, 'click', onMissNav);
+    addListener(document, 'click', onMissClick);
   } else {
     removeClass(body, 'page__body--no-scroll');
     removeClass(overlay, 'page__overlay--active');
-    removeListener(document, 'keydown', onDocumentEscNav);
+    removeListener(document, 'keydown', onDocument);
     removeListenerArray(dropButtons, 'click', onDropButton);
-    removeListener(document, 'click', onMissNav);
+    removeListener(document, 'click', onMissClick);
   }
 };
 
