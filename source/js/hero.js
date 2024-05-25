@@ -1,23 +1,27 @@
 import Swiper from 'swiper';
 import { Pagination } from 'swiper/modules';
+// import { resetClassArray } from './util';
 // import { addClass, removeClass, toggleClass, addListener, addListenerArray, removeListener, removeListenerArray, isTargetClick, isKeydown } from './util';
 
+const paginations = document.querySelectorAll('.hero__pagination');
+let pagId = 2;
+
+const paginationActive = paginations[pagId];
+
 new Swiper('.hero', {
+// const swiper = new Swiper('.hero', {
   modules: [Pagination],
   loop: true,
   watchSlidesProgress: true,
   slideActiveClass: 'hero__slide--active',
   autoHeight: true,
   pagination: {
-    el: '.hero__slide--active .hero__pagination',
+    el: paginationActive,
     bulletActiveClass: 'hero__bullet--active',
     bulletClass: 'hero__bullet',
     type: 'bullets',
     bulletElement: 'div',
     clickable: true,
-    // clickableClass: '.hero__pagination',
-    // dynamicBullets: true,
-    // dynamicMainBullets: 3,
   },
   breakpoints: {
     320: {
@@ -30,16 +34,18 @@ new Swiper('.hero', {
       simulateTouch: false,
     },
   },
+  on: {
+    init: function () {
+      const bullets = document.querySelectorAll('.hero__bullet');
+      bullets.forEach((bullet) => {
+        bullet.setAttribute('aria-label', 'Переключите слайд');
+        bullet.setAttribute('tabindex', '0');
+      });
+      // this.slideTo(1);
+    },
+    // slideChange: function () {
+    //   pagId = this.clickedIndex;
+    //   console.log(this.clickedIndex);
+    // },
+  },
 });
-
-// swiper.bullets
-const bullets = document.querySelectorAll('.hero__bullet');
-bullets.forEach((bullet) => {
-  bullet.setAttribute('aria-label', 'Переключите слайд');
-  bullet.setAttribute('tabindex', '0');
-});
-
-// swiper.update();
-// swiper.updateSlidesClasses();
-
-// paginationUpdate(swiper, paginationEl);
