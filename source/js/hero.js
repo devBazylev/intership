@@ -1,9 +1,25 @@
 import Swiper from 'swiper';
-import { addClass, addClassArray, resetClassArray, addListener } from './util';
+import { setDataId, addClass, addClassArray, resetClassArray, addListener, isKeydown } from './util';
 
 const hero = document.querySelector('.hero');
 const paginationsAll = Array.from(hero.querySelectorAll('.hero__pagination'));
-const bulletsAll = hero.querySelectorAll('.hero__bullet');
+
+const createBullets = () => {
+  paginationsAll.forEach((pagination) => {
+    const fragmentBullets = document.createDocumentFragment();
+    for (let i = 0; i < paginationsAll.length; i++) {
+      const newDiv = document.createElement('div');
+      newDiv.setAttribute('tabindex', '0');
+      newDiv.setAttribute('aria-label', 'Переключите слайд');
+      addClass(newDiv, 'hero__bullet');
+      fragmentBullets.appendChild(newDiv);
+    }
+    pagination.append(fragmentBullets);
+    addClass(pagination.children[0], 'hero__bullet--active');
+  });
+};
+
+createBullets();
 
 new Swiper('.hero', {
   loop: true,
@@ -23,32 +39,29 @@ new Swiper('.hero', {
   },
   on: {
     init: function () {
-      paginationsAll.forEach((paginationSingleCopy) => {
-        const bulletsSingleCopy = paginationSingleCopy.querySelectorAll('.hero__bullet');
-        addClass(bulletsSingleCopy[0], 'hero__bullet--active');
-        bulletsSingleCopy.forEach((bullet) => {
-          bullet.setAttribute('aria-label', 'Переключите слайд');
-          bullet.setAttribute('tabindex', '0');
-        });
-        for (let i = 0; i < bulletsSingleCopy.length; i++) {
-          bulletsSingleCopy[i].dataset.id = i;
-          const changeBullet = () => {
-            const bulletsToActivate = hero.querySelectorAll(`[data-id="${i}"]`);
-            resetClassArray(bulletsAll, 'hero__bullet--active');
+      paginationsAll.forEach((pagination) => {
+        const bullets = pagination.querySelectorAll('.hero__bullet');
+        setDataId(bullets);
+        for (let i = 0; i < bullets.length; i++) {
+          const onBulletClick = () => {
             this.slideTo(i);
-            addClassArray(bulletsToActivate, 'hero__bullet--active');
           };
-          addListener(bulletsSingleCopy[i], 'click', changeBullet);
+          const onBulletKey = (evt) => {
+            if (isKeydown(evt, 'Enter')) {
+              this.slideTo(i);
+            }
+          };
+          addListener(bullets[i], 'click', onBulletClick);
+          addListener(bullets[i], 'keydown', onBulletKey);
         }
       });
     },
     transitionEnd: function () {
+      const bulletsAll = hero.querySelectorAll('.hero__bullet');
       const slideIndex = document.querySelector('.hero__slide--active').getAttribute('data-swiper-slide-index');
       const bulletsToActivate = hero.querySelectorAll(`[data-id="${slideIndex}"]`);
       resetClassArray(bulletsAll, 'hero__bullet--active');
       addClassArray(bulletsToActivate, 'hero__bullet--active');
-      // console.log('achtung');
     },
   },
 });
-
