@@ -2,12 +2,13 @@ import Swiper from 'swiper';
 import { Pagination } from 'swiper/modules';
 import { addClass, removeClass, toggleClass, addListener, addListenerArray, removeListener, removeListenerArray, isTargetClick, isKeydown } from './util';
 
-const header = document.querySelector('.header');
+const body = document.querySelector('.page__body');
+const overlay = body.querySelector('.page__overlay');
+const hero = body.querySelector('.hero');
+const header = body.querySelector('.header');
 const toggler = header.querySelector('.header__toggler');
 const dropButtons = header.querySelectorAll('.header__button');
-const overlay = document.querySelector('.page__overlay');
-const hero = document.querySelector('.hero');
-const heroButton = hero.querySelector('.hero__button');
+const heroButtons = hero.querySelectorAll('.hero__button');
 const modal = hero.querySelector('.modal');
 const submitButton = modal.querySelector('.modal__submit');
 const cancelButton = modal.querySelector('.modal__cancel');
@@ -21,7 +22,6 @@ const onMissNav = (evt) => {
 
 const onDocumentEscNav = (evt) => {
   if (toggler.classList.contains('header__toggler--opened') && isKeydown(evt, 'Escape')) {
-    // evt.preventDefault();
     toggleClass(toggler, 'header__toggler--opened');
     removeClass(overlay, 'page__overlay--active');
     removeListener(document, 'keydown', onDocumentEscNav);
@@ -35,11 +35,13 @@ const onDropButton = function () {
 const onBurger = () => {
   toggleClass(toggler, 'header__toggler--opened');
   if (toggler.classList.contains('header__toggler--opened')) {
+    addClass(body, 'page__body--no-scroll');
     addClass(overlay, 'page__overlay--active');
     addListener(document, 'keydown', onDocumentEscNav);
     addListenerArray(dropButtons, 'click', onDropButton);
     addListener(document, 'click', onMissNav);
   } else {
+    removeClass(body, 'page__body--no-scroll');
     removeClass(overlay, 'page__overlay--active');
     removeListener(document, 'keydown', onDocumentEscNav);
     removeListenerArray(dropButtons, 'click', onDropButton);
@@ -48,6 +50,7 @@ const onBurger = () => {
 };
 
 const closeModal = () => {
+  removeClass(body, 'page__body--no-scroll');
   removeClass(modal, 'hero__form--opened');
   removeClass(overlay, 'page__overlay--active');
   removeListener(document, 'click', onMissForm);
@@ -86,6 +89,7 @@ const onDocumentEscForm = (evt) => {
 };
 
 const onHeroButton = () => {
+  addClass(body, 'page__body--no-scroll');
   addClass(modal, 'hero__form--opened');
   addClass(overlay, 'page__overlay--active');
   addListener(modal, 'submit', onSubmit);
@@ -129,4 +133,4 @@ bullets.forEach((bullet) => {
 });
 
 addListener(toggler, 'click', onBurger);
-addListener(heroButton, 'click', onHeroButton);
+addListenerArray(heroButtons, 'click', onHeroButton);
