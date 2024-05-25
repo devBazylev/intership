@@ -166,7 +166,9 @@
 
   position: relative;
   gap: 12px;
+  justify-content: unset;
   width: fit-content;
+  max-width: 70vw;
   background-color: $light;
   min-height: 28px;
   padding: 10px 16px;
@@ -186,16 +188,27 @@
   background-color: transparent;
   border-radius: 16px;
   border: 2px solid $bright;
+  cursor: pointer;
 
   @media (min-width: $tab) {
     width: 12px;
     height: 12px;
-    border: 2px solid $bright;
   }
 }
 
-.hero__bullet--active {
+.hero__bullet:hover {
+  background-color: $bright-trans-70;
+  border: 2px solid $light-trans-70;
+}
+
+.hero__bullet:focus {
   background-color: $bright;
+  border: 2px solid $bright;
+}
+
+.hero__bullet--active {
+  background-color: $dark-bright;
+  border: 2px solid $dark-bright;
 }
 
 .hero__title {
