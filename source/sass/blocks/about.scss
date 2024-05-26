@@ -1,0 +1,243 @@
+@import "../global/mixins";
+@import "../global/variables";
+
+.about {
+  @include grid;
+
+  width: 290px;
+  margin: 0 auto;
+  padding: 50px 0;
+  grid-auto-flow: dense;
+
+  @media (min-width: $tab) {
+    width: 678px;
+  }
+
+  @media (min-width: $desk) {
+    grid-template-columns: 1fr 498px ;
+    grid-template-rows: repeat(auto-fit, minmax(76px, auto) minmax(180px, auto) minmax(116px, auto) minmax(480px, auto));
+    width: 1240px;
+    padding: 70px 0 60px;
+    gap: 0 40px;
+  }
+}
+
+.about__title {
+  margin: 1px 1px 14px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  color: $bright;
+
+  @media (min-width: $tab) {
+    margin: 0 0 31px;
+    font-size: 34px;
+    line-height: 50px;
+  }
+
+  @media (min-width: $desk) {
+    margin: 0;
+    font-size: 50px;
+  }
+}
+
+.about > p:nth-of-type(1) {
+  margin: 0 0 40px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+
+  @media (min-width: $tab) {
+    margin: 0 0 39px;
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  @media (min-width: $desk) {
+    grid-column: 1/2;
+    margin: 4px 0 0;
+    font-size: 22px;
+    line-height: 32px;
+  }
+}
+
+.about > h3 {
+  margin: 0 0 20px;
+  color: $bright;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+
+  @media (min-width: $tab) {
+    margin: 0 0 30px;
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  @media (min-width: $desk) {
+    grid-column: 2/3;
+    margin: 0;
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+
+.about > p:not(:nth-of-type(1)) {
+  margin: 0 0 30px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+
+  @media (min-width: $tab) {
+    margin: 0 0 40px;
+    padding: 0 160px 0 0;
+    font-size: 16px;
+  }
+
+  @media (min-width: $desk) {
+    margin: 0;
+    padding: 0;
+    line-height: 26px;
+  }
+}
+
+.about__button {
+  width: 223px;
+  margin: 0 0 40px;
+
+  @media (min-width: $tab) {
+    margin: 0 0 60px;
+    width: 279px;
+  }
+
+  @media (min-width: $desk) {
+    grid-column: 2/3;
+    align-self: start;
+    gap: 31px;
+    min-height: 56px;
+    margin: 0;
+  }
+}
+
+.about__button::before {
+  @media (min-width: $desk) {
+    left: -1px;
+  }
+}
+
+.about__button::after {
+  @media (min-width: $desk) {
+    left: 18px;
+  }
+}
+
+.about__achievement {
+  @include grid;
+
+  gap: 22px;
+  padding: 42px 20px 40px;
+  color: $light;
+  background-color: $bright;
+  border-radius: 20px;
+
+  @media (min-width: $tab) {
+    grid-template-columns: 1fr 1fr;
+    gap: 54px 52px;
+    padding: 72px 50px 50px 70px;
+  }
+
+  @media (min-width: $desk) {
+    grid-column: span 2;
+    padding: 72px 100px 50px 120px;
+  }
+}
+
+.about__card {
+  @include grid;
+
+  position: relative;
+  gap: 15px;
+  padding: 15px 20px;
+  border-radius: 16px;
+  border: 1px solid $common;
+
+  @media (min-width: $tab) {
+    grid-template-rows: repeat(auto-fit, minmax(43px, auto) minmax(80px, auto));
+    gap: 14px;
+    align-items: start;
+    padding: 16px 20px 15px;
+    border-radius: 16px;
+  }
+
+  @media (min-width: $desk) {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 0;
+    align-items: center;
+    padding: 20px 40px;
+  }
+}
+
+.about__card::before {
+  @include pseudo;
+  @include svg("star");
+
+  position: absolute;
+  z-index: 1;
+  top: -23px;
+  left: -21px;
+  width: 42px;
+  height: 42px;
+  background-size: 18px 22px;
+  background-color: $bright;
+  border-radius: 20px;
+}
+
+.about__card h3 {
+  margin: 0;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.16px;
+  text-transform: uppercase;
+
+  @media (min-width: $tab) {
+    font-size: 20px;
+    line-height: 22px;
+    letter-spacing: 0.2px;
+  }
+
+  @media (min-width: $desk) {
+    font-size: 26px;
+    line-height: 30px;
+    letter-spacing: 0.26px;
+  }
+}
+
+.about__card p {
+  margin: 0;
+  color: $common;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 20px;
+
+  @media (min-width: $tab) {
+    font-size: 16px;
+  }
+}
+
+.about__card:nth-of-type(1) p {
+  @media (min-width: $tab) {
+    position: relative;
+    top: -10px;
+  }
+
+  @media (min-width: $desk) {
+    position: unset;
+  }
+}
