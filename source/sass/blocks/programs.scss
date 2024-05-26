@@ -1,0 +1,19 @@
+@import "../global/mixins";
+@import "../global/variables";
+
+.programs {
+  width: 290px;
+  margin: 0 auto;
+
+  @media (min-width: $tab) {
+    width: 678px;
+  }
+
+  @media (min-width: $desk) {
+    width: 1240px;
+  }
+}
+
+.programs__slider {
+  margin: 0 auto;
+}
