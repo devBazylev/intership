@@ -149,8 +149,35 @@
         </div>
       </section>
 
-      <section class="programs" data-test="programs">
-        <h2>programs</h2>
+      <section class="programs swiper" data-test="programs">
+        <h2 class="programs__title">Программы</h2>
+        <button class="programs__button programs__button--prev swiper-button-prev" type="button" aria-label="Переключить на предыдущий слайд"></button>
+        <button class="programs__button programs__button--next swiper-button-next" type="button" aria-label="Переключить на следующий слайд"></button>
+        <div class="programs__slider swiper-wrapper">
+          <div class="programs__slide swiper-slide">
+            <h3 class="programs__subtitle"></h3>
+            <div class="programs__content">
+              <p>Получите незаменимый опыт работы в крупнейших мировых компаниях.</p>
+              <a class="programs__sublink" href="#" aria-label="Переход по ссылке"></a>
+            </div>
+          </div>
+          <div class="programs__slide swiper-slide">
+            <h3 class="programs__subtitle"></h3>
+            <div class="programs__content">
+              <p>Помогайте другим и развивайте свои лидерские качества</p>
+              <a class="programs__sublink" href="#" aria-label="Переход по ссылке"></a>
+            </div>
+          </div>
+          <div class="programs__slide swiper-slide">
+            <h3 class="programs__subtitle"></h3>
+            <div class="programs__content">
+              <p>Получите образование и измените своё будущее.</p>
+              <a class="programs__sublink" href="#" aria-label="Переход по ссылке"></a>
+            </div>
+          </div>
+        </div>
+        <div class="programs__pagination swiper-pagination"></div>
+        <a class="programs__link page__button" href="#">Все программы</a>
       </section>
 
       <section class="grant" data-test="grant">
