@@ -168,7 +168,7 @@
 
 .header__button::after {
   @include pseudo;
-  @include svg("half-arrow", mask, $light);
+  @include svg("half-arrow", "mask", $light);
 
   position: relative;
   top: 4px;

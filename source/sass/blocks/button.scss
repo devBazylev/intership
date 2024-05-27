@@ -63,7 +63,7 @@
 
 .button::after {
   @include pseudo;
-  @include svg("arrow", mask);
+  @include svg("arrow", "mask", $light);
 
   position: relative;
   top: -1px;
@@ -71,7 +71,6 @@
   grid-area: 1/2/2/3;
   width: 8px;
   height: 8px;
-  background-color: $light;
   mask-size: 18px 8px;
 
   @media (min-width: $tab) {
@@ -142,4 +141,130 @@
 .button:disabled::after,
 .button--disabled::after {
   background-color: $light-trans-60;
+}
+
+.button__circle::before {
+  @include pseudo;
+
+  position: relative;
+  grid-area: 1/2/2/3;
+  width: 30px;
+  height: 30px;
+  background-color: $bright;
+  border-radius: 50%;
+}
+
+.button__circle::after {
+  @include pseudo;
+  @include svg("arrow", "mask", $light);
+
+  position: relative;
+  top: -19px;
+  left: 11px;
+  grid-area: 1/2/2/3;
+  width: 8px;
+  height: 8px;
+  mask-size: 18px 8px;
+
+  // @media (min-width: $tab) {
+  //   top: 0;
+  //   left: 18px;
+  // }
+
+  // @media (min-width: $desk) {
+  //   left: 17px;
+  // }
+}
+
+.button__circle:hover::before {
+  background-color: $light;
+}
+
+.button__circle:hover::after {
+  background-color: $bright;
+  transform: rotate(45deg);
+}
+
+.button__circle:focus::before {
+  background-color: $bright;
+}
+
+.button__circle:focus::after {
+  background-color: $light;
+  transform: rotate(45deg);
+}
+
+.button__circle:active::before {
+  background-color: $light;
+}
+
+.button__circle:active::after {
+  background-color: $bright-trans-70;
+  transform: rotate(45deg);
+}
+
+.button__circle:disabled::before,
+.button__circle--disabled::before {
+  background-color: $stormy;
+}
+
+.button__circle:disabled::after,
+.button__circle--disabled::after {
+  background-color: $light-trans-60;
+}
+
+.button__arrow {
+  display: block;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.button__arrow::before {
+  @include pseudo;
+  @include svg("arrow", "mask", $bright);
+
+  position: relative;
+  top: 0;
+  left: 7px;
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+}
+
+.button__arrow:hover {
+  background-color: transparent;
+}
+
+.button__arrow:focus {
+  background-color: $light;
+}
+
+.button__arrow:active {
+  background-color: $light;
+}
+
+.button__circle:disabled,
+.button__circle--disabled {
+  background-color: transparent;
+}
+
+.button__arrow:hover::before {
+  background-color: $bright-trans-70;
+}
+.button__arrow:focus::before {
+  background-color: $bright;
+}
+.button__arrow:active::before {
+  background-color: $bright-trans-70;
+}
+
+.button__arrow:disabled::before,
+.button__arrow--disabled::before {
+  background-color: $stormy;
 }
