@@ -58,3 +58,9 @@
   display: grid;
   grid-template-columns: $first-column, $second-column, $third-column, $fourth-column, $fifth-column, $sixth-column, $seventh-column, $eighth-column, $nineth-column, $tenth-column;
 }
+
+// @mixin btn($text: "false") {
+//   @if $text == "true" {
+//     background-color: red;
+//   }
+// }
