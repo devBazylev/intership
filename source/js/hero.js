@@ -47,14 +47,14 @@ new Swiper('.hero', {
         setDataId(bullets);
         for (let i = 0; i < bullets.length; i++) {
           const onBulletClick = () => {
-            this.slideTo(i);
+            this.slideToLoop(i);
           };
           const onBulletKey = (evt) => {
             const refocus = () => {
               paginationsAll[i].children[i].focus();
             };
             if (isKeydown(evt, 'Enter')) {
-              this.slideTo(i);
+              this.slideToLoop(i);
               setTimeout(refocus, 200);
             }
           };
