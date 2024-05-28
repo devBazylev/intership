@@ -151,8 +151,8 @@
 
       <section class="programs swiper" data-test="programs">
         <h2 class="programs__title page__title">Программы</h2>
-        <button class="programs__button programs__button--prev swiper-button-prev button__arrow" type="button" aria-label="Переключить на предыдущий слайд"></button>
-        <button class="programs__button programs__button--next swiper-button-next button__arrow" type="button" aria-label="Переключить на следующий слайд"></button>
+        <button class="programs__button programs__button--prev swiper-button-prev button__arrow" type="button" aria-label="Переключить на предыдущий слайд."></button>
+        <button class="programs__button programs__button--next swiper-button-next button__arrow" type="button" aria-label="Переключить на следующий слайд."></button>
         <div class="programs__slider swiper-wrapper">
           <div class="programs__slide swiper-slide">
             <div class="programs__content">
@@ -238,8 +238,52 @@
         </div>
       </section>
 
-      <section class="news" data-test="news">
-        <h2>news</h2>
+      <section class="news swiper" data-test="news">
+        <h2 class="news__title page__title">Новости и материалы</h2>
+        <div class="news__tabs">
+          <button class="news__tab" type="button">Общее</button>
+          <button class="news__tab" type="button">Волонтёрство</button>
+          <button class="news__tab" type="button">Стажировки</button>
+          <button class="news__tab" type="button">Карьера</button>
+          <button class="news__tab" type="button">путешествия</button>
+        </div>
+        <div class="news__slider swiper-wrapper">
+          <div class="news__slide swiper-slide">
+            <h3 class="news__subtitle">Интервью с участницей программы стажировки</h3>
+            <div class="news__date">23/03/2023</div>
+            <div class="news__cms">
+              <p>Саша рассказывает, как попала в программу и как прошла 6-месячная стажировка в ISOFound</p>
+              <a class="news__link" href="#" aria-label="Переход по ссылке"></a>
+            </div>
+          </div>
+          <div class="news__slide swiper-slide">
+            <h3 class="news__subtitle">Путешествуем по миру</h3>
+            <div class="news__date">20/03/2023</div>
+            <div class="news__cms">
+              <p>Какие места посещают наши студенты весной</p>
+              <a class="news__link" href="#" aria-label="Переход по ссылке"></a>
+            </div>
+          </div>
+          <div class="news__slide swiper-slide">
+            <h3 class="news__subtitle">Новая программа волонтёрства</h3>
+            <div class="news__date">17/03/2023</div>
+            <div class="news__cms">
+              <p>Программа помощи детям длительностью 4 месяца</p>
+              <a class="news__link" href="#" aria-label="Переход по ссылке"></a>
+            </div>
+          </div>
+          <div class="news__slide swiper-slide">
+            <h3 class="news__subtitle">Построй свою карьеру</h3>
+            <div class="news__date">10/03/2023</div>
+            <div class="news__cms">
+              <p>Ведущие компании готовы трудоустроить выпускников стажировки</p>
+              <a class="news__link" href="#" aria-label="Переход по ссылке"></a>
+            </div>
+          </div>
+        </div>
+        <button class="news__button news__button--prev swiper-button-prev button__arrow" type="button" aria-label="Переключить на предыдущий слайд."></button>
+        <div class="news__pagination"></div>
+        <button class="news__button news__button--next swiper-button-next button__arrow" type="button" aria-label="Переключить на следующий слайд."></button>
       </section>
 
       <section class="faq" data-test="FAQ">
