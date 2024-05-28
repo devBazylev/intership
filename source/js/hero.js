@@ -1,5 +1,4 @@
 import Swiper from 'swiper';
-// import { Manipulation } from 'swiper/modules';
 import { setDataId, addClass, addClassArray, resetClassArray, addListener, isKeydown } from './util';
 
 const hero = document.querySelector('.hero');
@@ -23,10 +22,8 @@ const createBullets = () => {
 createBullets();
 
 new Swiper('.hero', {
-  // modules: [Manipulation],
   loop: true,
   watchSlidesProgress: true,
-  // observer: true,
   slideActiveClass: 'hero__slide--active',
   autoHeight: true,
   breakpoints: {
