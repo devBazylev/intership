@@ -1,0 +1,176 @@
+@import "../global/mixins";
+@import "../global/variables";
+
+.grant {
+  padding: 71px calc((100vw - 290px) / 2) 70px;
+  color: $light;
+  background-color: $bright;
+
+  @media (min-width: $tab) {
+    padding: 100px calc((100vw - 678px) / 2);
+  }
+
+  @media (min-width: $desk) {
+    @include flex;
+
+    gap: 70px;
+    padding: 120px calc((100vw - 1240px) / 2) 119px;
+  }
+}
+
+.grant__content {
+  display: inline-grid;
+  grid-template-rows: repeat(auto-fit, minmax(24px, auto) minmax(120px, auto) minmax(205px, auto));
+  gap: 10px;
+  width: fit-content;
+  max-width: 100%;
+
+  @media (min-width: $tab) {
+    grid-template-rows: repeat(auto-fit, minmax(70px, auto) minmax(90px, auto) minmax(100px, auto));
+  }
+
+  @media (min-width: $desk) {
+    grid-template-rows: repeat(auto-fit, minmax(70px, auto) minmax(108px, auto) minmax(100px, auto));
+  }
+}
+
+.grant__content:has(+*) {
+  margin: 0 0 35px;
+
+  @media (min-width: $tab) {
+    margin: 0 0 45px;
+  }
+}
+
+.grant__title {
+  margin: 0;
+}
+
+.grant__content p {
+  margin: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+
+  @media (min-width: $tab) {
+    width: 498px;
+    font-size: 16px;
+  }
+
+  @media (min-width: $desk) {
+    width: 498px;
+    line-height: 26px
+  }
+}
+
+.grant__content img {
+  border-radius: 16px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+.grant__requirments {
+  display: inline-grid;
+  grid-template-rows: repeat(auto-fit, minmax(59px, auto));
+  gap: 15px;
+  align-items: start;
+  width: fit-content;
+  counter-reset: grant 0;
+
+  @media (min-width: $tab) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(48px, auto) minmax(102px, auto) minmax(142px, auto));
+    gap: 25px 27px;
+    align-items: unset;
+  }
+
+  @media (min-width: $desk) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fit, minmax(104px, auto) minmax(88px, auto) minmax(89px, auto) minmax(114px, auto) minmax(114px, auto));
+    gap: 22px 27px;
+    align-items: start;
+    width: 498px;
+    margin: 0 68px;
+    padding: 10px 0 0;
+  }
+}
+
+.grant__subtitle {
+  margin: 0;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+
+  @media (min-width: $tab) {
+    grid-column: 1/3;
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  @media (min-width: $desk) {
+    grid-column: unset;
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+
+.grant__claim {
+  position: relative;
+  margin: 0 0 0 15px;
+  padding: 24px 24px 24px 25px;
+  color: $common;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  border: 1px solid $common;
+  border-radius: 16px;
+  counter-increment: grant 1;
+
+  @media (min-width: $tab) {
+    margin: 0 0 0 20px;
+    padding: 30px 30px 30px 25px;
+    font-size: 16px;
+  }
+
+  @media (min-width: $desk) {
+    line-height: 26px;
+  }
+}
+
+.grant__claim::before {
+  content: ""counter(grant)"";
+
+  position: absolute;
+  top: -6px;
+  left: -15px;
+  display: block;
+  width: 27px;
+  height: 32px;
+  padding: 7px 7px 7px 10px;
+  color: $light;
+  background-color: $bright;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  text-transform: uppercase;
+
+  @media (min-width: $tab) {
+    top: -13px;
+    left: -16px;
+    width: 36px;
+    height: 39px;
+    font-size: 22px;
+    line-height: 22px;
+    letter-spacing: 0.22px;
+  }
+}
+
+.grant__claim:nth-of-type(1):before {
+  padding: 7px 7px 7px 11px;
+}

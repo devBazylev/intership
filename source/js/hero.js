@@ -47,14 +47,14 @@ new Swiper('.hero', {
         setDataId(bullets);
         for (let i = 0; i < bullets.length; i++) {
           const onBulletClick = () => {
-            this.slideTo(i);
+            this.slideToLoop(i);
           };
           const onBulletKey = (evt) => {
             const refocus = () => {
               paginationsAll[i].children[i].focus();
             };
             if (isKeydown(evt, 'Enter')) {
-              this.slideTo(i);
+              this.slideToLoop(i);
               setTimeout(refocus, 200);
             }
           };
@@ -65,8 +65,8 @@ new Swiper('.hero', {
     },
     transitionEnd: function () {
       const bulletsAll = hero.querySelectorAll('.hero__bullet');
-      const slideIndex = document.querySelector('.hero__slide--active').getAttribute('data-swiper-slide-index');
-      const bulletsToActivate = hero.querySelectorAll(`[data-id="${slideIndex}"]`);
+      const activeSlideIndex = document.querySelector('.hero__slide--active').getAttribute('data-swiper-slide-index');
+      const bulletsToActivate = hero.querySelectorAll(`[data-id="${activeSlideIndex}"]`);
       resetClassArray(bulletsAll, 'hero__bullet--active');
       addClassArray(bulletsToActivate, 'hero__bullet--active');
     },
