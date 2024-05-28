@@ -1,9 +1,12 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
-// import { setDataId, addClass, addClassArray, resetClassArray, addListener, isKeydown } from './util';
+import { addListener, isTargetClick, removeListener } from './util';
 
-new Swiper('.programs', {
+const programs = document.querySelector('.programs');
+
+const swiper = new Swiper('.programs', {
   modules: [Navigation, Pagination, Scrollbar],
+  init: false,
   watchSlidesProgress: true,
   slideActiveClass: 'programs__slide--active',
   navigation: {
@@ -36,7 +39,29 @@ new Swiper('.programs', {
       simulateTouch: false,
     },
   },
-  // on: {
-
-  // },
 });
+
+const onProgramsTouch = () => {
+  swiper.init();
+  removeListener(programs, 'touchstart', onProgramsTouch);
+};
+
+const onProgramsClick = (evt) => {
+  if (isTargetClick(evt, '.programs')) {
+    swiper.init();
+  }
+  removeListener(programs, 'click', onProgramsClick);
+};
+
+const onProgramsKey = () => {
+  swiper.init();
+  removeListener(programs, 'keyup', onProgramsKey);
+};
+
+const setListenersForPrograms = () => {
+  addListener(programs, 'touchstart', onProgramsTouch);
+  addListener(programs, 'click', onProgramsClick);
+  addListener(programs, 'keyup', onProgramsKey);
+};
+
+export { setListenersForPrograms };
