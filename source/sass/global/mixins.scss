@@ -48,9 +48,10 @@
   }
 }
 
-@mixin flex($wrap: wrap, $justify: space-between) {
+@mixin flex($wrap: wrap, $justify: null, $direction: null) {
   display: flex;
   justify-content: $justify;
+  flex-direction: $direction;
   flex-wrap: $wrap;
 }
 

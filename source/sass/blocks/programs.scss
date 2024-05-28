@@ -13,13 +13,13 @@
   @media (min-width: $tab) {
     grid-template-rows: repeat(auto-fit, minmax(96px, auto) minmax(420px, auto) minmax(111px, auto));
     width: 678px;
-    padding: 50px 0 50px;
+    padding: 50px 0 1px;
   }
 
   @media (min-width: $desk) {
     grid-template-rows: repeat(auto-fit, minmax(98px, auto) minmax(420px, auto) minmax(122px, auto));
     width: 1240px;
-    padding: 62px 0;
+    padding: 62px 0 0;
   }
 }
 
