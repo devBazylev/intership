@@ -4,8 +4,16 @@ import { Navigation, Pagination, Scrollbar, Manipulation } from 'swiper/modules'
 
 new Swiper('.news', {
   modules: [Navigation, Pagination, Scrollbar, Manipulation],
+  init: true,
+  autoplay: false,
   watchSlidesProgress: true,
+  observer: true,
   slideActiveClass: 'news__slide--active',
+  loopAddBlankSlides: false,
+  loopAdditionalSlides: 0,
+  observeParents: true,
+  resizeObserver: true,
+  updateOnWindowResize: true,
   navigation: {
     prevEl: '.news__button--prev',
     nextEl: '.news__button--next',
@@ -32,7 +40,4 @@ new Swiper('.news', {
       simulateTouch: false,
     },
   },
-  // on: {
-
-  // },
 });

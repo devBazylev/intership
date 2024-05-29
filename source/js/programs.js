@@ -1,12 +1,12 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, Manipulation } from 'swiper/modules';
 import { addListener, isTargetClick, removeListener } from './util';
 
 const programs = document.querySelector('.programs');
 
 const swiper = new Swiper('.programs', {
-  modules: [Navigation, Pagination, Scrollbar],
-  init: false,
+  modules: [Navigation, Pagination, Scrollbar, Manipulation],
+  // init: false,
   watchSlidesProgress: true,
   slideActiveClass: 'programs__slide--active',
   navigation: {
