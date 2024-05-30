@@ -15,6 +15,7 @@
     <!-- <link rel="preload" href="fonts/Manrope-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="fonts/Manrope-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="fonts/Manrope-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/> -->
     <link rel="stylesheet" href="sass/style.scss">
   </head>
 
@@ -212,7 +213,9 @@
             </div>
           </div>
         </div>
-        <div class="programs__pagination swiper-pagination"></div>
+        <div class="programs__pagination swiper-pagination swiper-pagination-progressbar swiper-pagination-horizontal">
+          <div class="swiper-pagination-progressbar-fill"></div>
+        </div>
         <a class="programs__link button" href="#">Все программы</a>
       </section>
 
@@ -247,11 +250,12 @@
           <button class="news__tab" type="button">Карьера</button>
           <button class="news__tab" type="button">путешествия</button>
         </div>
+        <!-- <div class="swiper-scrollbar"></div> -->
         <div class="news__slider swiper-wrapper">
-          <div class="news__slide swiper-slide">
+          <div class="news__slide news__slide--inerview swiper-slide">
             <div class="news__content">
               <h3 class="news__subtitle">Интервью с участницей программы стажировки</h3>
-              <div class="news__date">23/03/2023</div>
+              <time class="news__date" datetime="2023-03-23">23/03/2023</time>
               <div class="news__cms">
                 <p>Саша рассказывает, как попала в программу и как прошла 6-месячная стажировка в ISOFound</p>
                 <a class="news__link button__circle" href="#" aria-label="Переход по ссылке"></a>
@@ -268,11 +272,11 @@
               </picture>
             </div>
           </div>
-          <div class="news__slide swiper-slide">
+          <div class="news__slide news__slide--beach swiper-slide">
             <div class="news__content">
               <h3 class="news__subtitle">Путешествуем по миру</h3>
-              <div class="news__date">20/03/2023</div>
-              <div class="news__cms">
+              <time class="news__date" datetime="2023-03-20">20/03/2023</time>
+              <div class="news__cms news__cms--beach">
                 <p>Какие места посещают наши студенты весной</p>
                 <a class="news__link button__circle" href="#" aria-label="Переход по ссылке"></a>
               </div>
@@ -284,14 +288,14 @@
                 <source type="image/webp" srcset="img/news-2-mob@1x.webp 1x, img/news-2-mob@2x.webp 2x" width="290" height="330">
                 <source type="image/webp" media="(min-width: 1440px)" srcset="img/news-2-desk@1x.jpg 1x, img/news-2-desk@2x.jpg 2x" width="604" height="400">
                 <source type="image/webp" media="(min-width: 768px)" srcset="img/news-2-tab@1x.jpg 1x, img/news-2-tab@2x.jpg 2x" width="324" height="350">
-                <img class="news__image" src="img/news-2-mob@1x.jpg" srcset="img/news-2-mob@2x.jpg 2x" width="290" height="330" alt="Интервью." loading="lazy">
+                <img class="news__image" src="img/news-2-mob@1x.jpg" srcset="img/news-2-mob@2x.jpg 2x" width="290" height="330" alt="Пляж с высоты." loading="lazy">
               </picture>
             </div>
           </div>
-          <div class="news__slide swiper-slide">
+          <div class="news__slide news__slide--girl swiper-slide">
             <div class="news__content">
               <h3 class="news__subtitle">Новая программа волонтёрства</h3>
-              <div class="news__date">17/03/2023</div>
+              <time class="news__date" datetime="2023-03-17">17/03/2023</time>
               <div class="news__cms">
                 <p>Программа помощи детям длительностью 4 месяца</p>
                 <a class="news__link button__circle" href="#" aria-label="Переход по ссылке"></a>
@@ -304,14 +308,14 @@
                 <source type="image/webp" srcset="img/news-3-tab@1x.webp 1x, img/news-3-tab@2x.webp 2x" width="290" height="330">
                 <source type="image/webp" media="(min-width: 1440px)" srcset="img/news-3-desk@1x.jpg 1x, img/news-3-desk@2x.jpg 2x" width="604" height="400">
                 <source type="image/webp" media="(min-width: 768px)" srcset="img/news-3-tab@1x.jpg 1x, img/news-3-tab@2x.jpg 2x" width="324" height="350">
-                <img class="news__image" src="img/news-3-tab@1x.jpg" srcset="img/news-3-tab@2x.jpg 2x" width="290" height="330" alt="Интервью." loading="lazy">
+                <img class="news__image" src="img/news-3-tab@1x.jpg" srcset="img/news-3-tab@2x.jpg 2x" width="290" height="330" alt="Девушка со значком волонтёра." loading="lazy">
               </picture>
             </div>
           </div>
-          <div class="news__slide swiper-slide">
+          <div class="news__slide news__slide--gadjets swiper-slide">
             <div class="news__content">
               <h3 class="news__subtitle">Построй свою карьеру</h3>
-              <div class="news__date">10/03/2023</div>
+              <time class="news__date" datetime="2023-03-10">10/03/2023</time>
               <div class="news__cms">
                 <p>Ведущие компании готовы трудоустроить выпускников стажировки</p>
                 <a class="news__link button__circle" href="#" aria-label="Переход по ссылке"></a>
@@ -324,7 +328,7 @@
                 <source type="image/webp" srcset="img/news-4-tab@1x.webp 1x, img/news-4-tab@2x.webp 2x" width="290" height="330">
                 <source type="image/webp" media="(min-width: 1440px)" srcset="img/news-4-desk@1x.jpg 1x, img/news-4-desk@2x.jpg 2x" width="604" height="400">
                 <source type="image/webp" media="(min-width: 768px)" srcset="img/news-4-tab@1x.jpg 1x, img/news-4-tab@2x.jpg 2x" width="324" height="350">
-                <img class="news__image" src="img/news-4-tab@1x.jpg" srcset="img/news-4-tab@2x.jpg 2x" width="290" height="330" alt="Интервью." loading="lazy">
+                <img class="news__image" src="img/news-4-tab@1x.jpg" srcset="img/news-4-tab@2x.jpg 2x" width="290" height="330" alt="Фото стола с гаджетами и кофе." loading="lazy">
               </picture>
             </div>
           </div>
@@ -352,6 +356,7 @@
     </main>
 
     <footer class="page__footer footer" data-test="footer"><h2>footer</h2></footer>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
 
     <script type="module" src="js/main.js"></script>
   </body>

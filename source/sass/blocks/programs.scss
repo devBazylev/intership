@@ -253,7 +253,24 @@
   @media (min-width: $tab) {
     display: block;
     grid-area: 3/1/4/2;
+    width: 652px;
+    // width: 562px;
+    height: 2px;
+    margin: 50px 0 0;
+    background-color: $bright-trans-20;
   }
+
+  @media (min-width: $desk) {
+    width: 1136px;
+  }
+}
+
+.swiper-pagination-progressbar-fill {
+  display: block;
+  width: auto;
+  height: 2px;
+  background-color: $bright;
+  transform-origin: left top;
 }
 
 .programs__link {
