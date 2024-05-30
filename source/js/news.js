@@ -1,9 +1,18 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination, Scrollbar, Manipulation } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, Manipulation, Grid } from 'swiper/modules';
+import { cloneSlides } from './util';
 // import { setDataId, addClass, addClassArray, resetClassArray, addListener, isKeydown } from './util';
 
+const news = document.querySelector('.news');
+const slider = news.querySelector('.news__slider');
+const slides = news.querySelectorAll('.news__slide');
+
+const clones = [];
+
+cloneSlides(slider, slides, clones);
+
 new Swiper('.news', {
-  modules: [Navigation, Pagination, Scrollbar, Manipulation],
+  modules: [Navigation, Pagination, Scrollbar, Manipulation, Grid],
   init: true,
   autoplay: false,
   watchSlidesProgress: true,
@@ -25,15 +34,23 @@ new Swiper('.news', {
     type: 'bullets',
     bulletElement: 'div',
     clickable: true,
+    dynamicBullets: true,
+    renderBullet: function (index, className) {
+      // return `<span class="${className}"> + ${index} + </span>`;
+      return '<span class="' + className + '">' + (index + 1) + '</span>';
+    }
+  },
+  grid: {
+    rows: 2,
+    fill:	'column',
   },
   breakpoints: {
     320: {
       autoHeight: true,
-
+      spaceBetween: 15,
     },
     768: {
       spaceBetween: 30,
-
     },
     1440: {
       spaceBetween: 32,

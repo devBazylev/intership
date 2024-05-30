@@ -1,12 +1,13 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination, Scrollbar, Manipulation } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, Manipulation, Autoplay } from 'swiper/modules';
 import { addListener, isTargetClick, removeListener } from './util';
 
 const programs = document.querySelector('.programs');
 
 const swiper = new Swiper('.programs', {
-  modules: [Navigation, Pagination, Scrollbar, Manipulation],
+  modules: [Navigation, Pagination, Scrollbar, Manipulation, Autoplay],
   // init: false,
+  autoplay: false,
   watchSlidesProgress: true,
   slideActiveClass: 'programs__slide--active',
   navigation: {
@@ -15,11 +16,13 @@ const swiper = new Swiper('.programs', {
   },
   pagination: {
     el: '.programs__pagination',
-    bulletActiveClass: 'programs__bullet--active',
-    bulletClass: 'programs__bullet',
-    type: 'bullets',
-    bulletElement: 'div',
-    clickable: true,
+    // bulletActiveClass: 'programs__bullet--active',
+    // bulletClass: 'programs__bullet',
+    // type: 'bullets',
+    // bulletElement: 'div',
+    // clickable: true,
+    type: 'progressbar',
+    progressbarOppositeClass: 'clsasss',
   },
   breakpoints: {
     320: {

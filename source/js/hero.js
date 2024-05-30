@@ -1,3 +1,5 @@
+import './burger.js';
+import './modal.js';
 import Swiper from 'swiper';
 import { setDataId, addClass, addClassArray, resetClassArray, addListener, isKeydown } from './util';
 
