@@ -241,7 +241,7 @@
       <section class="news swiper" data-test="news">
         <h2 class="news__title page__title">Новости и материалы</h2>
         <div class="news__tabs">
-          <button class="news__tab" type="button">Общее</button>
+          <button class="news__tab news__tab--active" type="button">Общее</button>
           <button class="news__tab" type="button">Волонтёрство</button>
           <button class="news__tab" type="button">Стажировки</button>
           <button class="news__tab" type="button">Карьера</button>
@@ -249,35 +249,83 @@
         </div>
         <div class="news__slider swiper-wrapper">
           <div class="news__slide swiper-slide">
-            <h3 class="news__subtitle">Интервью с участницей программы стажировки</h3>
-            <div class="news__date">23/03/2023</div>
-            <div class="news__cms">
-              <p>Саша рассказывает, как попала в программу и как прошла 6-месячная стажировка в ISOFound</p>
-              <a class="news__link" href="#" aria-label="Переход по ссылке"></a>
+            <div class="news__content">
+              <h3 class="news__subtitle">Интервью с участницей программы стажировки</h3>
+              <div class="news__date">23/03/2023</div>
+              <div class="news__cms">
+                <p>Саша рассказывает, как попала в программу и как прошла 6-месячная стажировка в ISOFound</p>
+                <a class="news__link button__circle" href="#" aria-label="Переход по ссылке"></a>
+              </div>
+            </div>
+            <div class="news__picture">
+              <picture>
+                <source type="image/webp" media="(min-width: 1440px)" srcset="img/news-1-desk@1x.webp 1x, img/news-1-desk@2x.webp 2x" width="604" height="400">
+                <source type="image/webp" media="(min-width: 768px)" srcset="img/news-1-tab@1x.webp 1x, img/news-1-tab@2x.webp 2x" width="324" height="350">
+                <source type="image/webp" srcset="img/news-1-mob@1x.webp 1x, img/news-1-mob@2x.webp 2x" width="290" height="330">
+                <source type="image/webp" media="(min-width: 1440px)" srcset="img/news-1-desk@1x.jpg 1x, img/news-1-desk@2x.jpg 2x" width="604" height="400">
+                <source type="image/webp" media="(min-width: 768px)" srcset="img/news-1-tab@1x.jpg 1x, img/news-1-tab@2x.jpg 2x" width="324" height="350">
+                <img class="news__image" src="img/news-1-mob@1x.jpg" srcset="img/news-1-mob@2x.jpg 2x" width="290" height="330" alt="Интервью." loading="lazy">
+              </picture>
             </div>
           </div>
           <div class="news__slide swiper-slide">
-            <h3 class="news__subtitle">Путешествуем по миру</h3>
-            <div class="news__date">20/03/2023</div>
-            <div class="news__cms">
-              <p>Какие места посещают наши студенты весной</p>
-              <a class="news__link" href="#" aria-label="Переход по ссылке"></a>
+            <div class="news__content">
+              <h3 class="news__subtitle">Путешествуем по миру</h3>
+              <div class="news__date">20/03/2023</div>
+              <div class="news__cms">
+                <p>Какие места посещают наши студенты весной</p>
+                <a class="news__link button__circle" href="#" aria-label="Переход по ссылке"></a>
+              </div>
+            </div>
+            <div class="news__picture">
+              <picture>
+                <source type="image/webp" media="(min-width: 1440px)" srcset="img/news-2-desk@1x.webp 1x, img/news-2-desk@2x.webp 2x" width="604" height="400">
+                <source type="image/webp" media="(min-width: 768px)" srcset="img/news-2-tab@1x.webp 1x, img/news-2-tab@2x.webp 2x" width="324" height="350">
+                <source type="image/webp" srcset="img/news-2-mob@1x.webp 1x, img/news-2-mob@2x.webp 2x" width="290" height="330">
+                <source type="image/webp" media="(min-width: 1440px)" srcset="img/news-2-desk@1x.jpg 1x, img/news-2-desk@2x.jpg 2x" width="604" height="400">
+                <source type="image/webp" media="(min-width: 768px)" srcset="img/news-2-tab@1x.jpg 1x, img/news-2-tab@2x.jpg 2x" width="324" height="350">
+                <img class="news__image" src="img/news-2-mob@1x.jpg" srcset="img/news-2-mob@2x.jpg 2x" width="290" height="330" alt="Интервью." loading="lazy">
+              </picture>
             </div>
           </div>
           <div class="news__slide swiper-slide">
-            <h3 class="news__subtitle">Новая программа волонтёрства</h3>
-            <div class="news__date">17/03/2023</div>
-            <div class="news__cms">
-              <p>Программа помощи детям длительностью 4 месяца</p>
-              <a class="news__link" href="#" aria-label="Переход по ссылке"></a>
+            <div class="news__content">
+              <h3 class="news__subtitle">Новая программа волонтёрства</h3>
+              <div class="news__date">17/03/2023</div>
+              <div class="news__cms">
+                <p>Программа помощи детям длительностью 4 месяца</p>
+                <a class="news__link button__circle" href="#" aria-label="Переход по ссылке"></a>
+              </div>
+            </div>
+            <div class="news__picture">
+              <picture>
+                <source type="image/webp" media="(min-width: 1440px)" srcset="img/news-3-desk@1x.webp 1x, img/news-3-desk@2x.webp 2x" width="604" height="400">
+                <source type="image/webp" media="(min-width: 768px)" srcset="img/news-3-tab@1x.webp 1x, img/news-3-tab@2x.webp 2x" width="324" height="350">
+                <source type="image/webp" srcset="img/news-3-tab@1x.webp 1x, img/news-3-tab@2x.webp 2x" width="290" height="330">
+                <source type="image/webp" media="(min-width: 1440px)" srcset="img/news-3-desk@1x.jpg 1x, img/news-3-desk@2x.jpg 2x" width="604" height="400">
+                <source type="image/webp" media="(min-width: 768px)" srcset="img/news-3-tab@1x.jpg 1x, img/news-3-tab@2x.jpg 2x" width="324" height="350">
+                <img class="news__image" src="img/news-3-tab@1x.jpg" srcset="img/news-3-tab@2x.jpg 2x" width="290" height="330" alt="Интервью." loading="lazy">
+              </picture>
             </div>
           </div>
           <div class="news__slide swiper-slide">
-            <h3 class="news__subtitle">Построй свою карьеру</h3>
-            <div class="news__date">10/03/2023</div>
-            <div class="news__cms">
-              <p>Ведущие компании готовы трудоустроить выпускников стажировки</p>
-              <a class="news__link" href="#" aria-label="Переход по ссылке"></a>
+            <div class="news__content">
+              <h3 class="news__subtitle">Построй свою карьеру</h3>
+              <div class="news__date">10/03/2023</div>
+              <div class="news__cms">
+                <p>Ведущие компании готовы трудоустроить выпускников стажировки</p>
+                <a class="news__link button__circle" href="#" aria-label="Переход по ссылке"></a>
+              </div>
+            </div>
+            <div class="news__picture">
+              <picture>
+                <source type="image/webp" media="(min-width: 1440px)" srcset="img/news-4-desk@1x.webp 1x, img/news-4-desk@2x.webp 2x" width="604" height="400">
+                <source type="image/webp" media="(min-width: 768px)" srcset="img/news-4-tab@1x.webp 1x, img/news-4-tab@2x.webp 2x" width="324" height="350">
+                <source type="image/webp" srcset="img/news-4-tab@1x.webp 1x, img/news-4-tab@2x.webp 2x" width="290" height="330">
+                <source type="image/webp" media="(min-width: 1440px)" srcset="img/news-4-desk@1x.jpg 1x, img/news-4-desk@2x.jpg 2x" width="604" height="400">
+                <source type="image/webp" media="(min-width: 768px)" srcset="img/news-4-tab@1x.jpg 1x, img/news-4-tab@2x.jpg 2x" width="324" height="350">
+                <img class="news__image" src="img/news-4-tab@1x.jpg" srcset="img/news-4-tab@2x.jpg 2x" width="290" height="330" alt="Интервью." loading="lazy">
+              </picture>
             </div>
           </div>
         </div>

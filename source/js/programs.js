@@ -1,9 +1,13 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
-// import { setDataId, addClass, addClassArray, resetClassArray, addListener, isKeydown } from './util';
+import { Navigation, Pagination, Scrollbar, Manipulation, Autoplay } from 'swiper/modules';
+import { addListener, isTargetClick, removeListener } from './util';
 
-new Swiper('.programs', {
-  modules: [Navigation, Pagination, Scrollbar],
+const programs = document.querySelector('.programs');
+
+const swiper = new Swiper('.programs', {
+  modules: [Navigation, Pagination, Scrollbar, Manipulation, Autoplay],
+  // init: false,
+  autoplay: false,
   watchSlidesProgress: true,
   slideActiveClass: 'programs__slide--active',
   navigation: {
@@ -12,11 +16,13 @@ new Swiper('.programs', {
   },
   pagination: {
     el: '.programs__pagination',
-    bulletActiveClass: 'programs__bullet--active',
-    bulletClass: 'programs__bullet',
-    type: 'bullets',
-    bulletElement: 'div',
-    clickable: true,
+    // bulletActiveClass: 'programs__bullet--active',
+    // bulletClass: 'programs__bullet',
+    // type: 'bullets',
+    // bulletElement: 'div',
+    // clickable: true,
+    type: 'progressbar',
+    progressbarOppositeClass: 'clsasss',
   },
   breakpoints: {
     320: {
@@ -36,7 +42,29 @@ new Swiper('.programs', {
       simulateTouch: false,
     },
   },
-  // on: {
-
-  // },
 });
+
+const onProgramsTouch = () => {
+  swiper.init();
+  removeListener(programs, 'touchstart', onProgramsTouch);
+};
+
+const onProgramsClick = (evt) => {
+  if (isTargetClick(evt, '.programs')) {
+    swiper.init();
+  }
+  removeListener(programs, 'click', onProgramsClick);
+};
+
+const onProgramsKey = () => {
+  swiper.init();
+  removeListener(programs, 'keyup', onProgramsKey);
+};
+
+const setListenersForPrograms = () => {
+  addListener(programs, 'touchstart', onProgramsTouch);
+  addListener(programs, 'click', onProgramsClick);
+  addListener(programs, 'keyup', onProgramsKey);
+};
+
+export { setListenersForPrograms };
