@@ -22,7 +22,7 @@ const swiper = new Swiper('.programs', {
     // bulletElement: 'div',
     // clickable: true,
     type: 'progressbar',
-    progressbarOppositeClass: 'clsasss',
+    // progressbarOppositeClass: 'swiper-pagination-progressbar-fill',
   },
   breakpoints: {
     320: {
