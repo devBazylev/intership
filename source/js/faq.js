@@ -17,4 +17,3 @@ function onTabKey (evt) {
 
 addListenerArray(tabs, 'click', onTabClick);
 addListenerArray(tabs, 'keydown', onTabKey);
-
