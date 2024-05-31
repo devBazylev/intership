@@ -1,0 +1,153 @@
+@import "../global/mixins";
+@import "../global/variables";
+
+.contacts {
+  @include grid(1fr 290px 1fr);
+
+  gap: 30px 0;
+  align-items: start;
+  padding: 76px 0 70px;
+  color: $light;
+  background-color: $bright;
+
+  @media (min-width: $tab) {
+    grid-template-columns: 1fr 678px 1fr;
+    gap: 29px 0;
+    padding: 100px 0;
+  }
+
+  @media (min-width: $desk) {
+    grid-template-columns: 1fr 636px 604px 1fr;
+    gap: 41px 0;
+    padding: 120px 0;
+  }
+}
+
+.contacts > * {
+  grid-column: 2/3;
+
+  @media (min-width: $desk) {
+    grid-column: 2/4;
+  }
+}
+
+.contacts__title {
+  margin: 0 0 5px;
+
+  @media (min-width: $tab) {
+    margin: 0 0 2px;
+  }
+
+  @media (min-width: $desk) {
+    grid-column: 2/3;
+  }
+}
+
+.contacts__list {
+  @include reset;
+  @include flex(wrap, unset, column);
+
+  gap: 21px;
+
+  @media (min-width: $tab) {
+    flex-direction: row;
+  }
+
+  @media (min-width: $desk) {
+    grid-column: 3/4;
+    gap: 53px;
+  }
+}
+
+.contacts__item {
+  @media (min-width: $desk) {
+    position: relative;
+    top: 1px;
+  }
+}
+
+.contacts__item--address {
+  @media (min-width: $desk) {
+    width: 263px;
+  }
+}
+
+.contacts__property {
+  margin: 0 0 14px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0.12px;
+  text-transform: uppercase;
+  color: $common;
+  opacity: 0.8;
+
+  @media (min-width: $tab) {
+    margin: 0 0 23px;
+  }
+}
+
+.contacts__value {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  color: $light;
+
+  @media (min-width: $tab) {
+    font-size: 16px;
+  }
+
+  @media (min-width: $desk) {
+    line-height: 26px
+  }
+}
+
+.contacts__value--tel {
+  @media (min-width: $tab) {
+    position: relative;
+    left: -1px;
+  }
+
+  @media (min-width: $desk) {
+    top: -4px;
+  }
+}
+
+.contacts__value--mail {
+  @media (min-width: $desk) {
+    position: relative;
+    top: -4px;
+  }
+}
+
+.contacts__picture {
+  @include grid;
+
+  gap: 30px;
+
+  @media (min-width: $desk) {
+    gap: 40px;
+  }
+}
+
+.contacts__picture::before {
+  @include pseudo;
+
+  width: 290px;
+  height: 2px;
+  background-color: $light-trans-20;
+
+  @media (min-width: $tab) {
+    width: 678px;
+  }
+
+  @media (min-width: $desk) {
+    width: 1240px;
+  }
+}
+
+.contacts__image {
+  display: block;
+}

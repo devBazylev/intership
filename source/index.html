@@ -424,7 +424,31 @@
       </section>
 
       <section class="contacts" data-test="contacts">
-        <h2>contacts</h2>
+        <h2 class="contacts__title page__title page__title--alter">Контакты</h2>
+        <ul class="contacts__list">
+          <li class="contacts__item contacts__item--address">
+            <div class="contacts__property">Центральный офис</div>
+            <address class="contacts__value">г. Новосибирск, ул. Щетинкина 68, культурный центр</address>
+          </li>
+          <li class="contacts__item">
+            <div class="contacts__property">Телефон</div>
+            <a class="contacts__value contacts__value--tel" href="tel:+796387687676">+7 963 876 876 76</a>
+          </li>
+          <li class="contacts__item">
+            <div class="contacts__property">Email</div>
+            <a class="contacts__value contacts__value--mail" href="mailto:Info@stazh.ru&body=привет?subject=вопрос">Info@stazh.ru</a>
+          </li>
+        </ul>
+        <div class="contacts__picture">
+          <picture>
+            <source type="image/webp" media="(min-width: 1440px)" srcset="img/map-desk@1x.webp 1x, img/map-desk@2x.webp 2x" width="1240" height="486">
+            <source type="image/webp" media="(min-width: 768px)" srcset="img/map-tab@1x.webp 1x, img/map-tab@2x.webp 2x" width="678" height="500">
+            <source type="image/webp" srcset="img/map-mob@1x.webp 1x, img/map-mob@2x.webp 2x" width="290" height="240">
+            <source type="image/webp" media="(min-width: 1440px)" srcset="img/map-desk@1x.jpg 1x, img/map-desk@2x.jpg 2x" width="1240" height="486">
+            <source type="image/webp" media="(min-width: 768px)" srcset="img/map-tab@1x.jpg 1x, img/map-tab@2x.jpg 2x" width="678" height="500">
+            <img class="contacts__image" src="img/map-mob@1x.jpg" srcset="img/map-mob@2x.jpg 2x" width="290" height="240" alt="Карта." loading="lazy">
+          </picture>
+        </div>
       </section>
 
       <section class="form" data-test="form">
