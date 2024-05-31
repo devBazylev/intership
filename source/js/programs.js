@@ -16,12 +16,9 @@ const swiper = new Swiper('.programs', {
   },
   pagination: {
     el: '.programs__pagination',
-    // bulletActiveClass: 'programs__bullet--active',
-    // bulletClass: 'programs__bullet',
-    // type: 'bullets',
-    // bulletElement: 'div',
-    // clickable: true,
+    clickable: true,
     type: 'progressbar',
+    draggable: true,
     // progressbarOppositeClass: 'swiper-pagination-progressbar-fill',
   },
   breakpoints: {
