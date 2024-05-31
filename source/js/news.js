@@ -37,6 +37,7 @@ new Swiper('.news', {
     bulletElement: 'div',
     clickable: true,
     dynamicBullets: true,
+    dynamicMainBullets: 4,
     renderBullet: function (index, className) {
       return `<button class="${className}" type="button" tabindex="0" aria-label="Переключите группу слайдов.">${index + 1}</button>`;
       // return '<span class="' + className + '">' + (index + 1) + '</span>';

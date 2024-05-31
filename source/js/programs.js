@@ -19,7 +19,7 @@ const swiper = new Swiper('.programs', {
     clickable: true,
     type: 'progressbar',
     draggable: true,
-    // progressbarOppositeClass: 'swiper-pagination-progressbar-fill',
+    progressbarFillClass: 'programs__progressbar',
   },
   breakpoints: {
     320: {
