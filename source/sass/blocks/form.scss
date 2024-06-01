@@ -3,7 +3,6 @@
 
 .form {
   padding: 40px 0 40px;
-  outline: 1px solid red;
 
   @media (min-width: $tab) {
     padding: 50px calc((100vw - 678px) / 2) 50px;
@@ -217,11 +216,9 @@
   background-color: $alert-trans-20;
 }
 
-
-
 .form__agree {
   display: block;
-  margin: 0 0 21px;
+  margin: 0 0 7px;
   cursor: pointer;
 
   @media (min-width: $tab) {
@@ -233,6 +230,7 @@
   display: inline-block;
   width: 220px;
   margin: 0 0 0 8px;
+  padding: 0 100px 0 0;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -241,6 +239,7 @@
 
   @media (min-width: $tab) {
     width: auto;
+    padding: 0;
     line-height: 12px;
   }
 
@@ -251,7 +250,7 @@
 
 .form__check {
   position: relative;
-  top: 5px;
+  top: -9px;
   left: 0;
   display: inline-block;
   width: 20px;
@@ -374,39 +373,39 @@
   cursor: default;
 }
 
-.button:hover::before {
+.form__submit:hover::before {
   background-color: $bright;
 }
 
-.button:hover::after {
+.form__submit:hover::after {
   background-color: $light;
   transform: rotate(45deg);
 }
 
-.button:focus::before {
+.form__submit:focus::before {
   background-color: $light;
 }
 
-.button:focus::after {
+.form__submit:focus::after {
   background-color: $bright;
   transform: rotate(45deg);
 }
 
-.button:active::before {
+.form__submit:active::before {
   background-color: $bright;
 }
 
-.button:active::after {
+.form__submit:active::after {
   background-color: $light-trans-70;
   transform: rotate(45deg);
 }
 
-.button:disabled::before,
-.button--disabled::before {
+.form__submit:disabled::before,
+.form__submit--disabled::before {
   background-color: $stormy;
 }
 
-.button:disabled::after,
-.button--disabled::after {
+.form__submit:disabled::after,
+.form__submit--disabled::after {
   background-color: $light-trans-60;
 }
