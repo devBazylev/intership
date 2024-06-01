@@ -1,0 +1,411 @@
+@import "../global/mixins";
+@import "../global/variables";
+
+.form {
+  padding: 40px 0 40px;
+
+  @media (min-width: $tab) {
+    padding: 50px calc((100vw - 678px) / 2) 50px;
+  }
+
+  @media (min-width: $desk) {
+    padding: 60px calc((100vw - 1240px) / 2) 60px;
+  }
+}
+
+.form__container {
+  padding: 43px calc((100vw - 300px) / 2) 40px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image:
+    image-set(
+      url("../img/form-mob@2x.webp") type("image/webp") 2x,
+      url("../img/form-mob@1x.webp") type("image/webp") 1x,
+      url("../img/form-mob@2x.jpg") type("image/jpg") 2x,
+      url("../img/form-mob@1x.jpg") type("image/jpg") 1x
+    );
+
+  @media (min-width: $tab) {
+    margin: 0 26px 0 0;
+    padding: 0;
+    background-image:
+      image-set(
+        url("../img/form-tab@2x.webp") type("image/webp") 2x,
+        url("../img/form-tab@1x.webp") type("image/webp") 1x,
+        url("../img/form-tab@2x.jpg") type("image/jpg") 2x,
+        url("../img/form-tab@1x.jpg") type("image/jpg") 1x
+      );
+    border-radius: 16px;
+  }
+
+  @media (min-width: $desk) {
+    margin: 0;
+    background-image:
+      image-set(
+        url("../img/form-desk@2x.webp") type("image/webp") 2x,
+        url("../img/form-desk@1x.webp") type("image/webp") 1x,
+        url("../img/form-desk@2x.jpg") type("image/jpg") 2x,
+        url("../img/form-desk@1x.jpg") type("image/jpg") 1x
+      );
+  }
+}
+
+.form__template {
+  @include grid;
+
+  gap: 10px;
+  width: 300px;
+  padding: 15px 15px 27px;
+  color: $common;
+  background-color: $bright;
+  border-radius: 16px;
+
+  @media (min-width: $tab) {
+    width: 442px;
+    padding: 41px 40px 36px;
+  }
+
+  @media (min-width: $desk) {
+    width: 490px;
+    padding: 44px 70px 40px;
+  }
+}
+
+.form__title {
+  margin: 0;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  color: $light;
+
+  @media (min-width: $tab) {
+    margin: 0 0 21px;
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  @media (min-width: $desk) {
+    margin: 0 0 24px;
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+
+.form__clarification {
+  margin: 0 0 11px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+
+  @media (min-width: $tab) {
+    margin: 0 0 30px;
+    font-size: 16px;
+  }
+
+  @media (min-width: $desk) {
+    line-height: 26px;
+  }
+}
+
+.form__label {
+  margin: 0 0 1px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  color: $common-trans-80;
+
+  @media (min-width: $tab) {
+    margin: 0 0 2px;
+    font-size: 14px;
+    line-height: 20px
+  }
+
+  @media (min-width: $desk) {
+    line-height: 18px;
+  }
+}
+
+.form__name,
+.form__phone,
+.form__text,
+.form__city {
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  margin: 0 0 11px;
+  padding: 10px 25px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  color: $light;
+  background-color: $bright;
+  border-radius: 8px;
+  border: 1px solid $light-trans-30;
+
+  @media (min-width: $tab) {
+    margin: 0 0 10px;
+  }
+
+  @media (min-width: $desk) {
+    width: 350px;
+  }
+}
+
+.form__text {
+  min-height: 94px;
+  resize: none;
+
+  @media (min-width: $tab) {
+    min-height: 88px;
+  }
+
+  @media (min-width: $desk) {
+    min-height: 90px;
+    margin: 0 0 8px;
+  }
+}
+
+.form__label--city {
+  @media (min-width: $desk) {
+    margin: 0;
+  }
+}
+
+.form__city {
+  width: 260px;
+  min-height: 52px;
+
+  @media (min-width: $tab) {
+    width: 362px;
+    margin: 0 0 5px;
+  }
+
+  @media (min-width: $desk) {
+    width: 350px;
+  }
+}
+
+.form__name:hover,
+.form__phone:hover,
+.form__text:hover,
+.form__name:active,
+.form__phone:active,
+.form__text:active,
+.form__name:focus,
+.form__phone:focus,
+.form__text:focus {
+  border: 1px solid $light;
+}
+
+.form__name:disabled,
+.form__phone:disabled,
+.form__text:disabled {
+  background-color: $light-trans-20;
+  border: 1px solid $light-trans-40;
+}
+
+.form__template--validation .form__name:invalid,
+.form__template--validation .form__phone:invalid,
+.form__template--validation .form__text:invalid {
+  border: 1px solid $alert;
+  background-color: $alert-trans-20;
+}
+
+.form__agree {
+  display: block;
+  margin: 0 0 7px;
+  cursor: pointer;
+
+  @media (min-width: $tab) {
+    margin: 0 0 30px;
+  }
+}
+
+.form__subtext {
+  display: inline-block;
+  width: 220px;
+  margin: 0 0 0 8px;
+  padding: 0 100px 0 0;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  color: $light;
+
+  @media (min-width: $tab) {
+    width: auto;
+    padding: 0;
+    line-height: 12px;
+  }
+
+  @media (min-width: $desk) {
+    line-height: 12px;
+  }
+}
+
+.form__check {
+  position: relative;
+  top: -9px;
+  left: 0;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: $light;
+  border-radius: 2px;
+  border: 1px solid $light-trans-70;
+
+  @media (min-width: $tab) {
+    top: 5px;
+  }
+}
+
+.form__check::before {
+  @include pseudo;
+  @include svg("tick", "mask", "transparent");
+
+  position: relative;
+  top: 4px;
+  left: 3px;
+  width: 12px;
+  height: 10px;
+  mask-size: 12px 10px;
+}
+
+.forml__agree:hover .form__check {
+  border: 1px solid $light;
+}
+
+.form__checkbox:disabled + .form__check {
+  border: 1px solid $light;
+  background-color: $light-trans-60;
+}
+
+.form__template--validation .form__checkbox:invalid + .form__check {
+  border: 1px solid $alert-trans-70;
+  background-color: $alert-trans-20;
+}
+
+.form__checkbox:checked + .form__check {
+  border: 1px solid transparent;
+  background-color: $light;
+}
+
+.form__checkbox:checked + .form__check::before {
+  background-color: $bright;
+}
+
+.form__checkbox:checked:hover + .form__check {
+  background-color: $bright;
+  border: 1px solid $light;
+}
+
+.form__checkbox:checked:hover + .form__check::before {
+  background-color: $light;
+}
+
+.form__checkbox:checked:disabled + .form__check {
+  background-color: $stormy;
+  border: 1px solid $stormy;
+}
+
+.form__checkbox:checked:disabled + .form__check::before {
+  background-color: $light-trans-70;
+}
+
+.form__submit {
+  width: 260px;
+  color: $light;
+  background-color: $bright;
+  border: 1px solid $light;
+
+  @media (min-width: $tab) {
+    width: 352px;
+  }
+
+  @media (min-width: $desk) {
+    width: 350px;
+    min-height: 56px;
+    padding: 4px 3px 4px 31px;
+  }
+}
+
+.form__submit::before {
+  background-color: $light;
+
+  @media (min-width: $desk) {
+    left: -1px;
+  }
+}
+
+.form__submit::after {
+  background-color: $bright;
+
+  @media (min-width: $desk) {
+    left: 18px;
+  }
+}
+
+.form__submit:hover {
+  color: $bright;
+  background-color: $light;
+}
+
+.form__submit:focus {
+  color: $light;
+  background-color: $bright;
+}
+
+.form__submit:active {
+  color: $bright-trans-70;
+  background-color: $light;
+}
+
+.form__submit:disabled,
+.form__submit--disabled {
+  color: $stormy;
+  background-color: $light-trans-60;
+  border: 1px solid $stormy;
+  cursor: default;
+}
+
+.form__submit:hover::before {
+  background-color: $bright;
+}
+
+.form__submit:hover::after {
+  background-color: $light;
+  transform: rotate(45deg);
+}
+
+.form__submit:focus::before {
+  background-color: $light;
+}
+
+.form__submit:focus::after {
+  background-color: $bright;
+  transform: rotate(45deg);
+}
+
+.form__submit:active::before {
+  background-color: $bright;
+}
+
+.form__submit:active::after {
+  background-color: $light-trans-70;
+  transform: rotate(45deg);
+}
+
+.form__submit:disabled::before,
+.form__submit--disabled::before {
+  background-color: $stormy;
+}
+
+.form__submit:disabled::after,
+.form__submit--disabled::after {
+  background-color: $light-trans-60;
+}
