@@ -286,7 +286,7 @@
   background-color: $light-trans-60;
 }
 
-.form--validation .form__checkbox:invalid + .form__check {
+.form__template--validation .form__checkbox:invalid + .form__check {
   border: 1px solid $alert-trans-70;
   background-color: $alert-trans-20;
 }

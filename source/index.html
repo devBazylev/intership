@@ -462,7 +462,7 @@
             <label class="form__label" for="form-phone">Телефон</label>
             <input class="form__phone" type="tel" name="phone" id="form-phone" minlength="5" maxlength="40" title="От 5 символов. Пример: +7ххххххххх." pattern="^[+][7][^a-zA-Zа-яА-ЯёЁ]{5,}$" required>
             <label class="form__label" for="form-message">Ваше сообщение</label>
-            <textarea class="form__text" id="form-message" name="message" rows="4" cols="50"></textarea>
+            <textarea class="form__text" id="form-message" name="message" rows="4" cols="50" required></textarea>
             <label class="form__label form__label--city" for="form-city">Выберите город</label>
             <select class="form__city" name="city" id="form-city" required>
               <option value=""></option>
@@ -475,7 +475,7 @@
               <span class="form__check"></span>
               <span class="form__subtext">Я согласен на обработку моих персональных данных</span>
             </label>
-            <button class="form__submit button button--alter" type="submit">Отправить</button>
+            <button class="form__submit button" type="submit">Отправить</button>
           </form>
         </div>
       </section>
