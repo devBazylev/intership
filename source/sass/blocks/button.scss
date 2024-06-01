@@ -165,15 +165,6 @@
   width: 8px;
   height: 8px;
   mask-size: 18px 8px;
-
-  // @media (min-width: $tab) {
-  //   top: 0;
-  //   left: 18px;
-  // }
-
-  // @media (min-width: $desk) {
-  //   left: 17px;
-  // }
 }
 
 .button__circle:hover::before {
