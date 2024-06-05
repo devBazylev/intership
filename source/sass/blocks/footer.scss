@@ -139,7 +139,6 @@
   color: $dark-bright;
 }
 
-
 .footer__wrapper {
   @media (min-width: $tab) {
     grid-column: 1/3;
@@ -271,7 +270,6 @@
   }
 }
 
-
 .footer__social--ok::before {
   @include pseudo;
   @include svg("ok", "mask", $light);
@@ -281,7 +279,6 @@
   left: 8px;
   width: 10px;
   height: 12px;
-
 
   @media (min-width: $tab) {
     top: 9px;
@@ -300,7 +297,6 @@
   left: 7px;
   width: 12px;
   height: 12px;
-
 
   @media (min-width: $tab) {
     top: 9px;
@@ -331,12 +327,3 @@
 .footer__social:active::before {
   background-color: $light;
 }
-
-
-
-
-
-
-
-
-
