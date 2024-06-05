@@ -124,7 +124,7 @@
         </form>
       </section>
 
-      <section class="about" data-test="about">
+      <section class="about" data-test="about" id="about">
         <h2 class="about__title">О проекте «Стажировка»</h2>
         <p>«Стажировка» — совместный проект правительств и волонтёрских бригад.</p>
         <h3>Наша цель</h3>
@@ -150,7 +150,7 @@
         </div>
       </section>
 
-      <section class="programs swiper" data-test="programs">
+      <section class="programs swiper" data-test="programs" id="programs">
         <h2 class="programs__title page__title">Программы</h2>
         <button class="programs__button programs__button--prev swiper-button-prev button__arrow" type="button" aria-label="Переключить на предыдущий слайд."></button>
         <button class="programs__button programs__button--next swiper-button-next button__arrow" type="button" aria-label="Переключить на следующий слайд."></button>
@@ -219,7 +219,7 @@
         <a class="programs__link button" href="#">Все программы</a>
       </section>
 
-      <section class="grant" data-test="grant">
+      <section class="grant" data-test="grant" id="grant">
         <div class="grant__content">
           <h2 class="grant__title page__title page__title--alter">Как поехать</h2>
           <p>Свяжитесь с координатором, чтобы узнать полную информацию. Вы получите актуальные сведения о доступных программах и городах, в которых можете пройти программу.</p>
@@ -241,7 +241,7 @@
         </div>
       </section>
 
-      <section class="news swiper" data-test="news">
+      <section class="news swiper" data-test="news" id="news">
         <h2 class="news__title page__title">Новости и материалы</h2>
         <div class="news__tabs">
           <button class="news__tab news__tab--active" type="button">Общее</button>
@@ -362,7 +362,7 @@
         </div>
       </section>
 
-      <section class="reviews swiper" data-test="reviews">
+      <section class="reviews swiper" data-test="reviews" id="reviews">
         <h2 class="reviews__title page__title">Отзывы</h2>
         <div class="reviews__slider swiper-wrapper">
           <div class="reviews__slide swiper-slide">
@@ -423,7 +423,7 @@
         <button class="reviews__button reviews__button--next swiper-button-next button__arrow" type="button" aria-label="Переключить на следующий слайд."></button>
       </section>
 
-      <section class="contacts" data-test="contacts">
+      <section class="contacts" data-test="contacts" id="contacts">
         <h2 class="contacts__title page__title page__title--alter">Контакты</h2>
         <ul class="contacts__list">
           <li class="contacts__item contacts__item--address">
@@ -485,22 +485,22 @@
       <img class="footer__logo" src="img/logo.svg" alt="Логотип." width="52" height="52">
       <nav class="footer__nav">
         <ul class="footer__list">
-          <li><a class="footer__link" href="#">О проекте</a></li>
-          <li><a class="footer__link" href="#">Программы</a></li>
-          <li><a class="footer__link" href="#">Как поехать</a></li>
-          <li><a class="footer__link" href="#">Отзывы</a></li>
-          <li><a class="footer__link" href="#">Новости</a></li>
-          <li><a class="footer__link" href="#">Контакты</a></li>
+          <li><a class="footer__link footer__link--about" href="#about">О проекте</a></li>
+          <li><a class="footer__link footer__link--programs" href="#programs">Программы</a></li>
+          <li><a class="footer__link footer__link--grant" href="#grant">Как поехать</a></li>
+          <li><a class="footer__link footer__link--reviews" href="#reviews">Отзывы</a></li>
+          <li><a class="footer__link footer__link--news" href="#news">Новости</a></li>
+          <li><a class="footer__link footer__link--contacts" href="#contacts">Контакты</a></li>
         </ul>
       </nav>
       <div class="footer__wrapper">
-        <div class="footer__policy">Политика конфиденциальности</div>
+        <a class="footer__policy" href="#">Политика конфиденциальности</a>
         <div class="footer__rights">Стажировка © 2023 Все права защищены</div>
       </div>
       <ul class="footer__socials">
-        <li><a class="footer__social footer__social--vk" href="#"></a></li>
-        <li><a class="footer__social footer__social--ok" href="#"></a></li>
-        <li><a class="footer__social footer__social--reddit" href="#"></a></li>
+        <li><a class="footer__social footer__social--vk" href="#" target="_blank"></a></li>
+        <li><a class="footer__social footer__social--ok" href="#" target="_blank"></a></li>
+        <li><a class="footer__social footer__social--reddit" href="#" target="_blank"></a></li>
       </ul>
     </footer>
     <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
