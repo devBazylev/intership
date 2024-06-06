@@ -2,22 +2,19 @@
 @import "../global/variables";
 
 .footer {
-  width: 290px;
-  margin: 0 auto;
-  padding: 40px 0;
+  width: 100vw;
+  padding: 40px calc((100vw - 290px) / 2);
 
   @media (min-width: $tab) {
     @include grid(auto auto auto);
 
     grid-auto-flow: dense;
-    width: 678px;
-    padding: 40px 0 23px;
+    padding: 40px calc((100vw - 678px) / 2) 23px;
   }
 
   @media (min-width: $desk) {
     grid-template-columns: auto 1fr auto;
-    width: 1240px;
-    padding: 60px 0 27px;
+    padding: 60px calc((100vw - 1240px) / 2) 27px;
   }
 }
 

@@ -4,20 +4,17 @@
 .faq {
   @include grid;
 
-
-  width: 290px;
+  width: 100vw;
   gap: 10px;
-  margin: 0 auto;
-  padding: 51px 0 50px;
+  padding: 51px calc((100vw - 290px) / 2) 50px;
+  outline: 1px solid red;
 
   @media (min-width: $tab) {
-    width: 678px;
-    padding: 50px 0 50px;
+    padding: 50px calc((100vw - 678px) / 2) 50px;
   }
 
   @media (min-width: $desk) {
-  width: 1028px;
-  padding: 60px 0;
+    padding: 71px calc((100vw - 1028px) / 2) 60px;
   }
 }
 
@@ -40,7 +37,7 @@
   @include grid;
 
   align-content: center;
-  gap: 20px 0;
+  gap: 18px 0;
   padding: 22px 15px 18px 15px;
   background-color: $common;
   border: 2px solid $bright;
@@ -48,17 +45,27 @@
   cursor: pointer;
 
   @media (min-width: $tab) {
-    padding: 30px 30px 30px 30px;
+    gap: 13px 0;
+    padding: 37px 30px 23px 30px;
     border-radius: 16px;
   }
 
   @media (min-width: $desk) {
-    padding: 40px 40px 40px 40px;
+    gap: 17px 0;
+    padding: 43px 40px 37px 40px;
   }
 }
 
 .faq__card--opened {
+  padding: 22px 15px 20px 15px;
   background-color: $bright;
+
+  @media (min-width: $tab) {
+    padding: 37px 30px 30px 30px;
+  }
+  @media (min-width: $desk) {
+    padding: 43px 36px 40px 40px;
+  }
 }
 
 .faq__card * {
@@ -112,6 +119,14 @@
   background-color: $bright;
   border-radius: 50%;
   border: 1px solid transparent;
+
+  @media (min-width: $tab) {
+    top: -7px;
+  }
+
+  @media (min-width: $desk) {
+    top: -3px;
+  }
 }
 
 .faq__subtitle::after {
@@ -124,6 +139,14 @@
   width: 20px;
   height: 20px;
   margin: auto 0 auto 10px;
+
+  @media (min-width: $tab) {
+    top: -7px;
+  }
+
+  @media (min-width: $desk) {
+    top: -3px;
+  }
 }
 
 .faq__card--opened * {
@@ -145,6 +168,62 @@
   @include svg("minus", "mask", $bright);
 
   height: 2px;
+}
+
+.faq__card--fourth .faq__subtitle {
+  position: relative;
+  top: -2px;
+
+  @media (min-width: $tab) {
+    top: -7px;
+    padding: 0 140px 0 0;
+  }
+
+  @media (min-width: $desk) {
+    top: -3px;
+    padding: 0;
+  }
+}
+
+.faq__card--fourth .faq__subtitle::before,
+.faq__card--fourth .faq__subtitle::after {
+  top: 0;
+
+  @media (min-width: $tab) {
+    top: -6px;
+    left: 140px;
+  }
+
+  @media (min-width: $desk) {
+    top: -14px;
+    left: 0;
+  }
+}
+
+.faq__card--fifth .faq__subtitle {
+  position: relative;
+  top: -2px;
+
+  @media (min-width: $tab) {
+    top: -7px;
+  }
+
+  @media (min-width: $desk) {
+    top: -3px;
+  }
+}
+
+.faq__card--fifth .faq__subtitle::before,
+.faq__card--fifth .faq__subtitle::after {
+  top: 0;
+
+  @media (min-width: $tab) {
+    top: -6px;
+  }
+
+  @media (min-width: $desk) {
+    top: -14px;
+  }
 }
 
 .faq__card:hover,
@@ -179,8 +258,6 @@
 .faq__card:active .faq__subtitle::after {
   background-color: $light;
 }
-
-
 
 .faq__card--opened:hover,
 .faq__card--opened:focus {

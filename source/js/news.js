@@ -12,9 +12,9 @@ const clones = [];
 cloneSlides(slider, slides, clones);
 // cloneSlides(slider, slides, clones);
 
-new Swiper('.news', {
+const swiper = new Swiper('.news', {
   modules: [Navigation, Pagination, Scrollbar, Manipulation, Grid],
-  init: true,
+  init: false,
   autoplay: false,
   watchSlidesProgress: true,
   observer: true,
@@ -76,4 +76,4 @@ new Swiper('.news', {
   // }
 });
 
-
+swiper.init();

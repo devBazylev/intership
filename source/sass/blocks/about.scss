@@ -6,21 +6,19 @@
 
   grid-template-rows: repeat(auto-fit, minmax(35px, auto) minmax(84px, auto) minmax(42px, auto) minmax(210px, auto) minmax(84px, auto));
   align-items: start;
-  width: 290px;
-  margin: 0 auto;
-  padding: 50px 0;
+  width: 100vw;
+  padding: 50px calc((100vw - 290px) / 2);
   grid-auto-flow: dense;
 
   @media (min-width: $tab) {
     grid-template-rows: repeat(auto-fit, minmax(81px, auto) minmax(91px, auto) minmax(58px, auto) minmax(140px, auto) minmax(116px, auto));
-    width: 678px;
+    padding: 50px calc((100vw - 678px) / 2);
   }
 
   @media (min-width: $desk) {
     grid-template-columns: 1fr 498px ;
     grid-template-rows: repeat(auto-fit, minmax(76px, auto) minmax(180px, auto) minmax(116px, auto) minmax(480px, auto));
-    width: 1240px;
-    padding: 70px 0 60px;
+    padding: 70px calc((100vw - 1240px) / 2) 60px;
     gap: 0 40px;
   }
 }
