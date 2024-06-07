@@ -4,6 +4,7 @@
 .about {
   @include grid;
 
+  z-index: -2;
   grid-template-rows: repeat(auto-fit, minmax(35px, auto) minmax(84px, auto) minmax(42px, auto) minmax(210px, auto) minmax(84px, auto));
   align-items: start;
   width: 100vw;
@@ -180,7 +181,7 @@
   @include svg("star");
 
   position: absolute;
-  z-index: 1;
+  // z-index: 1;
   top: -23px;
   left: -21px;
   width: 42px;
