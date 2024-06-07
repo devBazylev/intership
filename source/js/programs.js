@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination, Scrollbar, Manipulation, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, Mousewheel, Manipulation, Autoplay } from 'swiper/modules';
 import { cloneSlides } from './util';
 
 const desk = window.matchMedia('(min-width: 1440px)');
@@ -10,7 +10,7 @@ const slides = programs.querySelectorAll('.programs__slide');
 const clones = [];
 
 const swiper = new Swiper('.programs', {
-  modules: [Navigation, Pagination, Scrollbar, Manipulation, Autoplay],
+  modules: [Navigation, Pagination, Scrollbar, Mousewheel, Manipulation, Autoplay],
   init: false,
   autoplay: false,
   watchSlidesProgress: true,
@@ -26,12 +26,11 @@ const swiper = new Swiper('.programs', {
     draggable: true,
     progressbarFillClass: 'programs__progressbar',
   },
-  // scrollbar: {
-  //   el: '.programs__pagination',
-  //   dragClass: 'programs__progressbar',
-  //   draggable: true,
-  //   hide: false,
-  // },
+  scrollbar: {
+    el: '.programs__pagination',
+    draggable: true,
+    hide: false,
+  },
   breakpoints: {
     320: {
       width: 290,
@@ -69,28 +68,3 @@ const swiper = new Swiper('.programs', {
 });
 
 swiper.init();
-
-// const onProgramsTouch = () => {
-//   swiper.init();
-//   removeListener(programs, 'touchstart', onProgramsTouch);
-// };
-
-// const onProgramsClick = (evt) => {
-//   if (isTargetClick(evt, '.programs')) {
-//     swiper.init();
-//   }
-//   removeListener(programs, 'click', onProgramsClick);
-// };
-
-// const onProgramsKey = () => {
-//   swiper.init();
-//   removeListener(programs, 'keyup', onProgramsKey);
-// };
-
-// const setListenersForPrograms = () => {
-//   addListener(programs, 'touchstart', onProgramsTouch);
-//   addListener(programs, 'click', onProgramsClick);
-//   addListener(programs, 'keyup', onProgramsKey);
-// };
-
-// export { setListenersForPrograms };
