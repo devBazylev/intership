@@ -16,49 +16,37 @@ const clickCheckbox = (evt) => {
   }
 };
 
-const onCheckbox = (evt) => {
-  clickCheckbox(evt);
+const onSubmit = async (evt) => {
+  modal.submit();
+  evt.preventDefault();
+  modal.reset();
+  closeModal();
 };
-
-const closeModal = () => {
-  removeClass(body, 'page__body--no-scroll');
-  removeClass(modal, 'hero__form--opened');
-  removeClass(overlay, 'page__overlay--active');
-  removeListener(document, 'click', onMissClick);
-  removeListener(checkboxBackup, 'keydown', onCheckbox);
-};
-
-function onMissClick (evt) {
-  if (!isTargetClick(evt, '.modal') && !isTargetClick(evt, '.hero__button')) {
-    closeModal();
-  }
-}
 
 const onClick = () => {
   if (!modal.classList.contains('modal--validation')) {
     modal.classList.add('modal--validation');
   }
-  removeListener(submitButton, 'click', onClick);
-};
-
-const onSubmit = async (evt) => {
-  modal.submit();
-  evt.preventDefault();
-  modal.reset();
-  removeListener(modal, 'submit', onSubmit);
-  closeModal();
 };
 
 const onCancelButton = () => {
   closeModal();
-  removeListener(cancelButton, 'click', onCancelButton);
 };
 
 const onDocument = (evt) => {
   if (modal.classList.contains('hero__form--opened') && isKeydown(evt, 'Escape')) {
     closeModal();
-    removeListener(document, 'keydown', onDocument);
   }
+};
+
+const onMissClick = (evt) => {
+  if (!isTargetClick(evt, '.modal') && !isTargetClick(evt, '.hero__button')) {
+    closeModal();
+  }
+};
+
+const onCheckbox = (evt) => {
+  clickCheckbox(evt);
 };
 
 const onHeroButton = () => {
@@ -72,5 +60,17 @@ const onHeroButton = () => {
   addListener(document, 'click', onMissClick);
   addListener(checkboxBackup, 'keydown', onCheckbox);
 };
+
+function closeModal () {
+  removeClass(body, 'page__body--no-scroll');
+  removeClass(modal, 'hero__form--opened');
+  removeClass(overlay, 'page__overlay--active');
+  removeListener(modal, 'submit', onSubmit);
+  removeListener(submitButton, 'click', onClick);
+  removeListener(cancelButton, 'click', onCancelButton);
+  removeListener(document, 'keydown', onDocument);
+  removeListener(document, 'click', onMissClick);
+  removeListener(checkboxBackup, 'keydown', onCheckbox);
+}
 
 addListenerArray(heroButtons, 'click', onHeroButton);

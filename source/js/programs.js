@@ -26,6 +26,12 @@ const swiper = new Swiper('.programs', {
     draggable: true,
     progressbarFillClass: 'programs__progressbar',
   },
+  // scrollbar: {
+  //   el: '.programs__pagination',
+  //   dragClass: 'programs__progressbar',
+  //   draggable: true,
+  //   hide: false,
+  // },
   breakpoints: {
     320: {
       width: 290,
