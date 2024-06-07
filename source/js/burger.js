@@ -9,15 +9,14 @@ const dropButtons = header.querySelectorAll('.header__button');
 const onMissClick = (evt) => {
   if (!isTargetClick(evt, '.header__nav') && !isTargetClick(evt, '.header__toggler')) {
     removeClass(toggler, 'header__toggler--opened');
-    removeClass(overlay, 'page__overlay--active');
+    closeBurger();
   }
 };
 
 const onDocument = (evt) => {
   if (toggler.classList.contains('header__toggler--opened') && isKeydown(evt, 'Escape')) {
     toggleClass(toggler, 'header__toggler--opened');
-    removeClass(overlay, 'page__overlay--active');
-    removeListener(document, 'keydown', onDocument);
+    closeBurger();
   }
 };
 
@@ -34,12 +33,16 @@ const onBurger = () => {
     addListenerArray(dropButtons, 'click', onDropButton);
     addListener(document, 'click', onMissClick);
   } else {
-    removeClass(body, 'page__body--no-scroll');
-    removeClass(overlay, 'page__overlay--active');
-    removeListener(document, 'keydown', onDocument);
-    removeListenerArray(dropButtons, 'click', onDropButton);
-    removeListener(document, 'click', onMissClick);
+    closeBurger();
   }
 };
+
+function closeBurger () {
+  removeClass(body, 'page__body--no-scroll');
+  removeClass(overlay, 'page__overlay--active');
+  removeListener(document, 'click', onMissClick);
+  removeListener(document, 'keydown', onDocument);
+  removeListenerArray(dropButtons, 'click', onDropButton);
+}
 
 addListener(toggler, 'click', onBurger);
