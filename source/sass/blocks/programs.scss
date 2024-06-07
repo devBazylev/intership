@@ -40,6 +40,7 @@
   grid-area: 1/2/2/3;
 
   @media (min-width: $tab) {
+    z-index: 1;
     grid-area: 3/2/4/3;
   }
 }
@@ -83,6 +84,16 @@
 
   position: relative;
   align-items: end;
+
+  @media (min-width: $desk) {
+    visibility: hidden;
+  }
+}
+
+.programs__slide--visible {
+  @media (min-width: $desk) {
+    visibility: visible;
+  }
 }
 
 .programs__image {
@@ -255,6 +266,7 @@
   display: none;
 
   @media (min-width: $tab) {
+    position: relative;
     display: block;
     grid-area: 3/2/4/3;
     width: 652px;
@@ -264,7 +276,24 @@
   }
 
   @media (min-width: $desk) {
-    width: 1136px;
+    width: 1182px;
+  }
+}
+
+.programs__pagination::after {
+  @media (min-width: $tab) {
+    @include pseudo;
+
+    position: absolute;
+    top: -1px;
+    right: 0;
+    width: 90px;
+    height: 4px;
+    background-color: $common;
+  }
+
+  @media (min-width: $desk) {
+    width: 46px;
   }
 }
 
@@ -284,7 +313,7 @@
   @media (min-width: $tab) {
     grid-area: 1/2/2/3;
     margin: 0px 0 0 444px;
-    padding: 4px 4px 4px 30px;
+    padding: 4px 3px 4px 30px;
   }
 
   @media (min-width: $desk) {

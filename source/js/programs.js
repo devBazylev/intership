@@ -1,15 +1,20 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Scrollbar, Manipulation, Autoplay } from 'swiper/modules';
-// import { addListener, isTargetClick, removeListener } from './util';
+import { cloneSlides } from './util';
 
-// const programs = document.querySelector('.programs');
+const desk = window.matchMedia('(min-width: 1440px)');
+const programs = document.querySelector('.programs');
+const slider = programs.querySelector('.programs__slider');
+const slides = programs.querySelectorAll('.programs__slide');
+
+const clones = [];
 
 const swiper = new Swiper('.programs', {
   modules: [Navigation, Pagination, Scrollbar, Manipulation, Autoplay],
   init: false,
   autoplay: false,
   watchSlidesProgress: true,
-  slideActiveClass: 'programs__slide--active',
+  slideFullyVisibleClass: 'programs__slide--visible',
   navigation: {
     prevEl: '.programs__button--prev',
     nextEl: '.programs__button--next',
@@ -40,6 +45,19 @@ const swiper = new Swiper('.programs', {
       slidesPerView: 3,
       slidesPerGroup: 1,
       simulateTouch: false,
+    },
+  },
+  on: {
+    breakpoint: function () {
+      if (!desk.matches && clones.length > 0) {
+        clones.forEach((clone) => {
+          clone.remove();
+        });
+      }
+      if (desk.matches) {
+        cloneSlides(slider, slides, clones);
+        clones[2].remove();
+      }
     },
   },
 });

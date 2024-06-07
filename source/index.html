@@ -30,7 +30,7 @@
           <button class="header__toggler button" type="button">Меню</button>
           <nav class="header__nav">
             <ul class="header__list">
-              <li><a class="header__link" href="#">О проекте</a></li>
+              <li><a class="header__link" href="#about">О проекте</a></li>
               <li class="header__item">
                 <button class="header__button" type="button">Программы</button>
                 <ul class="header__sublist">
@@ -113,8 +113,8 @@
             <option value="Rome">Рим</option>
           </select>
           <label class="modal__agree">
-            <input class="modal__checkbox visually-hidden" type="checkbox" name="agreement" id="agreement" required>
-            <span class="modal__check"></span>
+            <input class="modal__checkbox visually-hidden" type="checkbox" name="agreement" id="agreement" tabindex="-1" required>
+            <span class="modal__check" tabindex="0"></span>
             <span class="modal__subtext">Я согласен на обработку моих персональных данных</span>
           </label>
           <button class="modal__submit button" type="submit">Отправить</button>
@@ -129,7 +129,7 @@
         <p>«Стажировка» — совместный проект правительств и волонтёрских бригад.</p>
         <h3>Наша цель</h3>
         <p>Наша деятельность направлена на повышение квалификации молодых специалистов на ранних и средних стадиях карьеры, предоставляя им инструменты для решения сложных проблем, с которыми сталкиваются в мире. Цель центра — наделить этих людей способностью инициировать значимые изменения.</p>
-        <button class="about__button button" type="button">Подробнее о проекте</button>
+        <a class="about__button button" href="#">Подробнее о проекте</a>
         <div class="about__achievement">
           <div class="about__card">
             <h3>Более 250 программ</h3>
@@ -470,8 +470,8 @@
               <option value="Rome">Рим</option>
             </select>
             <label class="form__agree">
-              <input class="form__checkbox visually-hidden" type="checkbox" name="agreement" id="agreement" required>
-              <span class="form__check"></span>
+              <input class="form__checkbox visually-hidden" type="checkbox" name="agreement" id="agreement" tabindex="-1" required>
+              <span class="form__check" tabindex="0"></span>
               <span class="form__subtext">Я согласен на обработку моих персональных данных</span>
             </label>
             <button class="form__submit button" type="submit">Отправить</button>
