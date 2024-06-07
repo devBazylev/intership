@@ -9,9 +9,9 @@ const slides = reviews.querySelectorAll('.reviews__slide');
 
 const clones = [];
 
-new Swiper('.reviews', {
+const swiper = new Swiper('.reviews', {
   modules: [Navigation, Pagination, Scrollbar, Manipulation, Autoplay],
-  // init: false,
+  init: false,
   autoplay: false,
   loop: false,
   watchSlidesProgress: true,
@@ -60,3 +60,5 @@ new Swiper('.reviews', {
     },
   },
 });
+
+swiper.init();

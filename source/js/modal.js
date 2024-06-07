@@ -33,6 +33,7 @@ const onSubmit = async (evt) => {
   evt.preventDefault();
   modal.reset();
   removeListener(modal, 'submit', onSubmit);
+  closeModal();
 };
 
 const onCancelButton = () => {
