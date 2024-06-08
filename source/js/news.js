@@ -18,11 +18,12 @@ const swiper = new Swiper('.news', {
   autoplay: false,
   watchSlidesProgress: true,
   observer: true,
+  observeParents: true,
+  observeSlideChildren: true,
   slideActiveClass: 'news__slide--active',
   slideToClickedSlide: true,
   loopAddBlankSlides: false,
   loopAdditionalSlides: 0,
-  observeParents: true,
   resizeObserver: true,
   updateOnWindowResize: true,
   navigation: {
@@ -73,6 +74,8 @@ const swiper = new Swiper('.news', {
   // mousewheel: {
   //   sensitivity: 1,
   //   eventsTarget: '.news',
+  //   enabled: true,
+  //   eventsTarget: '.programs__pagination',
   // }
 });
 

@@ -75,19 +75,19 @@ const isKeydown = (evt, keydown) => evt.key === keydown;
 const isTargetClick = (evt, selector) => evt.target.closest(selector);
 
 export {
-  setDataId,
   addClass,
-  removeClass,
-  toggleClass,
   addClassArray,
-  resetClassArray,
-  setClassArray,
-  changeText,
   addListener,
-  removeListener,
   addListenerArray,
-  removeListenerArray,
+  changeText,
   cloneSlides,
-  isTargetClick,
   isKeydown,
+  isTargetClick,
+  removeClass,
+  resetClassArray,
+  removeListener,
+  removeListenerArray,
+  setClassArray,
+  setDataId,
+  toggleClass,
 };

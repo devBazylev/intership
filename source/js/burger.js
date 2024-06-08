@@ -29,9 +29,9 @@ const onBurger = () => {
   if (toggler.classList.contains('header__toggler--opened')) {
     addClass(body, 'page__body--no-scroll');
     addClass(overlay, 'page__overlay--active');
+    addListener(document, 'click', onMissClick);
     addListener(document, 'keydown', onDocument);
     addListenerArray(dropButtons, 'click', onDropButton);
-    addListener(document, 'click', onMissClick);
   } else {
     closeBurger();
   }
