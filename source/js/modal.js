@@ -18,8 +18,10 @@ const city = select.querySelector('.modal__city');
 const cities = select.querySelectorAll('.modal__item');
 const label = modal.querySelector('.modal__label--city');
 
-const onPhone = () => {
-  city.focus();
+const onPhone = (evt) => {
+  if (inputPhone.checkValidity() === true && isKeydown(evt, 'Enter')) {
+    city.focus();
+  }
 };
 
 const clickCheckbox = (evt) => {
@@ -119,7 +121,7 @@ const onHeroButton = () => {
   addClass(body, 'page__body--no-scroll');
   addClass(modal, 'hero__form--opened');
   addClass(overlay, 'page__overlay--active');
-  addListener(inputPhone, 'blur', onPhone);
+  addListener(inputPhone, 'keydown', onPhone);
   addListener(modal, 'submit', onSubmit);
   addListener(submitButton, 'click', onClick);
   addListener(cancelButton, 'click', onCancelButton);
@@ -139,7 +141,7 @@ function closeModal () {
   removeClass(body, 'page__body--no-scroll');
   removeClass(modal, 'hero__form--opened');
   removeClass(overlay, 'page__overlay--active');
-  removeListener(inputPhone, 'blur', onPhone);
+  removeListener(inputPhone, 'keydown', onPhone);
   removeListener(modal, 'submit', onSubmit);
   removeListener(submitButton, 'click', onClick);
   removeListener(cancelButton, 'click', onCancelButton);
