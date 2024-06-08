@@ -9,7 +9,7 @@ const inputName = document.querySelector('.modal__name');
 const inputPhone = document.querySelector('.modal__phone');
 const submitButton = modal.querySelector('.modal__submit');
 const cancelButton = modal.querySelector('.modal__cancel');
-const checkboxInvisible = modal.querySelector('.modal__checkbox');
+const checkboxHidden = modal.querySelector('.modal__checkbox');
 const checkboxBackup = modal.querySelector('.modal__check');
 const select = modal.querySelector('.modal__select');
 const selectHidden = select.querySelector('.modal__hidden');
@@ -26,7 +26,7 @@ const onPhone = (evt) => {
 
 const clickCheckbox = (evt) => {
   if (isKeydown(evt, ' ')) {
-    checkboxInvisible.click();
+    checkboxHidden.click();
   }
 };
 
@@ -61,7 +61,9 @@ const onMissClick = (evt) => {
 
 const onCheckbox = (evt) => {
   clickCheckbox(evt);
-  // submitButton.focus();
+  if (checkboxHidden.checkValidity() === true) {
+    submitButton.focus();
+  }
 };
 
 const onSelectMissClick = (evt) => {
