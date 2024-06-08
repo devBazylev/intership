@@ -98,7 +98,7 @@
             </div>
           </div>
         </div>
-        <form class="hero__form modal" action="https://echo.htmlacademy.ru" autocomplete="on" method="post">
+        <form class="hero__form modal" action="https://echo.htmlacademy.ru" method="post">
           <h2 class="modal__title">Напишите нам</h2>
           <p class="modal__text">Оставьте ваши контакты, если у вас остались <span>вопросы</span> – <span>мы на них ответим!</span></p>
           <label class="modal__label" for="name">Имя</label>
@@ -107,21 +107,18 @@
           <input class="modal__phone" type="tel" name="phone" id="phone" minlength="5" maxlength="40" title="От 5 символов. Пример: +7ххххххххх." pattern="^[+][7][^a-zA-Zа-яА-ЯёЁ]{5,}$" required>
           <div class="modal__label modal__label--city">Выберите город</div>
           <div class="modal__select">
-            <input class="modal__hidden" type="text" name="city" id="city" minlength="2" maxlength="40" tabindex="-1" title="Выберите город." aria-hidden="true" required>
+            <!-- <input class="modal__hidden" type="text" name="city" id="city" minlength="2" maxlength="40" tabindex="-1" title="Выберите город." aria-hidden="true"  autocomplete="off" required> -->
+            <select class="modal__hidden" name="city" id="city" tabindex="-1" aria-hidden="true" value="" required>
+              <option class="modal__option" value=""></option>
+            </select>
             <div class="modal__city" tabindex="0"></div>
             <ul class="modal__list">
-              <li class="modal__item" tabindex="0">Париж</li>
-              <li class="modal__item" tabindex="0">Лондон</li>
-              <li class="modal__item" tabindex="0">Рим</li>
-              <li class="modal__item" tabindex="0">Санкт-Петербург</li>
+              <li class="modal__item" tabindex="0" data-city="Rome">Рим</li>
+              <li class="modal__item" tabindex="0" data-city="Paris">Париж</li>
+              <li class="modal__item" tabindex="0" data-city="London">Лондон</li>
+              <li class="modal__item" tabindex="0" data-city="Saint-Petersburg">Санкт-Петербург</li>
             </ul>
           </div>
-            <!-- <select name="213" id="213">
-              <option value=""></option>
-              <option value="Paris">Париж</option>
-              <option value="London">Лондон</option>
-              <option value="Rome">Рим</option>
-            </select> -->
 
           <label class="modal__agree">
             <input class="modal__checkbox visually-hidden" type="checkbox" name="agreement" id="agreement" tabindex="-1" required>

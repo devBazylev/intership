@@ -5,15 +5,22 @@ const overlay = body.querySelector('.page__overlay');
 const hero = body.querySelector('.hero');
 const heroButtons = hero.querySelectorAll('.hero__button');
 const modal = hero.querySelector('.modal');
+const inputName = document.querySelector('.modal__name');
+const inputPhone = document.querySelector('.modal__phone');
 const submitButton = modal.querySelector('.modal__submit');
 const cancelButton = modal.querySelector('.modal__cancel');
 const checkboxInvisible = modal.querySelector('.modal__checkbox');
 const checkboxBackup = modal.querySelector('.modal__check');
 const select = modal.querySelector('.modal__select');
-const inputHidden = select.querySelector('.modal__hidden');
+const selectHidden = select.querySelector('.modal__hidden');
+const optionHidden = select.querySelector('.modal__option');
 const city = select.querySelector('.modal__city');
 const cities = select.querySelectorAll('.modal__item');
 const label = modal.querySelector('.modal__label--city');
+
+const onPhone = () => {
+  city.focus();
+};
 
 const clickCheckbox = (evt) => {
   if (isKeydown(evt, ' ')) {
@@ -52,6 +59,7 @@ const onMissClick = (evt) => {
 
 const onCheckbox = (evt) => {
   clickCheckbox(evt);
+  // submitButton.focus();
 };
 
 const onSelectMissClick = (evt) => {
@@ -73,20 +81,32 @@ const onSelectClick = () => {
 const onSelectKeydown = (evt) => {
   if (isKeydown(evt, 'Enter')) {
     toggleSelect();
+    cities[0].focus();
   }
 };
 
-function onCitiesClick () {
-  inputHidden.value = this.textContent;
+function onCityClick () {
+  selectHidden.value = this.getAttribute('data-city');
+  optionHidden.value = this.getAttribute('data-city');
+  if (!optionHidden.selected) {
+    optionHidden.setAttribute('selected', 'selected');
+  }
+  optionHidden.removeAttribute('selected', 'selected');
   city.textContent = this.textContent;
   removeClass(select, 'modal__select--opened');
 }
 
-function onCitiesKeydown (evt) {
+function onCityKeydown (evt) {
   if (isKeydown(evt, 'Enter')) {
-    inputHidden.value = this.textContent;
+    selectHidden.value = this.getAttribute('data-city');
+    optionHidden.value = this.getAttribute('data-city');
+    if (!optionHidden.selected) {
+      optionHidden.setAttribute('selected', 'selected');
+    }
+    optionHidden.removeAttribute('selected', 'selected');
     city.textContent = this.textContent;
     removeClass(select, 'modal__select--opened');
+    checkboxBackup.focus();
   }
 }
 
@@ -99,6 +119,7 @@ const onHeroButton = () => {
   addClass(body, 'page__body--no-scroll');
   addClass(modal, 'hero__form--opened');
   addClass(overlay, 'page__overlay--active');
+  addListener(inputPhone, 'blur', onPhone);
   addListener(modal, 'submit', onSubmit);
   addListener(submitButton, 'click', onClick);
   addListener(cancelButton, 'click', onCancelButton);
@@ -108,14 +129,17 @@ const onHeroButton = () => {
   addListener(label, 'click', onLabel);
   addListener(city, 'click', onSelectClick);
   addListener(city, 'keydown', onSelectKeydown);
-  addListenerArray(cities, 'click', onCitiesClick);
-  addListenerArray(cities, 'keydown', onCitiesKeydown);
+  addListenerArray(cities, 'click', onCityClick);
+  addListenerArray(cities, 'keydown', onCityKeydown);
+  // addListener(modal, 'blur', closeModal);
+  inputName.focus();
 };
 
 function closeModal () {
   removeClass(body, 'page__body--no-scroll');
   removeClass(modal, 'hero__form--opened');
   removeClass(overlay, 'page__overlay--active');
+  removeListener(inputPhone, 'blur', onPhone);
   removeListener(modal, 'submit', onSubmit);
   removeListener(submitButton, 'click', onClick);
   removeListener(cancelButton, 'click', onCancelButton);
@@ -125,8 +149,8 @@ function closeModal () {
   removeListener(label, 'click', onLabel);
   removeListener(city, 'click', onSelectClick);
   removeListener(city, 'keydown', onSelectKeydown);
-  removeListenerArray(cities, 'click', onCitiesClick);
-  removeListenerArray(cities, 'keydown', onCitiesKeydown);
+  removeListenerArray(cities, 'click', onCityClick);
+  removeListenerArray(cities, 'keydown', onCityKeydown);
   removeClass(select, 'modal__select--opened');
 }
 
