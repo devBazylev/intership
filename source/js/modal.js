@@ -47,7 +47,7 @@ const onCancelButton = () => {
   closeModal();
 };
 
-const onDocument = (evt) => {
+const onDocumentEscape = (evt) => {
   if (modal.classList.contains('hero__form--opened') && isKeydown(evt, 'Escape')) {
     closeModal();
   }
@@ -119,6 +119,12 @@ const onLabel = () => {
   city.focus();
 };
 
+const onDocumentFocus = (evt) => {
+  if (!isTargetClick(evt, '.modal')) {
+    closeModal();
+  }
+};
+
 const onHeroButton = () => {
   addClass(body, 'page__body--no-scroll');
   addClass(modal, 'hero__form--opened');
@@ -127,15 +133,15 @@ const onHeroButton = () => {
   addListener(modal, 'submit', onSubmit);
   addListener(submitButton, 'click', onClick);
   addListener(cancelButton, 'click', onCancelButton);
-  addListener(document, 'keydown', onDocument);
+  addListener(document, 'keydown', onDocumentEscape);
   addListener(document, 'click', onMissClick);
   addListener(checkboxBackup, 'keydown', onCheckbox);
   addListener(label, 'click', onLabel);
   addListener(city, 'click', onSelectClick);
   addListener(city, 'keydown', onSelectKeydown);
+  addListener(document, 'focusin', onDocumentFocus);
   addListenerArray(cities, 'click', onCityClick);
   addListenerArray(cities, 'keydown', onCityKeydown);
-  // addListener(modal, 'blur', closeModal);
   inputName.focus();
 };
 
@@ -147,12 +153,13 @@ function closeModal () {
   removeListener(modal, 'submit', onSubmit);
   removeListener(submitButton, 'click', onClick);
   removeListener(cancelButton, 'click', onCancelButton);
-  removeListener(document, 'keydown', onDocument);
+  removeListener(document, 'keydown', onDocumentEscape);
   removeListener(document, 'click', onMissClick);
   removeListener(checkboxBackup, 'keydown', onCheckbox);
   removeListener(label, 'click', onLabel);
   removeListener(city, 'click', onSelectClick);
   removeListener(city, 'keydown', onSelectKeydown);
+  removeListener(document, 'focusin', onDocumentFocus);
   removeListenerArray(cities, 'click', onCityClick);
   removeListenerArray(cities, 'keydown', onCityKeydown);
   removeClass(select, 'modal__select--opened');

@@ -24,6 +24,13 @@ const onDropButton = function () {
   toggleClass(this, 'header__button--opened');
 };
 
+const onDocumentFocus = (evt) => {
+  if (!isTargetClick(evt, '.header__nav') && !isTargetClick(evt, '.header__toggler')) {
+    closeBurger();
+    toggleClass(toggler, 'header__toggler--opened');
+  }
+};
+
 const onBurger = () => {
   toggleClass(toggler, 'header__toggler--opened');
   if (toggler.classList.contains('header__toggler--opened')) {
@@ -31,6 +38,7 @@ const onBurger = () => {
     addClass(overlay, 'page__overlay--active');
     addListener(document, 'click', onMissClick);
     addListener(document, 'keydown', onDocument);
+    addListener(document, 'focusin', onDocumentFocus);
     addListenerArray(dropButtons, 'click', onDropButton);
   } else {
     closeBurger();
@@ -42,6 +50,7 @@ function closeBurger () {
   removeClass(overlay, 'page__overlay--active');
   removeListener(document, 'click', onMissClick);
   removeListener(document, 'keydown', onDocument);
+  removeListener(document, 'focusin', onDocumentFocus);
   removeListenerArray(dropButtons, 'click', onDropButton);
 }
 
