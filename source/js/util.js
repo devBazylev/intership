@@ -1,19 +1,5 @@
-const setDataId = (elems) => {
-  for (let i = 0; i < elems.length; i++) {
-    elems[i].dataset.id = i;
-  }
-};
-
 const addClass = (elem, classs) => {
   elem.classList.add(classs);
-};
-
-const removeClass = (elem, classs) => {
-  elem.classList.remove(classs);
-};
-
-const toggleClass = (elem, classs) => {
-  elem.classList.toggle(classs);
 };
 
 const addClassArray = (elems, classs) => {
@@ -22,31 +8,8 @@ const addClassArray = (elems, classs) => {
   });
 };
 
-const resetClassArray = (array, classs) => {
-  array.forEach((elem) => {
-    if (elem.classList.contains(classs)) {
-      elem.classList.remove(classs);
-    }
-  });
-};
-
-const setClassArray = (array, classs, id) => {
-  resetClassArray(array, classs);
-  array[id].classList.add(classs);
-};
-
-const changeText = (array, text) => {
-  array.forEach((elem) => {
-    elem.textContent = text;
-  });
-};
-
 const addListener = (elem, action, callback) => {
   elem.addEventListener(action, callback);
-};
-
-const removeListener = (elem, action, callback) => {
-  elem.removeEventListener(action, callback);
 };
 
 const addListenerArray = (array, action, callback) => {
@@ -55,9 +18,9 @@ const addListenerArray = (array, action, callback) => {
   });
 };
 
-const removeListenerArray = (array, action, callback) => {
+const changeText = (array, text) => {
   array.forEach((elem) => {
-    elem.removeEventListener(action, callback);
+    elem.textContent = text;
   });
 };
 
@@ -74,6 +37,43 @@ const isKeydown = (evt, keydown) => evt.key === keydown;
 
 const isTargetClick = (evt, selector) => evt.target.closest(selector);
 
+const removeClass = (elem, classs) => {
+  elem.classList.remove(classs);
+};
+
+const removeClassArray = (array, classs) => {
+  array.forEach((elem) => {
+    if (elem.classList.contains(classs)) {
+      elem.classList.remove(classs);
+    }
+  });
+};
+
+const removeListener = (elem, action, callback) => {
+  elem.removeEventListener(action, callback);
+};
+
+const removeListenerArray = (array, action, callback) => {
+  array.forEach((elem) => {
+    elem.removeEventListener(action, callback);
+  });
+};
+
+const resetClassArray = (array, classs, id) => {
+  removeClassArray(array, classs);
+  array[id].classList.add(classs);
+};
+
+const setDataId = (elems) => {
+  for (let i = 0; i < elems.length; i++) {
+    elems[i].dataset.id = i;
+  }
+};
+
+const toggleClass = (elem, classs) => {
+  elem.classList.toggle(classs);
+};
+
 export {
   addClass,
   addClassArray,
@@ -84,10 +84,10 @@ export {
   isKeydown,
   isTargetClick,
   removeClass,
+  removeClassArray,
   resetClassArray,
   removeListener,
   removeListenerArray,
-  setClassArray,
   setDataId,
   toggleClass,
 };
