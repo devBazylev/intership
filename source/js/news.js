@@ -1,7 +1,7 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Scrollbar, Manipulation, Grid } from 'swiper/modules';
 import { cloneSlides } from './util';
-// import { setDataId, addClass, addClassArray, resetClassArray, addListener, isKeydown } from './util';
+// import { setDataId, addClass, addClassArray, addListener, isKeydown } from './util';
 
 const news = document.querySelector('.news');
 const slider = news.querySelector('.news__slider');
