@@ -64,7 +64,7 @@ new Swiper('.hero', {
     },
     transitionEnd: function () {
       const bulletsAll = hero.querySelectorAll('.hero__bullet');
-      const activeSlideIndex = document.querySelector('.hero__slide--active').getAttribute('data-swiper-slide-index');
+      const activeSlideIndex = hero.querySelector('.hero__slide--active').getAttribute('data-swiper-slide-index');
       const bulletsToActivate = hero.querySelectorAll(`[data-id="${activeSlideIndex}"]`);
       removeClassArray(bulletsAll, 'hero__bullet--active');
       addClassArray(bulletsToActivate, 'hero__bullet--active');
