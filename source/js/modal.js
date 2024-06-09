@@ -5,8 +5,7 @@ const overlay = body.querySelector('.page__overlay');
 const hero = body.querySelector('.hero');
 const heroButtons = hero.querySelectorAll('.hero__button');
 const modal = hero.querySelector('.modal');
-const inputName = document.querySelector('.modal__name');
-const inputPhone = document.querySelector('.modal__phone');
+const inputName = modal.querySelector('.modal__name');
 const submitButton = modal.querySelector('.modal__submit');
 const cancelButton = modal.querySelector('.modal__cancel');
 const checkboxHidden = modal.querySelector('.modal__checkbox');
@@ -14,14 +13,12 @@ const checkboxBackup = modal.querySelector('.modal__check');
 const select = modal.querySelector('.modal__select');
 const selectHidden = select.querySelector('.modal__hidden');
 const optionHidden = select.querySelector('.modal__option');
-const city = select.querySelector('.modal__city');
+const cityShown = select.querySelector('.modal__city');
 const cities = select.querySelectorAll('.modal__item');
 const label = modal.querySelector('.modal__label--city');
 
-const onPhone = (evt) => {
-  if (inputPhone.checkValidity() === true && isKeydown(evt, 'Enter')) {
-    city.focus();
-  }
+const onSelectHidden = () => {
+  cityShown.focus();
 };
 
 const clickCheckbox = (evt) => {
@@ -35,6 +32,12 @@ const onSubmit = async (evt) => {
   evt.preventDefault();
   modal.reset();
   closeModal();
+};
+
+const onSubmitKeydown = (evt) => {
+  if (modal.checkValidity() === true && isKeydown(evt, 'Enter') && !isTarget(evt, '.modal__cancel')) {
+    onSubmit(evt);
+  }
 };
 
 const onClick = () => {
@@ -61,9 +64,9 @@ const onMissClick = (evt) => {
 
 const onCheckbox = (evt) => {
   clickCheckbox(evt);
-  if (checkboxHidden.checkValidity() === true) {
-    submitButton.focus();
-  }
+  // if (modal.checkValidity() === true) {
+  //   submitButton.focus();
+  // }
 };
 
 const onSelectMissClick = (evt) => {
@@ -96,7 +99,7 @@ function onCityClick () {
     optionHidden.setAttribute('selected', 'selected');
   }
   optionHidden.removeAttribute('selected', 'selected');
-  city.textContent = this.textContent;
+  cityShown.textContent = this.textContent;
   removeClass(select, 'modal__select--opened');
 }
 
@@ -108,15 +111,19 @@ function onCityKeydown (evt) {
       optionHidden.setAttribute('selected', 'selected');
     }
     optionHidden.removeAttribute('selected', 'selected');
-    city.textContent = this.textContent;
+    cityShown.textContent = this.textContent;
     removeClass(select, 'modal__select--opened');
-    checkboxBackup.focus();
+    if (checkboxHidden.checkValidity() === false) {
+      checkboxBackup.focus();
+    } else {
+      cityShown.focus();
+    }
   }
 }
 
 const onLabel = () => {
   toggleSelect();
-  city.focus();
+  cityShown.focus();
 };
 
 const onDocumentFocus = (evt) => {
@@ -129,17 +136,18 @@ const onHeroButton = () => {
   addClass(body, 'page__body--no-scroll');
   addClass(modal, 'hero__form--opened');
   addClass(overlay, 'page__overlay--active');
-  addListener(inputPhone, 'keydown', onPhone);
+  addListener(document, 'click', onMissClick);
+  addListener(document, 'focusin', onDocumentFocus);
+  addListener(document, 'keydown', onDocumentEscape);
   addListener(modal, 'submit', onSubmit);
+  addListener(modal, 'keydown', onSubmitKeydown);
   addListener(submitButton, 'click', onClick);
   addListener(cancelButton, 'click', onCancelButton);
-  addListener(document, 'keydown', onDocumentEscape);
-  addListener(document, 'click', onMissClick);
+  addListener(selectHidden, 'focusin', onSelectHidden);
   addListener(checkboxBackup, 'keydown', onCheckbox);
   addListener(label, 'click', onLabel);
-  addListener(city, 'click', onSelectClick);
-  addListener(city, 'keydown', onSelectKeydown);
-  addListener(document, 'focusin', onDocumentFocus);
+  addListener(cityShown, 'click', onSelectClick);
+  addListener(cityShown, 'keydown', onSelectKeydown);
   addListenerArray(cities, 'click', onCityClick);
   addListenerArray(cities, 'keydown', onCityKeydown);
   inputName.focus();
@@ -149,17 +157,18 @@ function closeModal () {
   removeClass(body, 'page__body--no-scroll');
   removeClass(modal, 'hero__form--opened');
   removeClass(overlay, 'page__overlay--active');
-  removeListener(inputPhone, 'keydown', onPhone);
+  removeListener(document, 'click', onMissClick);
+  removeListener(document, 'focusin', onDocumentFocus);
+  removeListener(document, 'keydown', onDocumentEscape);
   removeListener(modal, 'submit', onSubmit);
+  removeListener(modal, 'keydown', onSubmitKeydown);
   removeListener(submitButton, 'click', onClick);
   removeListener(cancelButton, 'click', onCancelButton);
-  removeListener(document, 'keydown', onDocumentEscape);
-  removeListener(document, 'click', onMissClick);
+  removeListener(selectHidden, 'focusin', onSelectHidden);
   removeListener(checkboxBackup, 'keydown', onCheckbox);
   removeListener(label, 'click', onLabel);
-  removeListener(city, 'click', onSelectClick);
-  removeListener(city, 'keydown', onSelectKeydown);
-  removeListener(document, 'focusin', onDocumentFocus);
+  removeListener(cityShown, 'click', onSelectClick);
+  removeListener(cityShown, 'keydown', onSelectKeydown);
   removeListenerArray(cities, 'click', onCityClick);
   removeListenerArray(cities, 'keydown', onCityKeydown);
   removeClass(select, 'modal__select--opened');
