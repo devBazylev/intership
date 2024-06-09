@@ -1,10 +1,10 @@
-import { toggleClass, addListenerArray, isTargetClick, isKeydown } from './util';
+import { toggleClass, addListenerArray, isTarget, isKeydown } from './util';
 
 const faq = document.querySelector('.faq');
 const tabs = faq.querySelectorAll('.faq__card');
 
 function onTabClick (evt) {
-  if (isTargetClick(evt, '.faq')) {
+  if (isTarget(evt, '.faq')) {
     toggleClass(this, 'faq__card--opened');
   }
 }

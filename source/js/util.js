@@ -35,7 +35,7 @@ const cloneSlides = (parent, elems, array) => {
 
 const isKeydown = (evt, keydown) => evt.key === keydown;
 
-const isTargetClick = (evt, selector) => evt.target.closest(selector);
+const isTarget = (evt, selector) => evt.target.closest(selector);
 
 const removeClass = (elem, classs) => {
   elem.classList.remove(classs);
@@ -82,7 +82,7 @@ export {
   changeText,
   cloneSlides,
   isKeydown,
-  isTargetClick,
+  isTarget,
   removeClass,
   removeClassArray,
   resetClassArray,

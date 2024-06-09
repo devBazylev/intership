@@ -1,4 +1,4 @@
-import { addClass, removeClass, addListener, addListenerArray, removeListener, removeListenerArray, isTargetClick, isKeydown, toggleClass } from './util';
+import { addClass, removeClass, addListener, addListenerArray, removeListener, removeListenerArray, isTarget, isKeydown, toggleClass } from './util';
 
 const body = document.querySelector('.page__body');
 const overlay = body.querySelector('.page__overlay');
@@ -54,7 +54,7 @@ const onDocumentEscape = (evt) => {
 };
 
 const onMissClick = (evt) => {
-  if (!isTargetClick(evt, '.modal') && !isTargetClick(evt, '.hero__button')) {
+  if (!isTarget(evt, '.modal') && !isTarget(evt, '.hero__button')) {
     closeModal();
   }
 };
@@ -67,7 +67,7 @@ const onCheckbox = (evt) => {
 };
 
 const onSelectMissClick = (evt) => {
-  if (!isTargetClick(evt, '.modal__select') && !isTargetClick(evt, '.modal__label--city')) {
+  if (!isTarget(evt, '.modal__select') && !isTarget(evt, '.modal__label--city')) {
     removeClass(select, 'modal__select--opened');
     removeListener(document, 'click', onSelectMissClick);
   }
@@ -120,7 +120,7 @@ const onLabel = () => {
 };
 
 const onDocumentFocus = (evt) => {
-  if (!isTargetClick(evt, '.modal')) {
+  if (!isTarget(evt, '.modal')) {
     closeModal();
   }
 };
