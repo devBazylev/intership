@@ -1,7 +1,7 @@
 import './burger.js';
 import './modal.js';
 import Swiper from 'swiper';
-import { setDataId, addClass, addClassArray, resetClassArray, addListener, isKeydown } from './util';
+import { setDataId, addClass, addClassArray, removeClassArray, addListener, isKeydown } from './util';
 
 const hero = document.querySelector('.hero');
 const paginationsAll = Array.from(hero.querySelectorAll('.hero__pagination'));
@@ -66,7 +66,7 @@ new Swiper('.hero', {
       const bulletsAll = hero.querySelectorAll('.hero__bullet');
       const activeSlideIndex = document.querySelector('.hero__slide--active').getAttribute('data-swiper-slide-index');
       const bulletsToActivate = hero.querySelectorAll(`[data-id="${activeSlideIndex}"]`);
-      resetClassArray(bulletsAll, 'hero__bullet--active');
+      removeClassArray(bulletsAll, 'hero__bullet--active');
       addClassArray(bulletsToActivate, 'hero__bullet--active');
     },
   },
