@@ -107,7 +107,6 @@
           <input class="modal__phone" type="tel" name="phone" id="phone" minlength="5" maxlength="40" title="От 5 символов. Пример: +7ххххххххх." pattern="^[+][7][^a-zA-Zа-яА-ЯёЁ]{5,}$" required>
           <div class="modal__label modal__label--city">Выберите город</div>
           <div class="modal__select">
-            <!-- <input class="modal__hidden" type="text" name="city" id="city" minlength="2" maxlength="40" tabindex="-1" title="Выберите город." aria-hidden="true"  autocomplete="off" required> -->
             <select class="modal__hidden" name="city" id="city" tabindex="-1" aria-hidden="true" value="" required>
               <option class="modal__option" value=""></option>
             </select>
@@ -471,13 +470,21 @@
             <input class="form__phone" type="tel" name="phone" id="form-phone" minlength="5" maxlength="40" title="От 5 символов. Пример: +7ххххххххх." pattern="^[+][7][^a-zA-Zа-яА-ЯёЁ]{5,}$" required>
             <label class="form__label" for="form-message">Ваше сообщение</label>
             <textarea class="form__text" id="form-message" name="message" rows="4" cols="50" required></textarea>
-            <label class="form__label form__label--city" for="form-city">Выберите город</label>
-            <select class="form__city" name="city" id="form-city" required>
-              <option value=""></option>
-              <option value="Paris">Париж</option>
-              <option value="London">Лондон</option>
-              <option value="Rome">Рим</option>
-            </select>
+            <div class="form__label form__label--city">Выберите город</div>
+
+            <div class="form__select">
+              <select class="form__hidden" name="city" id="form-city" tabindex="-1" aria-hidden="true" required>
+                <option class="form__option" value=""></option>
+              </select>
+              <div class="form__city" tabindex="0"></div>
+              <ul class="form__list">
+                <li class="form__item" tabindex="0" data-city="Rome">Рим</li>
+                <li class="form__item" tabindex="0" data-city="Paris">Париж</li>
+                <li class="form__item" tabindex="0" data-city="London">Лондон</li>
+                <li class="form__item" tabindex="0" data-city="Saint-Petersburg">Санкт-Петербург</li>
+              </ul>
+            </div>
+
             <label class="form__agree">
               <input class="form__checkbox visually-hidden" type="checkbox" name="agreement" id="agreement" tabindex="-1" required>
               <span class="form__check" tabindex="0"></span>
