@@ -70,7 +70,7 @@ function onCityKeydown (evt) {
     cityShown.textContent = this.textContent;
     optionHidden.textContent = this.textContent;
     optionHidden.value = this.textContent;
-    removeClass(select, 'modal__select--opened');
+    removeClass(select, 'form__select--opened');
     removeListener(document, 'click', onSelectMissClick);
     removeListenerArray(cities, 'click', onCityClick);
     removeListenerArray(cities, 'keydown', onCityKeydown);
