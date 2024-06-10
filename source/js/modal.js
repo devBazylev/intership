@@ -90,26 +90,24 @@ const onSelectKeydown = (evt) => {
 };
 
 function onCityClick () {
-  selectHidden.value = this.getAttribute('data-city');
-  optionHidden.value = this.getAttribute('data-city');
   if (!optionHidden.selected) {
     optionHidden.setAttribute('selected', 'selected');
   }
-  this.click();
   cityShown.textContent = this.textContent;
+  optionHidden.textContent = this.textContent;
+  optionHidden.value = this.textContent;
   removeClass(select, 'modal__select--opened');
   removeListener(document, 'click', onSelectMissClick);
 }
 
 function onCityKeydown (evt) {
   if (isKeydown(evt, 'Enter')) {
-    selectHidden.value = this.getAttribute('data-city');
-    optionHidden.value = this.getAttribute('data-city');
     if (!optionHidden.selected) {
       optionHidden.setAttribute('selected', 'selected');
     }
-    this.click();
     cityShown.textContent = this.textContent;
+    optionHidden.textContent = this.textContent;
+    optionHidden.value = this.textContent;
     removeClass(select, 'modal__select--opened');
     removeListener(document, 'click', onSelectMissClick);
     if (checkboxHidden.checkValidity() === false) {

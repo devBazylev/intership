@@ -50,13 +50,12 @@ const onSelectKeydown = (evt) => {
 };
 
 function onCityClick () {
-  selectHidden.value = this.getAttribute('data-city');
-  optionHidden.value = this.getAttribute('data-city');
   if (!optionHidden.selected) {
     optionHidden.setAttribute('selected', 'selected');
   }
-  this.click();
   cityShown.textContent = this.textContent;
+  optionHidden.textContent = this.textContent;
+  optionHidden.value = this.textContent;
   removeClass(select, 'form__select--opened');
   removeListener(document, 'click', onSelectMissClick);
   removeListenerArray(cities, 'click', onCityClick);
@@ -65,13 +64,12 @@ function onCityClick () {
 
 function onCityKeydown (evt) {
   if (isKeydown(evt, 'Enter')) {
-    selectHidden.value = this.getAttribute('data-city');
-    optionHidden.value = this.getAttribute('data-city');
     if (!optionHidden.selected) {
       optionHidden.setAttribute('selected', 'selected');
     }
-    this.click();
     cityShown.textContent = this.textContent;
+    optionHidden.textContent = this.textContent;
+    optionHidden.value = this.textContent;
     removeClass(select, 'modal__select--opened');
     removeListener(document, 'click', onSelectMissClick);
     removeListenerArray(cities, 'click', onCityClick);
