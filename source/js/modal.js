@@ -93,9 +93,11 @@ function onCityClick () {
   if (!optionHidden.selected) {
     optionHidden.setAttribute('selected', 'selected');
   }
+  selectHidden.value = this.textContent;
   cityShown.textContent = this.textContent;
   optionHidden.textContent = this.textContent;
   optionHidden.value = this.textContent;
+  this.click();
   removeClass(select, 'modal__select--opened');
   removeListener(document, 'click', onSelectMissClick);
 }
@@ -105,9 +107,11 @@ function onCityKeydown (evt) {
     if (!optionHidden.selected) {
       optionHidden.setAttribute('selected', 'selected');
     }
+    selectHidden.value = this.textContent;
     cityShown.textContent = this.textContent;
     optionHidden.textContent = this.textContent;
     optionHidden.value = this.textContent;
+    this.click();
     removeClass(select, 'modal__select--opened');
     removeListener(document, 'click', onSelectMissClick);
     if (checkboxHidden.checkValidity() === false) {

@@ -358,6 +358,13 @@
   }
 }
 
+.modal__checkbox {
+  position: relative;
+  top: 10px;
+  left: 12px;
+  opacity: 0;
+}
+
 .modal__check {
   position: relative;
   top: -1px;
@@ -427,10 +434,4 @@
 
 .modal__checkbox:checked:disabled + .modal__check::before {
   background-color: $light-trans-70;
-}
-
-.modal__checkbox {
-  position: relative;
-  top: 10px;
-  left: 12px;
 }

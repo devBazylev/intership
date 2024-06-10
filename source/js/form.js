@@ -53,9 +53,11 @@ function onCityClick () {
   if (!optionHidden.selected) {
     optionHidden.setAttribute('selected', 'selected');
   }
+  selectHidden.value = this.textContent;
   cityShown.textContent = this.textContent;
   optionHidden.textContent = this.textContent;
   optionHidden.value = this.textContent;
+  this.click();
   removeClass(select, 'form__select--opened');
   removeListener(document, 'click', onSelectMissClick);
   removeListenerArray(cities, 'click', onCityClick);
@@ -67,9 +69,11 @@ function onCityKeydown (evt) {
     if (!optionHidden.selected) {
       optionHidden.setAttribute('selected', 'selected');
     }
+    selectHidden.value = this.textContent;
     cityShown.textContent = this.textContent;
     optionHidden.textContent = this.textContent;
     optionHidden.value = this.textContent;
+    this.click();
     removeClass(select, 'form__select--opened');
     removeListener(document, 'click', onSelectMissClick);
     removeListenerArray(cities, 'click', onCityClick);
