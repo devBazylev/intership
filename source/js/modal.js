@@ -17,6 +17,24 @@ const cityShown = select.querySelector('.modal__city');
 const cities = select.querySelectorAll('.modal__item');
 const label = modal.querySelector('.modal__label--city');
 
+const onClick = () => {
+  if (!modal.classList.contains('modal--validation')) {
+    modal.classList.add('modal--validation');
+  }
+};
+
+const onDocumentEscape = (evt) => {
+  if (modal.classList.contains('hero__form--opened') && isKeydown(evt, 'Escape')) {
+    closeModal();
+  }
+};
+
+const onMissClick = (evt) => {
+  if (!isTarget(evt, '.modal') && !isTarget(evt, '.hero__button')) {
+    closeModal();
+  }
+};
+
 const onSelectHidden = () => {
   cityShown.focus();
 };
@@ -25,6 +43,10 @@ const clickCheckbox = (evt) => {
   if (isKeydown(evt, ' ')) {
     checkboxHidden.click();
   }
+};
+
+const onCheckbox = (evt) => {
+  clickCheckbox(evt);
 };
 
 const onSubmit = async (evt) => {
@@ -40,33 +62,8 @@ const onSubmitKeydown = (evt) => {
   }
 };
 
-const onClick = () => {
-  if (!modal.classList.contains('modal--validation')) {
-    modal.classList.add('modal--validation');
-  }
-};
-
 const onCancelButton = () => {
   closeModal();
-};
-
-const onDocumentEscape = (evt) => {
-  if (modal.classList.contains('hero__form--opened') && isKeydown(evt, 'Escape')) {
-    closeModal();
-  }
-};
-
-const onMissClick = (evt) => {
-  if (!isTarget(evt, '.modal') && !isTarget(evt, '.hero__button')) {
-    closeModal();
-  }
-};
-
-const onCheckbox = (evt) => {
-  clickCheckbox(evt);
-  // if (modal.checkValidity() === true) {
-  //   submitButton.focus();
-  // }
 };
 
 const onSelectMissClick = (evt) => {
@@ -98,9 +95,10 @@ function onCityClick () {
   if (!optionHidden.selected) {
     optionHidden.setAttribute('selected', 'selected');
   }
-  optionHidden.removeAttribute('selected', 'selected');
+  this.click();
   cityShown.textContent = this.textContent;
   removeClass(select, 'modal__select--opened');
+  removeListener(document, 'click', onSelectMissClick);
 }
 
 function onCityKeydown (evt) {
@@ -110,9 +108,10 @@ function onCityKeydown (evt) {
     if (!optionHidden.selected) {
       optionHidden.setAttribute('selected', 'selected');
     }
-    optionHidden.removeAttribute('selected', 'selected');
+    this.click();
     cityShown.textContent = this.textContent;
     removeClass(select, 'modal__select--opened');
+    removeListener(document, 'click', onSelectMissClick);
     if (checkboxHidden.checkValidity() === false) {
       checkboxBackup.focus();
     } else {
