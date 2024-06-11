@@ -1,4 +1,4 @@
-import { addClass, removeClass, addListener, addListenerArray, removeListener, removeListenerArray, isTarget, isKeydown, toggleClass } from './util';
+import { addClass, removeClass, addListener, addListenerArray, removeListener, removeListenerArray, isTarget, isKeydown, toggleClass, setDataId } from './util';
 
 const body = document.querySelector('.page__body');
 const overlay = body.querySelector('.page__overlay');
@@ -16,6 +16,10 @@ const optionHidden = select.querySelector('.modal__option');
 const cityShown = select.querySelector('.modal__city');
 const cities = select.querySelectorAll('.modal__item');
 const label = modal.querySelector('.modal__label--city');
+
+let activeCityId;
+
+setDataId(cities);
 
 const onClick = () => {
   if (!modal.classList.contains('modal--validation')) {
@@ -102,7 +106,7 @@ function onCityClick () {
   removeListener(document, 'click', onSelectMissClick);
 }
 
-function onCityKeydown (evt) {
+function onCityKeydownEnter (evt) {
   if (isKeydown(evt, 'Enter')) {
     if (!optionHidden.selected) {
       optionHidden.setAttribute('selected', 'selected');
@@ -122,14 +126,40 @@ function onCityKeydown (evt) {
   }
 }
 
+function onCityKeydownArrowUp (evt) {
+  if (isKeydown(evt, 'ArrowUp')) {
+    activeCityId = this.getAttribute('data-id');
+    if (activeCityId > 0) {
+      activeCityId--;
+    }
+    cities[activeCityId].focus();
+  }
+}
+
+function onCityKeydownArrowDown (evt) {
+  if (isKeydown(evt, 'ArrowDown')) {
+    activeCityId = this.getAttribute('data-id');
+    if (activeCityId < cities.length) {
+      activeCityId++;
+    }
+    cities[activeCityId].focus();
+  }
+}
+
 const onLabel = () => {
   toggleSelect();
   cityShown.focus();
 };
 
-const onDocumentFocus = (evt) => {
+const onDocumentFocusModal = (evt) => {
   if (!isTarget(evt, '.modal')) {
     closeModal();
+  }
+};
+
+const onDocumentFocusSelect = (evt) => {
+  if (!isTarget(evt, '.modal__select')) {
+    removeClass(select, 'modal__select--opened');
   }
 };
 
@@ -138,7 +168,8 @@ const onHeroButton = () => {
   addClass(modal, 'hero__form--opened');
   addClass(overlay, 'page__overlay--active');
   addListener(document, 'click', onMissClick);
-  addListener(document, 'focusin', onDocumentFocus);
+  addListener(document, 'focusin', onDocumentFocusModal);
+  addListener(document, 'focusin', onDocumentFocusSelect);
   addListener(document, 'keydown', onDocumentEscape);
   addListener(modal, 'submit', onSubmit);
   addListener(modal, 'keydown', onSubmitKeydown);
@@ -150,7 +181,9 @@ const onHeroButton = () => {
   addListener(cityShown, 'click', onSelectClick);
   addListener(cityShown, 'keydown', onSelectKeydown);
   addListenerArray(cities, 'click', onCityClick);
-  addListenerArray(cities, 'keydown', onCityKeydown);
+  addListenerArray(cities, 'keydown', onCityKeydownEnter);
+  addListenerArray(cities, 'keydown', onCityKeydownArrowUp);
+  addListenerArray(cities, 'keydown', onCityKeydownArrowDown);
   inputName.focus();
 };
 
@@ -159,7 +192,8 @@ function closeModal () {
   removeClass(modal, 'hero__form--opened');
   removeClass(overlay, 'page__overlay--active');
   removeListener(document, 'click', onMissClick);
-  removeListener(document, 'focusin', onDocumentFocus);
+  removeListener(document, 'focusin', onDocumentFocusModal);
+  removeListener(document, 'focusin', onDocumentFocusSelect);
   removeListener(document, 'keydown', onDocumentEscape);
   removeListener(modal, 'submit', onSubmit);
   removeListener(modal, 'keydown', onSubmitKeydown);
@@ -171,7 +205,9 @@ function closeModal () {
   removeListener(cityShown, 'click', onSelectClick);
   removeListener(cityShown, 'keydown', onSelectKeydown);
   removeListenerArray(cities, 'click', onCityClick);
-  removeListenerArray(cities, 'keydown', onCityKeydown);
+  removeListenerArray(cities, 'keydown', onCityKeydownEnter);
+  removeListenerArray(cities, 'keydown', onCityKeydownArrowUp);
+  removeListenerArray(cities, 'keydown', onCityKeydownArrowDown);
   removeClass(select, 'modal__select--opened');
 }
 
