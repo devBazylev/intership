@@ -1,5 +1,6 @@
-import { addClass, addListener, addListenerArray, removeListener, removeListenerArray, isKeydown, toggleClass, isTarget, removeClass } from './util';
+import { addClass, addListener, addListenerArray, removeListener, removeListenerArray, isKeydown, toggleClass, isTarget, removeClass, setDataId } from './util';
 
+const body = document.querySelector('.page__body');
 const form = document.querySelector('.form__template');
 const label = form.querySelector('.form__label--city');
 const select = form.querySelector('.form__select');
@@ -10,6 +11,10 @@ const cities = select.querySelectorAll('.form__item');
 const checkboxHidden = form.querySelector('.form__checkbox');
 const checkboxBackup = form.querySelector('.form__check');
 const submitButton = form.querySelector('.form__submit');
+
+let activeCityId;
+
+setDataId(cities);
 
 const onClickSubmitButton = () => {
   if (!form.classList.contains('form__template--validation')) {
@@ -22,10 +27,18 @@ const onSelectHidden = () => {
   cityShown.focus();
 };
 
+const onDocumentFocusSelect = (evt) => {
+  if (!isTarget(evt, '.form__select')) {
+    removeClass(select, 'form__select--opened');
+  }
+};
+
 const onSelectMissClick = (evt) => {
   if (!isTarget(evt, '.form__select') && !isTarget(evt, '.form__label--city')) {
+    removeClass(body, 'page__body--no-scroll');
     removeClass(select, 'form__select--opened');
     removeListener(document, 'click', onSelectMissClick);
+    removeListener(document, 'focusin', onDocumentFocusSelect);
   }
 };
 
@@ -36,51 +49,89 @@ const toggleSelect = () => {
 
 const onSelectClick = () => {
   toggleSelect();
+  addClass(body, 'page__body--no-scroll');
+  addListener(document, 'focusin', onDocumentFocusSelect);
   addListenerArray(cities, 'click', onCityClick);
-  addListenerArray(cities, 'keydown', onCityKeydown);
+  addListenerArray(cities, 'keydown', onCityKeydownEnter);
+  addListenerArray(cities, 'keydown', onCityKeydownArrowUp);
+  addListenerArray(cities, 'keydown', onCityKeydownArrowDown);
 };
 
 const onSelectKeydown = (evt) => {
   if (isKeydown(evt, 'Enter')) {
     toggleSelect();
     cities[0].focus();
+    addClass(body, 'page__body--no-scroll');
+    addListener(document, 'focusin', onDocumentFocusSelect);
     addListenerArray(cities, 'click', onCityClick);
-    addListenerArray(cities, 'keydown', onCityKeydown);
+    addListenerArray(cities, 'keydown', onCityKeydownEnter);
+    addListenerArray(cities, 'keydown', onCityKeydownArrowUp);
+    addListenerArray(cities, 'keydown', onCityKeydownArrowDown);
   }
 };
 
 function onCityClick () {
-  selectHidden.value = this.getAttribute('data-city');
-  optionHidden.value = this.getAttribute('data-city');
   if (!optionHidden.selected) {
     optionHidden.setAttribute('selected', 'selected');
   }
-  this.click();
+  selectHidden.value = this.textContent;
   cityShown.textContent = this.textContent;
+  optionHidden.textContent = this.textContent;
+  optionHidden.value = this.textContent;
+  this.click();
+  removeClass(body, 'page__body--no-scroll');
   removeClass(select, 'form__select--opened');
   removeListener(document, 'click', onSelectMissClick);
+  removeListener(document, 'focusin', onDocumentFocusSelect);
   removeListenerArray(cities, 'click', onCityClick);
-  removeListenerArray(cities, 'keydown', onCityKeydown);
+  removeListenerArray(cities, 'keydown', onCityKeydownEnter);
+  removeListenerArray(cities, 'keydown', onCityKeydownArrowUp);
+  removeListenerArray(cities, 'keydown', onCityKeydownArrowDown);
 }
 
-function onCityKeydown (evt) {
+function onCityKeydownEnter (evt) {
   if (isKeydown(evt, 'Enter')) {
-    selectHidden.value = this.getAttribute('data-city');
-    optionHidden.value = this.getAttribute('data-city');
     if (!optionHidden.selected) {
       optionHidden.setAttribute('selected', 'selected');
     }
-    this.click();
+    selectHidden.value = this.textContent;
     cityShown.textContent = this.textContent;
-    removeClass(select, 'modal__select--opened');
+    optionHidden.textContent = this.textContent;
+    optionHidden.value = this.textContent;
+    this.click();
+    removeClass(body, 'page__body--no-scroll');
+    removeClass(select, 'form__select--opened');
     removeListener(document, 'click', onSelectMissClick);
+    removeListener(document, 'focusin', onDocumentFocusSelect);
     removeListenerArray(cities, 'click', onCityClick);
-    removeListenerArray(cities, 'keydown', onCityKeydown);
+    removeListenerArray(cities, 'keydown', onCityKeydownEnter);
+    removeListenerArray(cities, 'keydown', onCityKeydownArrowUp);
+    removeListenerArray(cities, 'keydown', onCityKeydownArrowDown);
     if (checkboxHidden.checkValidity() === false) {
       checkboxBackup.focus();
     } else {
       cityShown.focus();
     }
+  }
+}
+
+function onCityKeydownArrowUp (evt) {
+  if (isKeydown(evt, 'ArrowUp')) {
+    activeCityId = this.getAttribute('data-id');
+    if (activeCityId > 0) {
+      activeCityId--;
+    }
+    cities[activeCityId].focus();
+  }
+}
+
+function onCityKeydownArrowDown (evt) {
+  if (isKeydown(evt, 'ArrowDown')) {
+    activeCityId = this.getAttribute('data-id');
+    if (activeCityId < cities.length) {
+      activeCityId++;
+    }
+    cities[activeCityId].focus();
   }
 }
 

@@ -1,7 +1,6 @@
 import { addClass, removeClass, toggleClass, addListener, addListenerArray, removeListener, removeListenerArray, isTarget, isKeydown } from './util';
 
 const body = document.querySelector('.page__body');
-const overlay = body.querySelector('.page__overlay');
 const header = body.querySelector('.header');
 const toggler = header.querySelector('.header__toggler');
 const dropButtons = header.querySelectorAll('.header__button');
@@ -35,7 +34,7 @@ const onBurger = () => {
   toggleClass(toggler, 'header__toggler--opened');
   if (toggler.classList.contains('header__toggler--opened')) {
     addClass(body, 'page__body--no-scroll');
-    addClass(overlay, 'page__overlay--active');
+    addClass(body, 'page__overlay');
     addListener(document, 'click', onMissClick);
     addListener(document, 'keydown', onDocument);
     addListener(document, 'focusin', onDocumentFocus);
@@ -47,7 +46,7 @@ const onBurger = () => {
 
 function closeBurger () {
   removeClass(body, 'page__body--no-scroll');
-  removeClass(overlay, 'page__overlay--active');
+  removeClass(body, 'page__overlay');
   removeListener(document, 'click', onMissClick);
   removeListener(document, 'keydown', onDocument);
   removeListener(document, 'focusin', onDocumentFocus);

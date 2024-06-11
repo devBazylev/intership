@@ -40,11 +40,16 @@
   width: 100%;
 }
 
+.page__overlay .page__main > *:not(:first-child) {
+  position: relative;
+  z-index: -1;
+}
+
 .page__footer {
   grid-area: 2/1/3/2;
 }
 
-.page__overlay {
+.page__paint {
   position: fixed;
   width: 100vw;
   height: 0;
@@ -53,7 +58,7 @@
   transition: all 0.1s;
 }
 
-.page__overlay--active {
+.page__overlay .page__paint {
   height: 100vh;
 }
 
