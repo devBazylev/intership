@@ -1,7 +1,6 @@
 import { addClass, removeClass, addListener, addListenerArray, removeListener, removeListenerArray, isTarget, isKeydown, toggleClass, setDataId } from './util';
 
 const body = document.querySelector('.page__body');
-const overlay = body.querySelector('.page__overlay');
 const hero = body.querySelector('.hero');
 const heroButtons = hero.querySelectorAll('.hero__button');
 const modal = hero.querySelector('.modal');
@@ -166,7 +165,7 @@ const onDocumentFocusSelect = (evt) => {
 const onHeroButton = () => {
   addClass(body, 'page__body--no-scroll');
   addClass(modal, 'hero__form--opened');
-  addClass(overlay, 'page__overlay--active');
+  addClass(body, 'page__overlay');
   addListener(document, 'click', onMissClick);
   addListener(document, 'focusin', onDocumentFocusModal);
   addListener(document, 'focusin', onDocumentFocusSelect);
@@ -190,7 +189,7 @@ const onHeroButton = () => {
 function closeModal () {
   removeClass(body, 'page__body--no-scroll');
   removeClass(modal, 'hero__form--opened');
-  removeClass(overlay, 'page__overlay--active');
+  removeClass(body, 'page__overlay');
   removeListener(document, 'click', onMissClick);
   removeListener(document, 'focusin', onDocumentFocusModal);
   removeListener(document, 'focusin', onDocumentFocusSelect);
