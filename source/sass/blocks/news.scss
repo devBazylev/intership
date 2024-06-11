@@ -117,7 +117,6 @@
 
   @media (min-width: $desk) {
     left: 0;
-    // left: 33px;
     padding: 14px 33px;
   }
 }
@@ -130,7 +129,16 @@
 
 .news__slider {
   grid-area: 1/1/2/2;
+  height: 675px;
+  // height: 590px;
   margin: 0 auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  @media (min-width: $desk) {
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
 }
 
 .news__slide {
@@ -139,6 +147,7 @@
   width: 290px;
   height: 240px;
   align-items: end;
+  visibility: hidden;
 
   @media (min-width: $tab) {
     width: 324px;
@@ -153,7 +162,8 @@
 
 .news__slide--full {
   width: 290px;
-  height: 330px;
+  height: 240px;
+  visibility: visible;
 
   @media (min-width: $tab) {
     width: 324px;

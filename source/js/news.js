@@ -21,6 +21,7 @@ const swiper = new Swiper('.news__container', {
   observeSlideChildren: true,
   slideFullyVisibleClass: 'news__slide--full',
   slideActiveClass: 'news__slide--active',
+  // slideNextClass: 'news__slide--next',
   slideToClickedSlide: true,
   loopAddBlankSlides: false,
   loopAdditionalSlides: 0,
@@ -48,6 +49,7 @@ const swiper = new Swiper('.news__container', {
     320: {
       width: 290,
       slidesPerView: 1,
+      slidesPerGroup: 1,
       spaceBetween: 15,
       grid: {
         rows: 2,
@@ -57,6 +59,7 @@ const swiper = new Swiper('.news__container', {
     768: {
       width: 678,
       slidesPerView: 2,
+      slidesPerGroup: 2,
       spaceBetween: 30,
       grid: {
         rows: 2,
