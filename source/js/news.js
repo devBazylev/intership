@@ -1,7 +1,6 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Scrollbar, Manipulation, Grid } from 'swiper/modules';
 import { cloneSlides } from './util';
-// import { setDataId, addClass, addClassArray, addListener, isKeydown } from './util';
 
 const news = document.querySelector('.news');
 const slider = news.querySelector('.news__slider');
@@ -10,9 +9,9 @@ const slides = news.querySelectorAll('.news__slide');
 const clones = [];
 
 cloneSlides(slider, slides, clones);
-// cloneSlides(slider, slides, clones);
+cloneSlides(slider, slides, clones);
 
-const swiper = new Swiper('.news', {
+const swiper = new Swiper('.news__container', {
   modules: [Navigation, Pagination, Scrollbar, Manipulation, Grid],
   init: false,
   autoplay: false,
@@ -20,6 +19,7 @@ const swiper = new Swiper('.news', {
   observer: true,
   observeParents: true,
   observeSlideChildren: true,
+  slideFullyVisibleClass: 'news__slide--full',
   slideActiveClass: 'news__slide--active',
   slideToClickedSlide: true,
   loopAddBlankSlides: false,
@@ -41,28 +41,32 @@ const swiper = new Swiper('.news', {
     dynamicMainBullets: 4,
     renderBullet: function (index, className) {
       return `<button class="${className}" type="button" tabindex="0" aria-label="Переключите группу слайдов.">${index + 1}</button>`;
-      // return '<span class="' + className + '">' + (index + 1) + '</span>';
     }
   },
-  // grid: {
-  //   rows: 2,
-  //   fill:	'column',
-  // },
+
   breakpoints: {
     320: {
-      // autoHeight: true,
+      width: 290,
       slidesPerView: 1,
       spaceBetween: 15,
       grid: {
         rows: 2,
+        fill:	'column',
       },
     },
     768: {
+      width: 678,
       slidesPerView: 2,
       spaceBetween: 30,
+      grid: {
+        rows: 2,
+        fill:	'column',
+      },
     },
     1440: {
+      width: 1240,
       slidesPerView: 3,
+      // slidesPerView: 'auto',
       spaceBetween: 32,
       simulateTouch: false,
     },
