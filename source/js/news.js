@@ -16,7 +16,7 @@ cloneSlides(slider, slides, clones);
 cloneSlides(slider, slides, clones);
 
 const resizeSlides = () => {
-  const slidesWithClones = news.querySelectorAll('.news__slide');
+  const slidesWithClones = Array.from(news.querySelectorAll('.news__slide'));
   const slideActive = news.querySelector('.news__slide--active');
 
   if (mob.matches) {
@@ -46,10 +46,19 @@ const resizeSlides = () => {
       slide.style.height = '400px';
       image.style.height = slide.style.height;
     });
-    const imageActive = slideActive.querySelector('.news__slide--active .news__image');
-    slideActive.style.width = '604px';
-    slideActive.style.height = '400px';
-    imageActive.style.height = slideActive.style.height;
+    const wideSlides = slidesWithClones.filter((item, index) => !((index + 3) % 3));
+    wideSlides.forEach((slide) => {
+      const image = slideActive.querySelector('.news__image');
+      slide.style.width = '604px';
+      slide.style.height = '400px';
+      image.style.height = slide.style.height;
+    });
+    while (slidesWithClones.length % 3) {
+      const clone = slides[1].cloneNode(true);
+      clone.setAttribute('aria-hidden', true);
+      slidesWithClones.push(clone);
+      slider.appendChild(clone);
+    }
   }
 };
 
@@ -107,7 +116,7 @@ const swiper = new Swiper('.news__container', {
     },
     1440: {
       width: 1240,
-      slidesPerView: 'auto',
+      slidesPerView: 3,
       slidesPerGroup: 3,
       spaceBetween: 32,
       simulateTouch: false,
