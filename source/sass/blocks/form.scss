@@ -423,11 +423,11 @@
   @include grid;
 
   position: relative;
-  margin: 0 0 12px;
+  margin: 0 0 11px;
 
   @media (min-width: $tab) {
     min-height: 50px;
-    margin: 0 0 9px;
+    margin: 0 0 5px;
   }
 }
 
@@ -453,10 +453,10 @@
 
   position: relative;
   grid-area: 1/1/2/2;
-  width: 100%;
-  min-height: 44px;
-  margin: 0 0 4px;
-  padding: 14px 20px;
+  width: 260px;
+  min-height: 52px;
+  margin: 0;
+  padding: 18px 20px;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -468,7 +468,7 @@
   cursor: pointer;
 
   @media (min-width: $tab) {
-    min-height: 50px;
+    width: 100%;
   }
 }
 
@@ -477,13 +477,13 @@
   @include svg("half-arrow", "mask", $light);
 
   position: absolute;
-  top: 17px;
-  right: 19px;
+  top: 21px;
+  right: 20px;
   width: 16px;
   height: 10px;
 
   @media (min-width: $tab) {
-    top: 19px;
+    top: 21px;
   }
 }
 
