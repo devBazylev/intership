@@ -13,6 +13,7 @@ const clones = [];
 
 cloneSlides(slider, slides, clones);
 cloneSlides(slider, slides, clones);
+cloneSlides(slider, slides, clones);
 
 const resizeSlides = () => {
   const slidesWithClones = news.querySelectorAll('.news__slide');
@@ -101,7 +102,7 @@ const swiper = new Swiper('.news__container', {
       spaceBetween: 30,
       grid: {
         rows: 2,
-        fill:	'column',
+        fill:	'row',
       },
     },
     1440: {

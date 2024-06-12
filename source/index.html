@@ -252,11 +252,11 @@
       <section class="news" data-test="news" id="news">
         <h2 class="news__title page__title">Новости и материалы</h2>
         <div class="news__tabs">
-          <button class="news__tab news__tab--active" type="button">Общее</button>
-          <button class="news__tab" type="button">Волонтёрство</button>
+          <button class="news__tab news__tab--general news__tab--active" type="button">Общее</button>
+          <button class="news__tab news__tab--volunteer" type="button">Волонтёрство</button>
           <button class="news__tab news__tab--intership" type="button">Стажировки</button>
-          <button class="news__tab" type="button">Карьера</button>
-          <button class="news__tab" type="button">путешествия</button>
+          <button class="news__tab news__tab--carier" type="button">Карьера</button>
+          <button class="news__tab news__tab--traveling" type="button">Путешествия</button>
         </div>
         <!-- <div class="swiper-scrollbar"></div> -->
         <div class="news__container swiper">
@@ -305,9 +305,9 @@
               <div class="news__content">
                 <h3 class="news__subtitle">Новая программа волонтёрства</h3>
                 <time class="news__date" datetime="2023-03-17">17/03/2023</time>
-                <div class="news__cms">
+                <div class="news__cms news__cms--girl">
                   <p>Программа помощи детям длительностью 4 месяца</p>
-                  <a class="news__link button__circle" href="#" aria-label="Переход по ссылке"></a>
+                  <a class="news__link news__link--girl button__circle" href="#" aria-label="Переход по ссылке"></a>
                 </div>
               </div>
               <div class="news__picture">
@@ -326,7 +326,7 @@
                 <h3 class="news__subtitle">Построй свою карьеру</h3>
                 <time class="news__date" datetime="2023-03-10">10/03/2023</time>
                 <div class="news__cms">
-                  <p>Ведущие компании готовы трудоустроить выпускников стажировки</p>
+                  <p>Ведущие компании<br>готовы трудоустроить выпускников стажировки</p>
                   <a class="news__link button__circle" href="#" aria-label="Переход по ссылке"></a>
                 </div>
               </div>
