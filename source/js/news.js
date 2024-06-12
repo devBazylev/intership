@@ -17,27 +17,38 @@ cloneSlides(slider, slides, clones);
 const resizeSlides = () => {
   const slidesWithClones = news.querySelectorAll('.news__slide');
   const slideActive = news.querySelector('.news__slide--active');
+
   if (mob.matches) {
     slidesWithClones.forEach((slide) => {
+      const image = slide.querySelector('.news__image');
       slide.style.width = '290px';
       slide.style.height = '240px';
+      image.style.height = slide.style.height;
     });
+    const imageActive = slideActive.querySelector('.news__slide--active .news__image');
     slideActive.style.width = '290px';
     slideActive.style.height = '330px';
+    imageActive.style.height = slideActive.style.height;
   }
   if (tab.matches) {
     slidesWithClones.forEach((slide) => {
+      const image = slide.querySelector('.news__image');
       slide.style.width = '324px';
       slide.style.height = '350px';
+      image.style.height = slide.style.height;
     });
   }
   if (desk.matches) {
     slidesWithClones.forEach((slide) => {
+      const image = slide.querySelector('.news__image');
       slide.style.width = '286px';
       slide.style.height = '400px';
+      image.style.height = slide.style.height;
     });
+    const imageActive = slideActive.querySelector('.news__slide--active .news__image');
     slideActive.style.width = '604px';
     slideActive.style.height = '400px';
+    imageActive.style.height = slideActive.style.height;
   }
 };
 
