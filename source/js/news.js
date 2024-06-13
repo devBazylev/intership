@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination, Scrollbar, Manipulation, Grid } from 'swiper/modules';
+import { Navigation, Pagination, Manipulation, Grid } from 'swiper/modules';
 import { cloneSlides } from './util';
 
 const mob = window.matchMedia('(min-width: 0px) and (max-width: 767px)');
@@ -63,7 +63,7 @@ const resizeSlides = () => {
 };
 
 const swiper = new Swiper('.news__container', {
-  modules: [Navigation, Pagination, Scrollbar, Manipulation, Grid],
+  modules: [Navigation, Pagination, Manipulation, Grid],
   init: false,
   autoplay: false,
   watchSlidesProgress: true,
@@ -131,14 +131,3 @@ const swiper = new Swiper('.news__container', {
 
 swiper.init();
 swiper.on('slidesUpdated', resizeSlides);
-
-// scrollbar: {
-//   el: '.swiper-scrollbar',
-//   draggable: true,
-// },
-// mousewheel: {
-//   sensitivity: 1,
-//   eventsTarget: '.news',
-//   enabled: true,
-//   eventsTarget: '.programs__pagination',
-// }
