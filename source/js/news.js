@@ -27,15 +27,18 @@ const resizeSlides = () => {
 
   if (mob.matches) {
     slidesWithClones.forEach((slide) => {
+      const index = slidesWithClones.indexOf(slide);
       const image = slide.querySelector('.news__image');
-      slide.style.width = '290px';
-      slide.style.height = '240px';
-      image.style.height = slide.style.height;
+      if (index % 2) {
+        slide.style.width = '290px';
+        slide.style.height = '240px';
+        image.style.height = slide.style.height;
+      } else {
+        slide.style.width = '290px';
+        slide.style.height = '330px';
+        image.style.height = slide.style.height;
+      }
     });
-    const imageActive = slideActive.querySelector('.news__slide--active .news__image');
-    slideActive.style.width = '290px';
-    slideActive.style.height = '330px';
-    imageActive.style.height = slideActive.style.height;
   }
   if (tab.matches) {
     slidesWithClones.forEach((slide) => {
@@ -166,8 +169,6 @@ const swiper = new Swiper('.news__container', {
   },
   on: {
     resize: resizeSlides,
-    slideChangeTransitionStart: resizeSlides,
-    slideChangeTransitionEnd: resizeSlides,
   },
 });
 
