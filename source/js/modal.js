@@ -1,4 +1,4 @@
-import { addClass, removeClass, addListener, addListenerArray, removeListener, removeListenerArray, isTarget, isKeydown, toggleClass, setDataId } from './util';
+import { addClass, removeClass, addListener, addListenerArray, removeListener, removeListenerArray, isTarget, isKeydown, toggleClass, setDataId, toggleDisabled } from './util';
 
 const body = document.querySelector('.page__body');
 const hero = body.querySelector('.hero');
@@ -53,9 +53,11 @@ const onCheckbox = (evt) => {
 };
 
 const onSubmit = async (evt) => {
+  toggleDisabled(submitButton, true);
   modal.submit();
   evt.preventDefault();
   modal.reset();
+  toggleDisabled(submitButton, false);
   closeModal();
 };
 

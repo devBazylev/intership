@@ -33,6 +33,13 @@ const cloneSlides = (parent, elems, array) => {
   });
 };
 
+const getRandomInteger = (a, b) => {
+  const lower = Math.ceil(Math.min(a, b));
+  const upper = Math.floor(Math.max(a, b));
+  const result = Math.random() * (upper - lower + 1) + lower;
+  return Math.floor(result);
+};
+
 const isKeydown = (evt, keydown) => evt.key === keydown;
 
 const isTarget = (evt, selector) => evt.target.closest(selector);
@@ -74,6 +81,11 @@ const toggleClass = (elem, classs) => {
   elem.classList.toggle(classs);
 };
 
+const toggleDisabled = (button, flag) => {
+  button.disabled = flag;
+  button.textContent = flag ? 'Отправляем...' : 'Отправить';
+};
+
 export {
   addClass,
   addClassArray,
@@ -81,6 +93,7 @@ export {
   addListenerArray,
   changeText,
   cloneSlides,
+  getRandomInteger,
   isKeydown,
   isTarget,
   removeClass,
@@ -90,4 +103,5 @@ export {
   removeListenerArray,
   setDataId,
   toggleClass,
+  toggleDisabled,
 };

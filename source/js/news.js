@@ -1,6 +1,6 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Manipulation, Grid, Mousewheel, FreeMode } from 'swiper/modules';
-import { addClass, cloneSlides, removeClassArray, addListenerArray } from './util';
+import { addClass, cloneSlides, removeClassArray, addListenerArray, getRandomInteger } from './util';
 
 const mob = window.matchMedia('(min-width: 0px) and (max-width: 767px)');
 const tab = window.matchMedia('(min-width: 768px) and (max-width: 1439px)');
@@ -61,7 +61,8 @@ const resizeSlides = () => {
         image.style.height = slide.style.height;
       }
       while (slidesWithClones.length % 3) {
-        const clone = slides[1].cloneNode(true);
+        const random = getRandomInteger(0, slides.length);
+        const clone = slides[random].cloneNode(true);
         clone.setAttribute('aria-hidden', true);
         slidesWithClones.push(clone);
         slider.appendChild(clone);
@@ -96,7 +97,7 @@ const tabsMenu = new Swiper('.news__wrapper', {
 
     },
     768: {
-      width: 678,
+      width: 690,
       spaceBetween: 6,
     },
     1440: {
