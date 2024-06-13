@@ -23,7 +23,6 @@ cloneSlides(slider, slides, clones);
 
 const resizeSlides = () => {
   const slidesWithClones = Array.from(news.querySelectorAll('.news__slide'));
-  const slideActive = news.querySelector('.news__slide--active');
 
   if (mob.matches) {
     slidesWithClones.forEach((slide) => {
@@ -50,24 +49,24 @@ const resizeSlides = () => {
   }
   if (desk.matches) {
     slidesWithClones.forEach((slide) => {
+      const index = slidesWithClones.indexOf(slide);
       const image = slide.querySelector('.news__image');
-      slide.style.width = '286px';
-      slide.style.height = '400px';
-      image.style.height = slide.style.height;
+      if (index % 3) {
+        slide.style.width = '286px';
+        slide.style.height = '400px';
+        image.style.height = slide.style.height;
+      } else {
+        slide.style.width = '604px';
+        slide.style.height = '400px';
+        image.style.height = slide.style.height;
+      }
+      while (slidesWithClones.length % 3) {
+        const clone = slides[1].cloneNode(true);
+        clone.setAttribute('aria-hidden', true);
+        slidesWithClones.push(clone);
+        slider.appendChild(clone);
+      }
     });
-    const wideSlides = slidesWithClones.filter((item, index) => !((index + 3) % 3));
-    wideSlides.forEach((slide) => {
-      const image = slideActive.querySelector('.news__image');
-      slide.style.width = '604px';
-      slide.style.height = '400px';
-      image.style.height = slide.style.height;
-    });
-    while (slidesWithClones.length % 3) {
-      const clone = slides[1].cloneNode(true);
-      clone.setAttribute('aria-hidden', true);
-      slidesWithClones.push(clone);
-      slider.appendChild(clone);
-    }
   }
 };
 
