@@ -32,28 +32,24 @@
   text-align: center;
 }
 
-.news__tabs {
-  @include flex(nowrap);
-
+.news__wrapper {
   grid-area: 2/2/3/3;
-  gap: 10px;
-
-  @media (min-width: $tab) {
-    position: relative;
-    left: 5px;
-    align-items: center;
-    gap: 6px;
-  }
+  overflow: hidden;
 
   @media (min-width: $desk) {
-    gap: 14px;
-    left: 6px;
+    position: relative;
+    left: 12px;
     min-width: 720px;
     margin: 0 auto;
   }
 }
 
+.news__tabs {
+  @include flex(nowrap);
+}
+
 .news__tab {
+  width: fit-content;
   padding: 11px 15px 9px 14px;
   font-size: 12px;
   font-style: normal;
@@ -66,6 +62,7 @@
   border: 2px solid transparent;
   border-radius: 20px;
   cursor: pointer;
+  visibility: hidden;
 
   @media (min-width: $tab) {
     padding: 14px 20px;
@@ -131,6 +128,7 @@
   color: $bright;
   background-color: $common;
   border: 2px solid $bright;
+  visibility: visible;
 
   @media (min-width: $tab) {
     position: relative;
@@ -138,15 +136,28 @@
   }
 
   @media (min-width: $desk) {
-    left: 0;
+    left: 1px;
     padding: 14px 33px;
   }
+}
+
+.news__tab--visible {
+  visibility: visible;
 }
 
 .news__container {
   @include grid;
 
+  width: 290px;
   grid-area: 3/2/4/3;
+
+  @media (min-width: $tab) {
+    width: 678px;
+  }
+
+  @media (min-width: $desk) {
+    width: 1240px;
+  }
 }
 
 .news__slider {

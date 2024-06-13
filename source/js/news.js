@@ -1,6 +1,6 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination, Scrollbar, Manipulation, Grid } from 'swiper/modules';
-import { cloneSlides } from './util';
+import { Navigation, Pagination, Manipulation, Grid, Mousewheel, FreeMode } from 'swiper/modules';
+import { addClass, cloneSlides, removeClassArray, addListenerArray } from './util';
 
 const mob = window.matchMedia('(min-width: 0px) and (max-width: 767px)');
 const tab = window.matchMedia('(min-width: 768px) and (max-width: 1439px)');
@@ -8,6 +8,12 @@ const desk = window.matchMedia('(min-width: 1440px)');
 const news = document.querySelector('.news');
 const slider = news.querySelector('.news__slider');
 const slides = news.querySelectorAll('.news__slide');
+const tabs = news.querySelectorAll('.news__tab');
+
+function onTab () {
+  removeClassArray(tabs, 'news__tab--active');
+  addClass(this, 'news__tab--active');
+}
 
 const clones = [];
 
@@ -16,7 +22,7 @@ cloneSlides(slider, slides, clones);
 cloneSlides(slider, slides, clones);
 
 const resizeSlides = () => {
-  const slidesWithClones = news.querySelectorAll('.news__slide');
+  const slidesWithClones = Array.from(news.querySelectorAll('.news__slide'));
   const slideActive = news.querySelector('.news__slide--active');
 
   if (mob.matches) {
@@ -46,15 +52,60 @@ const resizeSlides = () => {
       slide.style.height = '400px';
       image.style.height = slide.style.height;
     });
-    const imageActive = slideActive.querySelector('.news__slide--active .news__image');
-    slideActive.style.width = '604px';
-    slideActive.style.height = '400px';
-    imageActive.style.height = slideActive.style.height;
+    const wideSlides = slidesWithClones.filter((item, index) => !((index + 3) % 3));
+    wideSlides.forEach((slide) => {
+      const image = slideActive.querySelector('.news__image');
+      slide.style.width = '604px';
+      slide.style.height = '400px';
+      image.style.height = slide.style.height;
+    });
+    while (slidesWithClones.length % 3) {
+      const clone = slides[1].cloneNode(true);
+      clone.setAttribute('aria-hidden', true);
+      slidesWithClones.push(clone);
+      slider.appendChild(clone);
+    }
   }
 };
 
+const tabsMenu = new Swiper('.news__wrapper', {
+  modules: [Mousewheel, FreeMode],
+  init: false,
+  autoplay: false,
+  observer: true,
+  watchSlidesProgress: true,
+  updateOnWindowResize: true,
+  slideVisibleClass: 'news__tab--visible',
+  slidesPerView: 'auto',
+  mousewheel: {
+    enabled: true,
+    sensitivity: 1,
+    eventsTarget: '.news__wrapper',
+  },
+  freeMode: {
+    enabled: true,
+    momentum: false,
+    momentumBounce: false,
+  },
+  breakpoints: {
+    320: {
+      width: 290,
+      spaceBetween: 10,
+
+    },
+    768: {
+      width: 678,
+      spaceBetween: 6,
+    },
+    1440: {
+      width: 1240,
+      spaceBetween: 14,
+    },
+  },
+});
+
 const swiper = new Swiper('.news__container', {
-  modules: [Navigation, Pagination, Scrollbar, Manipulation, Grid],
+  modules: [Navigation, Pagination, Manipulation, Grid],
   init: false,
   autoplay: false,
   watchSlidesProgress: true,
@@ -107,7 +158,7 @@ const swiper = new Swiper('.news__container', {
     },
     1440: {
       width: 1240,
-      slidesPerView: 'auto',
+      slidesPerView: 3,
       slidesPerGroup: 3,
       spaceBetween: 32,
       simulateTouch: false,
@@ -120,16 +171,8 @@ const swiper = new Swiper('.news__container', {
   },
 });
 
+tabsMenu.init();
 swiper.init();
 swiper.on('slidesUpdated', resizeSlides);
 
-// scrollbar: {
-//   el: '.swiper-scrollbar',
-//   draggable: true,
-// },
-// mousewheel: {
-//   sensitivity: 1,
-//   eventsTarget: '.news',
-//   enabled: true,
-//   eventsTarget: '.programs__pagination',
-// }
+addListenerArray(tabs, 'click', onTab);
