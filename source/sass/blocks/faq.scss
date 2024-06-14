@@ -37,7 +37,7 @@
 
   align-content: center;
   gap: 18px 0;
-  padding: 22px 15px 18px 15px;
+  padding: 22px 15px 18px;
   background-color: $common;
   border: 2px solid $bright;
   border-radius: 14px;
@@ -45,23 +45,24 @@
 
   @media (min-width: $tab) {
     gap: 13px 0;
-    padding: 37px 30px 23px 30px;
+    padding: 37px 30px 23px;
     border-radius: 16px;
   }
 
   @media (min-width: $desk) {
     gap: 17px 0;
-    padding: 43px 40px 37px 40px;
+    padding: 43px 40px 37px;
   }
 }
 
 .faq__card--opened {
-  padding: 22px 15px 20px 15px;
+  padding: 22px 15px 20px;
   background-color: $bright;
 
   @media (min-width: $tab) {
-    padding: 37px 30px 30px 30px;
+    padding: 37px 30px 30px;
   }
+
   @media (min-width: $desk) {
     padding: 43px 36px 40px 40px;
   }
@@ -97,7 +98,7 @@
 
   @media (min-width: $tab) {
     font-size: 22px;
-    line-height: 26px
+    line-height: 26px;
   }
 
   @media (min-width: $desk) {

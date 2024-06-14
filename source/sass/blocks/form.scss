@@ -2,7 +2,7 @@
 @import "../global/variables";
 
 .form {
-  padding: 40px 0 40px;
+  padding: 40px 0;
 
   @media (min-width: $tab) {
     padding: 50px calc((100vw - 678px) / 2) 50px;
@@ -121,7 +121,7 @@
   @media (min-width: $tab) {
     margin: 0 0 2px;
     font-size: 14px;
-    line-height: 20px
+    line-height: 20px;
   }
 
   @media (min-width: $desk) {
@@ -525,7 +525,7 @@
 .form__select--opened .form__list {
   height: fit-content;
   border: 1px solid $light;
-  visibility: visible
+  visibility: visible;
 }
 
 .form__item {

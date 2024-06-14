@@ -134,6 +134,7 @@
 
 .header__nav * {
   pointer-events: all;
+  outline: none;
 }
 
 .header__toggler--opened + .header__nav {

@@ -17,7 +17,7 @@
   }
 
   @media (min-width: $desk) {
-    grid-template-columns: 1fr 498px ;
+    grid-template-columns: 1fr 498px;
     grid-template-rows: repeat(auto-fit, minmax(76px, auto) minmax(180px, auto) minmax(116px, auto) minmax(480px, auto));
     padding: 70px calc((100vw - 1240px) / 2) 60px;
     gap: 0 40px;
@@ -181,6 +181,7 @@
   @include svg("star");
 
   position: absolute;
+
   // z-index: 1;
   top: -23px;
   left: -21px;

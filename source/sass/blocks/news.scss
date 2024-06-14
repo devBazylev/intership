@@ -18,7 +18,7 @@
   @media (min-width: $desk) {
     grid-template-columns: 1fr 1240px 1fr;
     grid-template-rows: repeat(auto-fit, minmax(90px, auto) minmax(86px, auto) minmax(368px, auto) minmax(44px, auto));
-    padding: 60px 0 60px;
+    padding: 60px 0;
   }
 }
 
@@ -323,7 +323,7 @@
 }
 
 .news__cms--beach {
-  padding: 0px 10px 10px 0;
+  padding: 0 10px 10px 0;
 
   @media (min-width: $tab) {
     width: 240px;
