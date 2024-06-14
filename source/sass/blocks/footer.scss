@@ -152,7 +152,7 @@
   display: block;
   width: fit-content;
   margin: 0 auto 11px;
-  height: 16px;
+  min-height: 16px;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -161,15 +161,15 @@
   border-bottom: 1px solid $main;
 
   @media (min-width: $tab) {
-    height: 14px;
+    min-height: 14px;
     margin: 0 auto 11px 0;
-    line-height: 12px
+    line-height: 12px;
   }
 
   @media (min-width: $desk) {
     position: relative;
     top: -2px;
-    height: 21px;
+    min-height: 21px;
     margin: 0 0 11px auto;
     font-size: 14px;
     line-height: 18px;
@@ -195,7 +195,7 @@
   display: block;
   width: fit-content;
   margin: 0 auto 12px;
-  height: 16px;
+  min-height: 16px;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -314,6 +314,7 @@
 .footer__social:focus {
   background-color: $light;
 }
+
 .footer__social:focus::before {
   background-color: $bright;
 }
@@ -321,6 +322,7 @@
 .footer__social:active {
   background-color: $dark-bright;
 }
+
 .footer__social:active::before {
   background-color: $light;
 }

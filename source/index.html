@@ -21,36 +21,36 @@
 
   <body class="page__body">
 
-    <main class="page__main">
+    <main class="page__main button">
       <section class="hero swiper" data-test="hero">
         <h1 class="visually-hidden">Расскажем о наших стажировках</h1>
         <div class="page__paint"></div>
         <header class="hero__header header">
           <img class="header__logo" src="img/logo.svg" alt="Логотип." width="52" height="52">
-          <button class="header__toggler button" type="button">Меню</button>
-          <nav class="header__nav">
+          <button class="header__toggler button__common" type="button">Меню</button>
+          <nav class="header__nav" aria-label="Навигация хедера">
             <ul class="header__list">
-              <li><a class="header__link" href="#">О проекте</a></li>
+              <li><a class="header__link header__link--about" href="#about">О проекте</a></li>
               <li class="header__item">
                 <button class="header__button" type="button">Программы</button>
                 <ul class="header__sublist">
-                  <li><a class="header__sublink" href="#">Стажировки</a></li>
-                  <li><a class="header__sublink" href="#">Волонтёрство</a></li>
-                  <li><a class="header__sublink" href="#">Учёба</a></li>
-                  <li><a class="header__sublink" href="#">Религия</a></li>
+                  <li><a class="header__sublink" href="#programs">Стажировки</a></li>
+                  <li><a class="header__sublink header__sublink--volunteer" href="#programs">Волонтёрство</a></li>
+                  <li><a class="header__sublink header__sublink--learning" href="#programs">Учёба</a></li>
+                  <li><a class="header__sublink" href="#programs">Религия</a></li>
                 </ul>
               </li>
-              <li><a class="header__link" href="#">Как поехать</a></li>
-              <li><a class="header__link" href="#">Отзывы</a></li>
+              <li><a class="header__link header__link--grant" href="#grant">Как поехать</a></li>
+              <li><a class="header__link header__link--reviews" href="#reviews">Отзывы</a></li>
               <li class="header__item">
                 <button class="header__button" type="button">Новости</button>
                 <ul class="header__sublist">
-                  <li><a class="header__sublink" href="#">Африка бьет рекорды</a></li>
-                  <li><a class="header__sublink" href="#">В Китае творится всякое</a></li>
-                  <li><a class="header__sublink" href="#">Бурый медведь альбинос</a></li>
+                  <li><a class="header__sublink" href="#news">Африка бьет рекорды</a></li>
+                  <li><a class="header__sublink" href="#news">В Китае творится всякое</a></li>
+                  <li><a class="header__sublink" href="#news">Бурый медведь альбинос</a></li>
                 </ul>
               </li>
-              <li><a class="header__link" href="#">Контакты</a></li>
+              <li><a class="header__link header__link--contacts" href="#contacts">Контакты</a></li>
             </ul>
           </nav>
         </header>
@@ -64,7 +64,7 @@
                   <p>Погрузитесь в академическую программу, проходя практику <span>в разных городах,</span> ощущая настоящий студенческий стиль жизни!</p>
                 </div>
                 <div class="hero__subwrapper">
-                  <button class="hero__button button" type="button">Подробнее</button>
+                  <button class="hero__button button__common" type="button">Подробнее</button>
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@
                   <p>Возможности для преподавания, органического сельского хозяйства, устойчивого образа жизни и другое.</p>
                 </div>
                 <div class="hero__subwrapper">
-                  <button class="hero__button button" type="button">Подробнее</button>
+                  <button class="hero__button button__common" type="button">Подробнее</button>
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@
                   <p>Получите незаменимый опыт работы в ведущих мировых компаниях и государственных организациях.</p>
                 </div>
                 <div class="hero__subwrapper">
-                  <button class="hero__button button" type="button">Подробнее</button>
+                  <button class="hero__button button__common" type="button">Подробнее</button>
                 </div>
               </div>
             </div>
@@ -105,16 +105,15 @@
           <input class="modal__name" type="text" name="name" id="name" minlength="2" maxlength="40" title="От 2 символов. Разрешены буквы и пробелы." pattern="^[a-zA-Zа-яА-ЯёЁ\s]{2,}$" required>
           <label class="modal__label" for="phone">Телефон</label>
           <input class="modal__phone" type="tel" name="phone" id="phone" minlength="5" maxlength="40" title="От 5 символов. Пример: +7ххххххххх." pattern="^[+][7][^a-zA-Zа-яА-ЯёЁ]{5,}$" required>
-          <div class="modal__label modal__label--city">Выберите город</div>
+          <label class="modal__label modal__label--city" for="city">Выберите город</label>
           <div class="modal__select">
             <select class="modal__hidden" name="city" id="city" tabindex="-1" aria-hidden="true" required>
-              <option class="modal__option" value=""></option>
+              <option class="modal__option" label="modal-option" value=""></option>
             </select>
             <div class="modal__city" tabindex="0"></div>
             <ul class="modal__list">
               <li class="modal__item" tabindex="0"></li>
               <li class="modal__item" tabindex="0">Рим</li>
-              <li class="modal__item" tabindex="0">Париж</li>
               <li class="modal__item" tabindex="0">Лондон</li>
               <li class="modal__item" tabindex="0">Санкт-Петербург</li>
             </ul>
@@ -124,7 +123,7 @@
             <span class="modal__check" tabindex="0"></span>
             <span class="modal__subtext">Я согласен на обработку моих персональных данных</span>
           </label>
-          <button class="modal__submit button" type="submit">Отправить</button>
+          <button class="modal__submit button__common" type="submit">Отправить</button>
           <button class="modal__cancel" type="button">
             <span class="visually-hidden">Закрыть модальное окно</span>
           </button>
@@ -136,7 +135,7 @@
         <p>«Стажировка» — совместный проект правительств и волонтёрских бригад.</p>
         <h3>Наша цель</h3>
         <p>Наша деятельность направлена на повышение квалификации молодых специалистов на ранних и средних стадиях карьеры, предоставляя им инструменты для решения сложных проблем, с которыми сталкиваются в мире. Цель центра — наделить этих людей способностью инициировать значимые изменения.</p>
-        <a class="about__button button" href="#">Подробнее о проекте</a>
+        <a class="about__button button__common" href="#">Подробнее о проекте</a>
         <div class="about__achievement">
           <div class="about__card">
             <h3>Более 250 программ</h3>
@@ -224,7 +223,7 @@
           <div class="programs__progressbar"></div>
         </div>
         <div class="programs__scrollbar"></div>
-        <a class="programs__link button" href="#">Все программы</a>
+        <a class="programs__link button__common" href="#">Все программы</a>
       </section>
 
       <section class="grant" data-test="grant" id="grant">
@@ -476,23 +475,22 @@
             <div class="form__label form__label--city">Выберите город</div>
             <div class="form__select">
               <select class="form__hidden" name="city" id="form-city" tabindex="-1" aria-hidden="true" required>
-                <option class="form__option" value=""></option>
+                <option class="form__option" label="form-option" value=""></option>
               </select>
               <div class="form__city" tabindex="0"></div>
               <ul class="form__list">
                 <li class="form__item" tabindex="0"></li>
                 <li class="form__item" tabindex="0">Рим</li>
-                <li class="form__item" tabindex="0">Париж</li>
                 <li class="form__item" tabindex="0">Лондон</li>
                 <li class="form__item" tabindex="0">Санкт-Петербург</li>
               </ul>
             </div>
             <label class="form__agree">
-              <input class="form__checkbox visually-hidden" type="checkbox" name="agreement" id="agreement" tabindex="-1" required>
+              <input class="form__checkbox visually-hidden" type="checkbox" name="agreement" id="agreement-form" tabindex="-1" required>
               <span class="form__check" tabindex="0"></span>
               <span class="form__subtext">Я согласен на обработку моих персональных данных</span>
             </label>
-            <button class="form__submit button" type="submit">Отправить</button>
+            <button class="form__submit button__common" type="submit">Отправить</button>
           </form>
         </div>
       </section>
@@ -501,7 +499,7 @@
     <footer class="footer page__footer" data-test="footer">
       <h2 class="visually-hidden">Footer</h2>
       <img class="footer__logo" src="img/logo.svg" alt="Логотип." width="52" height="52">
-      <nav class="footer__nav">
+      <nav class="footer__nav" aria-label="Навигация футера">
         <ul class="footer__list">
           <li><a class="footer__link footer__link--about" href="#about">О проекте</a></li>
           <li><a class="footer__link footer__link--programs" href="#programs">Программы</a></li>
@@ -516,12 +514,11 @@
         <div class="footer__rights">Стажировка © 2023 Все права защищены</div>
       </div>
       <ul class="footer__socials">
-        <li><a class="footer__social footer__social--vk" href="#" target="_blank"></a></li>
-        <li><a class="footer__social footer__social--ok" href="#" target="_blank"></a></li>
-        <li><a class="footer__social footer__social--reddit" href="#" target="_blank"></a></li>
+        <li><a class="footer__social footer__social--vk" href="#" target="_blank" aria-label="Vk" rel="noreferrer noopener"></a></li>
+        <li><a class="footer__social footer__social--ok" href="#" target="_blank" aria-label="Ok" rel="noreferrer noopener"></a></li>
+        <li><a class="footer__social footer__social--reddit" href="#" target="_blank" aria-label="Reddit" rel="noreferrer noopener"></a></li>
       </ul>
     </footer>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
 
     <script type="module" src="js/main.js"></script>
   </body>

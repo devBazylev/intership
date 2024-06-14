@@ -1,11 +1,14 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Scrollbar, Mousewheel, Manipulation, Autoplay } from 'swiper/modules';
-import { cloneSlides } from './util';
+import { cloneSlides, addListener } from './util';
 
 const desk = window.matchMedia('(min-width: 1440px)');
+const hero = document.querySelector('.hero');
 const programs = document.querySelector('.programs');
 const slider = programs.querySelector('.programs__slider');
 const slides = programs.querySelectorAll('.programs__slide');
+const linkVolunteer = hero.querySelector('.header__sublink--volunteer');
+const linkLearning = hero.querySelector('.header__sublink--learning');
 
 const clones = [];
 
@@ -50,6 +53,7 @@ const swiper = new Swiper('.programs', {
       slidesPerView: 3,
       slidesPerGroup: 1,
       simulateTouch: false,
+      allowTouchMove: false,
     },
   },
   on: {
@@ -68,3 +72,14 @@ const swiper = new Swiper('.programs', {
 });
 
 swiper.init();
+
+const onVolunteer = () => {
+  swiper.slideTo(1);
+};
+
+const onLearning = () => {
+  swiper.slideTo(2);
+};
+
+addListener(linkVolunteer, 'click', onVolunteer);
+addListener(linkLearning, 'click', onLearning);

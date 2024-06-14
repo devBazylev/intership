@@ -2,7 +2,7 @@
 @import "../global/variables";
 
 .modal {
-  position: fixed;
+  position: absolute;
   z-index: 1;
   width: 290px;
   min-height: 531px;
@@ -247,7 +247,7 @@
 .modal__select--opened .modal__list {
   height: fit-content;
   border: 1px solid $main;
-  visibility: visible
+  visibility: visible;
 }
 
 .modal__item {

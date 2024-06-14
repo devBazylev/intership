@@ -1,7 +1,7 @@
 @import "../global/mixins";
 @import "../global/variables";
 
-.button {
+.button__common {
   @include grid(1fr auto);
 
   align-items: center;
@@ -38,7 +38,7 @@
   }
 }
 
-.button::before {
+.button__common::before {
   @include pseudo;
 
   position: relative;
@@ -61,7 +61,7 @@
   }
 }
 
-.button::after {
+.button__common::after {
   @include pseudo;
   @include svg("arrow", "mask", $light);
 
@@ -83,63 +83,63 @@
   }
 }
 
-.button:hover {
+.button__common:hover {
   color: $light;
   background-color: $bright;
 }
 
-.button:focus {
+.button__common:focus {
   color: $bright;
   background-color: $light;
 }
 
-.button:active {
+.button__common:active {
   color: $light-trans-70;
   background-color: $bright;
 }
 
-.button:disabled,
-.button--disabled {
+.button__common:disabled,
+.button__common--disabled {
   color: $stormy;
   background-color: $light-trans-60;
   border: 1px solid $stormy;
   cursor: default;
 }
 
-.button:hover::before {
+.button__common:hover::before {
   background-color: $light;
 }
 
-.button:hover::after {
+.button__common:hover::after {
   background-color: $bright;
   transform: rotate(45deg);
 }
 
-.button:focus::before {
+.button__common:focus::before {
   background-color: $bright;
 }
 
-.button:focus::after {
+.button__common:focus::after {
   background-color: $light;
   transform: rotate(45deg);
 }
 
-.button:active::before {
+.button__common:active::before {
   background-color: $light;
 }
 
-.button:active::after {
+.button__common:active::after {
   background-color: $bright-trans-70;
   transform: rotate(45deg);
 }
 
-.button:disabled::before,
-.button--disabled::before {
+.button__common:disabled::before,
+.button__common--disabled::before {
   background-color: $stormy;
 }
 
-.button:disabled::after,
-.button--disabled::after {
+.button__common:disabled::after,
+.button__common--disabled::after {
   background-color: $light-trans-60;
 }
 
@@ -248,9 +248,11 @@
 .button__arrow:hover::before {
   background-color: $bright-trans-70;
 }
+
 .button__arrow:focus::before {
   background-color: $bright;
 }
+
 .button__arrow:active::before {
   background-color: $bright-trans-70;
 }

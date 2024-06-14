@@ -4,6 +4,8 @@ const body = document.querySelector('.page__body');
 const header = body.querySelector('.header');
 const toggler = header.querySelector('.header__toggler');
 const dropButtons = header.querySelectorAll('.header__button');
+const headerLinks = header.querySelectorAll('.header__link');
+const headerSublinks = header.querySelectorAll('.header__sublink');
 
 const onMissClick = (evt) => {
   if (!isTarget(evt, '.header__nav') && !isTarget(evt, '.header__toggler')) {
@@ -30,6 +32,11 @@ const onDocumentFocus = (evt) => {
   }
 };
 
+const onLinks = () => {
+  closeBurger();
+  toggleClass(toggler, 'header__toggler--opened');
+};
+
 const onBurger = () => {
   toggleClass(toggler, 'header__toggler--opened');
   if (toggler.classList.contains('header__toggler--opened')) {
@@ -39,6 +46,8 @@ const onBurger = () => {
     addListener(document, 'keydown', onDocument);
     addListener(document, 'focusin', onDocumentFocus);
     addListenerArray(dropButtons, 'click', onDropButton);
+    addListenerArray(headerLinks, 'click', onLinks);
+    addListenerArray(headerSublinks, 'click', onLinks);
   } else {
     closeBurger();
   }
@@ -51,6 +60,8 @@ function closeBurger () {
   removeListener(document, 'keydown', onDocument);
   removeListener(document, 'focusin', onDocumentFocus);
   removeListenerArray(dropButtons, 'click', onDropButton);
+  removeListenerArray(headerLinks, 'click', onLinks);
+  removeListenerArray(headerSublinks, 'click', onLinks);
 }
 
 addListener(toggler, 'click', onBurger);
