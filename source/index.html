@@ -105,10 +105,10 @@
           <input class="modal__name" type="text" name="name" id="name" minlength="2" maxlength="40" title="От 2 символов. Разрешены буквы и пробелы." pattern="^[a-zA-Zа-яА-ЯёЁ\s]{2,}$" required>
           <label class="modal__label" for="phone">Телефон</label>
           <input class="modal__phone" type="tel" name="phone" id="phone" minlength="5" maxlength="40" title="От 5 символов. Пример: +7ххххххххх." pattern="^[+][7][^a-zA-Zа-яА-ЯёЁ]{5,}$" required>
-          <div class="modal__label modal__label--city">Выберите город</div>
+          <label class="modal__label modal__label--city" for="city">Выберите город</label>
           <div class="modal__select">
             <select class="modal__hidden" name="city" id="city" tabindex="-1" aria-hidden="true" required>
-              <option class="modal__option" id="hidden-option-modal" value=""></option>
+              <option class="modal__option" label="modal-option" value=""></option>
             </select>
             <div class="modal__city" tabindex="0"></div>
             <ul class="modal__list">
@@ -118,7 +118,6 @@
               <li class="modal__item" tabindex="0">Лондон</li>
               <li class="modal__item" tabindex="0">Санкт-Петербург</li>
             </ul>
-            <label class="visually-hidden" for="hidden-option-modal" aria-hidden="true">Город</label>
           </div>
           <label class="modal__agree">
             <input class="modal__checkbox visually-hidden" type="checkbox" name="agreement" id="agreement" tabindex="-1" required>
@@ -477,7 +476,7 @@
             <div class="form__label form__label--city">Выберите город</div>
             <div class="form__select">
               <select class="form__hidden" name="city" id="form-city" tabindex="-1" aria-hidden="true" required>
-                <option class="form__option" value=""></option>
+                <option class="form__option" label="form-option" value=""></option>
               </select>
               <div class="form__city" tabindex="0"></div>
               <ul class="form__list">
@@ -522,7 +521,6 @@
         <li><a class="footer__social footer__social--reddit" href="#" target="_blank" aria-label="Reddit" rel="noreferrer noopener"></a></li>
       </ul>
     </footer>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
 
     <script type="module" src="js/main.js"></script>
   </body>
