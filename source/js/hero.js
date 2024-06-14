@@ -12,7 +12,6 @@ const createBullets = () => {
     for (let i = 0; i < paginationsAll.length; i++) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('tabindex', '0');
-      newDiv.setAttribute('aria-label', 'Переключите слайд');
       addClass(newDiv, 'hero__bullet');
       fragmentBullets.appendChild(newDiv);
     }
