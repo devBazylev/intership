@@ -30,6 +30,7 @@
 .programs__title {
   grid-area: 1/2/2/3;
   margin: 2px 0 0;
+  max-width: 50%;
 
   @media (min-width: $tab) {
     margin: 3px 0 0;

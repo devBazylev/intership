@@ -50,6 +50,7 @@ const swiper = new Swiper('.programs', {
       slidesPerView: 3,
       slidesPerGroup: 1,
       simulateTouch: false,
+      allowTouchMove: false,
     },
   },
   on: {

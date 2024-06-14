@@ -37,6 +37,7 @@ new Swiper('.hero', {
     },
     1440: {
       simulateTouch: false,
+      allowTouchMove: false,
     },
   },
   on: {
