@@ -1,6 +1,6 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Manipulation, Grid, Mousewheel, FreeMode } from 'swiper/modules';
-import { addClass, cloneSlides, removeClassArray, addListenerArray, getRandomInteger } from './util';
+import { addClass, cloneSlides, removeClassArray, addListenerArray, getRandomInteger, setDataId } from './util';
 
 const mob = window.matchMedia('(min-width: 0px) and (max-width: 767px)');
 const tab = window.matchMedia('(min-width: 768px) and (max-width: 1439px)');
@@ -23,6 +23,7 @@ cloneSlides(slider, slides, clones);
 
 const resizeSlides = () => {
   const slidesWithClones = Array.from(news.querySelectorAll('.news__slide'));
+  setDataId(slidesWithClones);
 
   if (mob.matches) {
     slidesWithClones.forEach((slide) => {
@@ -51,6 +52,8 @@ const resizeSlides = () => {
     slidesWithClones.forEach((slide) => {
       const index = slidesWithClones.indexOf(slide);
       const image = slide.querySelector('.news__image');
+      const dataId = slide.getAttribute('data-id');
+      slide.style.order = dataId;
       if (index % 3) {
         slide.style.width = '286px';
         slide.style.height = '400px';
@@ -62,7 +65,8 @@ const resizeSlides = () => {
       }
       while (slidesWithClones.length % 3) {
         const random = getRandomInteger(0, slides.length);
-        const clone = slides[random].cloneNode(true);
+        const clone = news.querySelectorAll('.news__slide')[random].cloneNode(true);
+        // const clone = slides[random].cloneNode(true);
         clone.setAttribute('aria-hidden', true);
         slidesWithClones.push(clone);
         slider.appendChild(clone);
@@ -165,6 +169,10 @@ const swiper = new Swiper('.news__container', {
       slidesPerGroup: 3,
       spaceBetween: 32,
       simulateTouch: false,
+      grid: {
+        rows: 1,
+        fill:	'column',
+      },
     },
   },
   on: {
