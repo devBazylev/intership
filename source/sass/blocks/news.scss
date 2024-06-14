@@ -206,12 +206,14 @@
   }
 }
 
-.news__slide--full {
+.news__slide--full,
+.news__slide--next {
   visibility: visible;
 }
 
 .news__slide--active {
   height: 330px;
+  visibility: visible;
 
   @media (min-width: $desk) {
     width: 604px;
@@ -447,14 +449,15 @@
 
   grid-area: 2/1/3/2;
   width: 152px;
-  margin: 24px 0 0 57px;
+  margin: 24px 0 0 89px;
 
   @media (min-width: $tab) {
-    margin: 30px 0 0 259px;
+    margin: 30px 0 0 269px;
   }
 
   @media (min-width: $desk) {
-    margin: 40px 0 0 530px;
+    width: 416px;
+    margin: 40px 0 0 550px;
   }
 }
 
@@ -485,12 +488,12 @@
 
 .news__bullet {
   display: none;
-  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 26px;
   height: 26px;
+  margin: 0 16px 0 0;
   padding: 0 10px;
   font-size: 14px;
   font-style: normal;
@@ -506,16 +509,9 @@
   @media (min-width: $tab) {
     width: 32px;
     height: 32px;
+    margin: 0 20px 0 0;
     font-size: 16px;
     line-height: 20px;
-  }
-}
-
-.news__bullet:has(+*) {
-  margin: 0 16px 0 0;
-
-  @media (min-width: $tab) {
-    margin: 0 20px 0 0;
   }
 }
 
@@ -540,16 +536,14 @@
 .news__bullet--active {
   color: $light;
   background-color: $bright;
-
-  @media (min-width: $tab) {
-    margin: 0 21px 0 0;
-  }
 }
 
 .news__bullet--active-main {
   display: inline-flex;
 }
 
-.news__bullet--active:has(+.news__bullet--active-next) {
-  display: inline-flex;
+.news__bullet--active-main:first-child {
+  @media (min-width: $tab) {
+    margin: 0 21px 0 0;
+  }
 }
