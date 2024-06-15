@@ -11,6 +11,7 @@ const cities = select.querySelectorAll('.form__item');
 const checkboxHidden = form.querySelector('.form__checkbox');
 const checkboxBackup = form.querySelector('.form__check');
 const submitButton = form.querySelector('.form__submit');
+const inputPhone = form.querySelector('.form__phone');
 
 let activeCityId;
 
@@ -164,6 +165,11 @@ const onSubmitKeydown = (evt) => {
   }
 };
 
+const addMask = () => {
+  inputPhone.value = '+7';
+  removeListener(inputPhone, 'focusin', addMask);
+};
+
 addListener(form, 'submit', onSubmit);
 addListener(form, 'keydown', onSubmitKeydown);
 addListener(submitButton, 'click', onClickSubmitButton);
@@ -172,6 +178,7 @@ addListener(selectHidden, 'focusin', onSelectHidden);
 addListener(cityShown, 'click', onSelectClick);
 addListener(cityShown, 'keydown', onSelectKeydown);
 addListener(checkboxBackup, 'keydown', onCheckbox);
+addListener(inputPhone, 'focusin', addMask);
 
 // removeListener(form, 'submit', onSubmit);
 // removeListener(form, 'keydown', onSubmitKeydown);

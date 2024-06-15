@@ -5,6 +5,7 @@ const hero = body.querySelector('.hero');
 const heroButtons = hero.querySelectorAll('.hero__button');
 const modal = hero.querySelector('.modal');
 const inputName = modal.querySelector('.modal__name');
+const inputPhone = modal.querySelector('.modal__phone');
 const submitButton = modal.querySelector('.modal__submit');
 const cancelButton = modal.querySelector('.modal__cancel');
 const checkboxHidden = modal.querySelector('.modal__checkbox');
@@ -164,6 +165,11 @@ const onDocumentFocusSelect = (evt) => {
   }
 };
 
+const addMask = () => {
+  inputPhone.value = '+7';
+  removeListener(inputPhone, 'focusin', addMask);
+};
+
 const onHeroButton = () => {
   addClass(body, 'page__body--no-scroll');
   addClass(modal, 'hero__form--opened');
@@ -213,3 +219,4 @@ function closeModal () {
 }
 
 addListenerArray(heroButtons, 'click', onHeroButton);
+addListener(inputPhone, 'focusin', addMask);
