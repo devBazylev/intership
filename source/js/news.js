@@ -177,8 +177,6 @@ const resizeSlides = () => {
         slidesWithClones.push(clone);
         slider.appendChild(clone);
         setDataId(slidesWithClones);
-        // const dataId = clone.getAttribute('data-id');
-        // clone.style.order = dataId;
       }
     });
   }
