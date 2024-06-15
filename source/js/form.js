@@ -1,6 +1,7 @@
 import { addClass, addListener, addListenerArray, removeListener, removeListenerArray, isKeydown, toggleClass, isTarget, removeClass, setDataId, toggleDisabled } from './util';
 
 const body = document.querySelector('.page__body');
+const realForm = body.querySelector('.form');
 const form = document.querySelector('.form__template');
 const label = form.querySelector('.form__label--city');
 const select = form.querySelector('.form__select');
@@ -11,6 +12,7 @@ const cities = select.querySelectorAll('.form__item');
 const checkboxHidden = form.querySelector('.form__checkbox');
 const checkboxBackup = form.querySelector('.form__check');
 const submitButton = form.querySelector('.form__submit');
+const inputPhone = form.querySelector('.form__phone');
 
 let activeCityId;
 
@@ -164,20 +166,53 @@ const onSubmitKeydown = (evt) => {
   }
 };
 
-addListener(form, 'submit', onSubmit);
-addListener(form, 'keydown', onSubmitKeydown);
-addListener(submitButton, 'click', onClickSubmitButton);
-addListener(label, 'click', onLabel);
-addListener(selectHidden, 'focusin', onSelectHidden);
-addListener(cityShown, 'click', onSelectClick);
-addListener(cityShown, 'keydown', onSelectKeydown);
-addListener(checkboxBackup, 'keydown', onCheckbox);
+const addMask = () => {
+  inputPhone.value = '+7';
+  removeListener(inputPhone, 'focusin', addMask);
+};
 
-// removeListener(form, 'submit', onSubmit);
-// removeListener(form, 'keydown', onSubmitKeydown);
-// removeListener(submitButton, 'click', onClickSubmitButton);
-// removeListener(label, 'click', onLabel);
-// removeListener(selectHidden, 'focusin', onSelectHidden);
-// removeListener(cityShown, 'click', onSelectClick);
-// removeListener(cityShown, 'keydown', onSelectKeydown);
-// removeListener(checkboxBackup, 'keydown', onCheckbox);
+function onMouseEnter () {
+  addListener(form, 'submit', onSubmit);
+  addListener(form, 'keydown', onSubmitKeydown);
+  addListener(submitButton, 'click', onClickSubmitButton);
+  addListener(label, 'click', onLabel);
+  addListener(selectHidden, 'focusin', onSelectHidden);
+  addListener(cityShown, 'click', onSelectClick);
+  addListener(cityShown, 'keydown', onSelectKeydown);
+  addListener(checkboxBackup, 'keydown', onCheckbox);
+  removeListener(realForm, 'mouseenter', onMouseEnter);
+  removeListener(document, 'focusin', onDocumentFocus);
+  addListener(realForm, 'mouseleave', onMouseLeave);
+  addListener(document, 'focusin', onDocumentNoFocus);
+}
+
+function onDocumentFocus (evt) {
+  if (isTarget(evt, '.form')) {
+    onMouseEnter();
+  }
+}
+
+function onMouseLeave () {
+  removeListener(form, 'submit', onSubmit);
+  removeListener(form, 'keydown', onSubmitKeydown);
+  removeListener(submitButton, 'click', onClickSubmitButton);
+  removeListener(label, 'click', onLabel);
+  removeListener(selectHidden, 'focusin', onSelectHidden);
+  removeListener(cityShown, 'click', onSelectClick);
+  removeListener(cityShown, 'keydown', onSelectKeydown);
+  removeListener(checkboxBackup, 'keydown', onCheckbox);
+  removeListener(realForm, 'mouseleave', onMouseLeave);
+  removeListener(document, 'focusin', onDocumentNoFocus);
+  addListener(realForm, 'mouseenter', onMouseEnter);
+  addListener(document, 'focusin', onDocumentFocus);
+}
+
+function onDocumentNoFocus (evt) {
+  if (!isTarget(evt, '.form')) {
+    onMouseLeave();
+  }
+}
+
+addListener(inputPhone, 'focusin', addMask);
+addListener(realForm, 'mouseenter', onMouseEnter);
+addListener(document, 'focusin', onDocumentFocus);
