@@ -168,8 +168,10 @@ const onSubmitKeydown = (evt) => {
 };
 
 const addMask = () => {
-  inputPhone.value = '+7';
-  removeListener(inputPhone, 'focusin', addMask);
+  if (inputPhone.value === '') {
+    inputPhone.value = '+7';
+    removeListener(inputPhone, 'focusin', addMask);
+  }
 };
 
 function onMouseEnter () {
