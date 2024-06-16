@@ -58,6 +58,7 @@ const onSubmit = async (evt) => {
   modal.submit();
   evt.preventDefault();
   modal.reset();
+  cityShown.textContent = '';
   toggleDisabled(submitButton, false);
   closeModal();
 };

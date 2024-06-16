@@ -157,6 +157,7 @@ const onSubmit = async (evt) => {
   form.submit();
   evt.preventDefault();
   form.reset();
+  cityShown.textContent = '';
   toggleDisabled(submitButton, false);
 };
 
