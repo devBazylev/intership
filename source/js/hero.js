@@ -4,6 +4,7 @@ import Swiper from 'swiper';
 import { setDataId, addClass, addClassArray, removeClassArray, addListener, isKeydown } from './util';
 
 const hero = document.querySelector('.hero');
+const heroWrapper = document.querySelector('.hero__wrapper');
 const paginationsAll = Array.from(hero.querySelectorAll('.hero__pagination'));
 
 const createBullets = () => {
@@ -65,7 +66,7 @@ new Swiper('.hero', {
     transitionEnd: function () {
       const bulletsAll = hero.querySelectorAll('.hero__bullet');
       const activeSlideIndex = hero.querySelector('.hero__slide--active').getAttribute('data-swiper-slide-index');
-      const bulletsToActivate = hero.querySelectorAll(`[data-id="${activeSlideIndex}"]`);
+      const bulletsToActivate = heroWrapper.querySelectorAll(`[data-id="${activeSlideIndex}"]`);
       removeClassArray(bulletsAll, 'hero__bullet--active');
       addClassArray(bulletsToActivate, 'hero__bullet--active');
     },
