@@ -1,4 +1,3 @@
-// обработчик на появление и исчезание попапа
 const SERVER_URL = 'https://30.javascript.pages.academy/kekstagram/data';
 
 const serverRoute = {

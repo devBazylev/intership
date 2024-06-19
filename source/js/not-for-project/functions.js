@@ -83,5 +83,4 @@ const debounce = (callback, timeoutDelay = 500) => {
   };
 };
 
-
 export { toggleDisabled, extractNumber, getRandomPositiveInteger, createRandomIdFromRangeGenerator, debounce };
