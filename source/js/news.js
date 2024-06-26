@@ -1,5 +1,6 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination, Manipulation, Grid, Mousewheel, FreeMode } from 'swiper/modules';
+import { Navigation, Pagination, Manipulation, Grid} from 'swiper/modules';
+// import { Navigation, Pagination, Manipulation, Grid, Mousewheel, FreeMode } from 'swiper/modules';
 import { addClass, cloneSlides, removeClassArray, addListenerArray, getRandomInteger, setDataId } from './util';
 
 const mob = window.matchMedia('(min-width: 0px) and (max-width: 767px)');
@@ -21,41 +22,41 @@ cloneSlides(slider, slides, clones);
 cloneSlides(slider, slides, clones);
 cloneSlides(slider, slides, clones);
 
-const tabsMenu = new Swiper('.news__wrapper', {
-  modules: [Mousewheel, FreeMode],
-  init: false,
-  autoplay: false,
-  observer: true,
-  watchSlidesProgress: true,
-  updateOnWindowResize: true,
-  slideVisibleClass: 'news__tab--visible',
-  slidesPerView: 'auto',
-  mousewheel: {
-    enabled: true,
-    sensitivity: 1,
-    eventsTarget: '.news__wrapper',
-  },
-  freeMode: {
-    enabled: true,
-    momentum: false,
-    momentumBounce: false,
-  },
-  breakpoints: {
-    320: {
-      width: 290,
-      spaceBetween: 10,
+// const tabsMenu = new Swiper('.news__wrapper', {
+//   modules: [Mousewheel, FreeMode],
+//   init: false,
+//   autoplay: false,
+//   observer: true,
+//   watchSlidesProgress: true,
+//   updateOnWindowResize: true,
+//   slideVisibleClass: 'news__tab--visible',
+//   slidesPerView: 'auto',
+//   mousewheel: {
+//     enabled: true,
+//     sensitivity: 1,
+//     eventsTarget: '.news__wrapper',
+//   },
+//   freeMode: {
+//     enabled: true,
+//     momentum: false,
+//     momentumBounce: false,
+//   },
+//   breakpoints: {
+//     320: {
+//       width: 290,
+//       spaceBetween: 10,
 
-    },
-    768: {
-      width: 690,
-      spaceBetween: 6,
-    },
-    1440: {
-      width: 1240,
-      spaceBetween: 14,
-    },
-  },
-});
+//     },
+//     768: {
+//       width: 690,
+//       spaceBetween: 6,
+//     },
+//     1440: {
+//       width: 1240,
+//       spaceBetween: 14,
+//     },
+//   },
+// });
 
 const swiper = new Swiper('.news__container', {
   modules: [Navigation, Pagination, Manipulation, Grid],
@@ -126,7 +127,7 @@ const swiper = new Swiper('.news__container', {
   },
 });
 
-tabsMenu.init();
+// tabsMenu.init();
 swiper.init();
 
 const resizeSlides = () => {
