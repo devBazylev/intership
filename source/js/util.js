@@ -100,12 +100,14 @@ const isMob = () => {
     return true;
   }
 };
+
 const isTab = () => {
   const tab = window.matchMedia('(min-width: 768px) and (max-width: 1439px)');
   if (tab.matches) {
     return true;
   }
 };
+
 const isDesk = () => {
   const desk = window.matchMedia('(min-width: 1440px)');
   if (desk.matches) {
