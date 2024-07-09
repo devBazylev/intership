@@ -1,8 +1,7 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Scrollbar, Mousewheel, Manipulation, Autoplay } from 'swiper/modules';
-import { cloneSlides, addListener } from './util';
+import { cloneSlides, addListener, isDesk } from './util';
 
-const desk = window.matchMedia('(min-width: 1440px)');
 const hero = document.querySelector('.hero');
 const programs = document.querySelector('.programs');
 const slider = programs.querySelector('.programs__slider');
@@ -58,12 +57,12 @@ const swiper = new Swiper('.programs', {
   },
   on: {
     breakpoint: function () {
-      if (!desk.matches && clones.length > 0) {
+      if (!isDesk() && clones.length > 0) {
         clones.forEach((clone) => {
           clone.remove();
         });
       }
-      if (desk.matches) {
+      if (isDesk()) {
         cloneSlides(slider, slides, clones);
         clones[2].remove();
       }

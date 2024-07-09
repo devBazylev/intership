@@ -1,10 +1,7 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Manipulation, Grid} from 'swiper/modules';
-import { addClass, cloneSlides, removeClassArray, addListenerArray, getRandomInteger, setDataId } from './util';
+import { addClass, cloneSlides, removeClassArray, addListenerArray, getRandomInteger, setDataId, isMob, isTab, isDesk } from './util';
 
-const mob = window.matchMedia('(min-width: 0px) and (max-width: 767px)');
-const tab = window.matchMedia('(min-width: 768px) and (max-width: 1439px)');
-const desk = window.matchMedia('(min-width: 1440px)');
 const news = document.querySelector('.news');
 const slider = news.querySelector('.news__slider');
 const slides = news.querySelectorAll('.news__slide');
@@ -96,7 +93,7 @@ const resizeSlides = () => {
   const slidesWithClones = Array.from(news.querySelectorAll('.news__slide'));
   setDataId(slidesWithClones);
 
-  if (mob.matches) {
+  if (isMob()) {
     slidesWithClones.forEach((slide) => {
       const index = slidesWithClones.indexOf(slide);
       const image = slide.querySelector('.news__image');
@@ -111,7 +108,7 @@ const resizeSlides = () => {
       }
     });
   }
-  if (tab.matches) {
+  if (isTab()) {
     slidesWithClones.forEach((slide) => {
       const image = slide.querySelector('.news__image');
       slide.style.width = '324px';
@@ -119,7 +116,7 @@ const resizeSlides = () => {
       image.style.height = slide.style.height;
     });
   }
-  if (desk.matches) {
+  if (isDesk()) {
     slidesWithClones.forEach((slide) => {
       const index = slidesWithClones.indexOf(slide);
       const image = slide.querySelector('.news__image');
@@ -163,13 +160,13 @@ const renderPagination = () => {
     bullets[indexBeforeActive].classList.add('news__bullet--active-main');
     bullets[indexAfterActive].classList.remove('news__bullet--active-main');
   }
-  if (mob.matches) {
+  if (isMob()) {
     pagination.style.width = '128px';
   }
-  if (tab.matches) {
+  if (isTab()) {
     pagination.style.width = '160px';
   }
-  if (desk.matches) {
+  if (isDesk()) {
     pagination.style.width = '160px';
   }
 };

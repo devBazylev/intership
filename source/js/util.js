@@ -94,6 +94,25 @@ const toggleDisabled = (button, flag) => {
   button.textContent = flag ? 'Отправляем...' : 'Отправить';
 };
 
+const isMob = () => {
+  const mob = window.matchMedia('(min-width: 0px) and (max-width: 767px)');
+  if (mob.matches) {
+    return true;
+  }
+};
+const isTab = () => {
+  const tab = window.matchMedia('(min-width: 768px) and (max-width: 1439px)');
+  if (tab.matches) {
+    return true;
+  }
+};
+const isDesk = () => {
+  const desk = window.matchMedia('(min-width: 1440px)');
+  if (desk.matches) {
+    return true;
+  }
+};
+
 export {
   addClass,
   addClassArray,
@@ -103,7 +122,10 @@ export {
   cloneSlides,
   debounce,
   getRandomInteger,
+  isDesk,
   isKeydown,
+  isMob,
+  isTab,
   isTarget,
   removeClass,
   removeClassArray,
