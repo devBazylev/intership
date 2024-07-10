@@ -155,9 +155,13 @@ const onCheckbox = (evt) => {
 const onSubmit = async (evt) => {
   toggleDisabled(submitButton, true);
   form.submit();
+  selectHidden.value = cities[0].textContent;
+  cityShown.textContent = cities[0].textContent;
+  optionHidden.textContent = cities[0].textContent;
+  optionHidden.value = cities[0].textContent;
+  cities[0].click();
   evt.preventDefault();
   form.reset();
-  cityShown.textContent = '';
   toggleDisabled(submitButton, false);
 };
 
